@@ -3,6 +3,7 @@ import { umkmData } from "@/data/umkm";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React, { useState } from "react";
+import ProductListCard from "@/components/layout/detail/ProductListCard";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -15,7 +16,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
   const [selectedImage, setSelectedImage] = useState(umkm.images[0]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container flex flex-col gap-20 mx-auto px-8 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         {/* Image Gallery - Kiri */}
@@ -79,6 +80,17 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
             Hubungi Penjual
           </button>
         </div>
+      </div>
+
+      {/* Informasi Toko */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full h-auto">
+        {
+          Array(4)
+          .fill(0)
+          .map((_, i) => (
+            <ProductListCard key={i}/>
+          ))
+        }
       </div>
     </div>
   );
