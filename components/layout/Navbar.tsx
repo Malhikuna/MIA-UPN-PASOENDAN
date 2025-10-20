@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "../ui/Input";
+import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Navbar() {
   return (
@@ -8,6 +9,9 @@ export default function Navbar() {
       <ul className="flex gap-3 items-center">
         <li>Home</li>
         <li>About</li>
+        <li>
+          <ThemeToggle />
+        </li>
         <li>
           <Input />
         </li>
