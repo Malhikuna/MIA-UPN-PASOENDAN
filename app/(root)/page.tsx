@@ -1,7 +1,9 @@
 "use client";
 import Navbar from "@/components/layout/Navbar";
 import Card from "@/components/ui/Card";
+import Category from "@/components/ui/Category";
 import Input from "@/components/ui/Input";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { umkmData } from "@/data/umkm";
 import { UmkmItem } from "@/types/umkm";
 import Image from "next/image";
@@ -52,6 +54,13 @@ export default function Home() {
             className="max-w-xl"
           />
         </div>
+      </div>
+      <div className="md:py-10 px-25">
+        <div className="flex justify-between">
+          <p>Category</p>
+          <ThemeToggle />
+        </div>
+        <Category />
       </div>
 
       <div className="md:py-10 px-25 ">
