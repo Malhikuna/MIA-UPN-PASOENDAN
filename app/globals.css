@@ -3,6 +3,14 @@
   themes: light, dark --default;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE dan Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 :root {
   --background: oklch(var(--b1));
   --foreground: oklch(var(--bc));

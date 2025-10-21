@@ -1,9 +1,9 @@
-"use client";
 import { umkmData } from "@/data/umkm";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import ProductListCard from "@/components/layout/detail/ProductListCard";
+import ImageGallery from "@/components/layout/detail/ImageGallery";
+import LocationMap from "@/components/layout/detail/LocationMap";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -13,47 +13,12 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
     notFound();
   }
 
-  const [selectedImage, setSelectedImage] = useState(umkm.images[0]);
-
   return (
     <div className="container flex flex-col gap-20 mx-auto px-8 py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         {/* Image Gallery - Kiri */}
-        <div className="space-y-4">
-          {/* Foto Besar */}
-          <div className="relative w-full h-96 rounded-lg overflow-hidden border-2 border-gray-300">
-            <Image
-              src={selectedImage}
-              alt={umkm.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          {/* Foto Kecil */}
-          <div className="grid grid-cols-3 gap-4">
-            {umkm.images.map((img, index) => (
-              <div
-                key={index}
-                className={`relative h-24 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
-                  selectedImage === img
-                    ? "border-pink-500 scale-105"
-                    : "border-gray-300 hover:border-pink-300"
-                }`}
-                onClick={() => setSelectedImage(img)}
-              >
-                <Image
-                  src={img}
-                  alt={`Gallery ${index + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <ImageGallery images={umkm.images} title={umkm.title} />
 
         {/* Informasi Toko */}
         <div className="space-y-6">
@@ -80,18 +45,32 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
             Hubungi Penjual
           </button>
         </div>
-      </div>
+      </section>
 
-      {/* Informasi Toko */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full h-auto">
-        {
-          Array(4)
-          .fill(0)
-          .map((_, i) => (
-            <ProductListCard key={i}/>
-          ))
-        }
-      </div>
+      {/* List Card Product */}
+      <section>
+        <h1 className="text-center text-2xl font-bold mb-5">Produk Kita</h1>
+
+        <div className="flex gap-15 overflow-x-auto w-full h-auto py-2 scrollbar-hide snap-x snap-mandatory">
+          {
+            Array(6)
+              .fill(0)
+              .map((_, i) => (
+                <div key={i} className="snap-center flex-shrink-0 w-[250px]">
+                  <ProductListCard/>
+                </div>
+              ))
+          }
+        </div>
+      </section>
+
+      {/* Location */}
+      <section>
+        <h1 className="text-center text-2xl font-bold mb-5">Lokasi Kita</h1>
+
+        <LocationMap/>
+      </section>
+
     </div>
   );
 }
