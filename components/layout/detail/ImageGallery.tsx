@@ -14,7 +14,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({images, title}) => {
   return (
     <div className="space-y-4">
       {/* Foto Besar */}
-      <div className="relative w-full h-96 rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="relative w-full h-96 rounded-lg overflow-hidden border-2 border-green-800">
         <Image
           src={selectedImage}
           alt={title}
@@ -31,8 +31,8 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({images, title}) => {
             key={index}
             className={`relative h-24 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
               selectedImage === img
-                ? "border-pink-500 scale-105"
-                : "border-gray-300 hover:border-pink-300"
+                ? "border-white scale-105"
+                : "border-green-800 hover:border-white"
             }`}
             onClick={() => setSelectedImage(img)}
           >
