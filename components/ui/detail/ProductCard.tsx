@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { X } from 'lucide-react';
 import { gsap } from "gsap";
 
-const ProductListCard = () => {
+const ProductCard = () => {
   const [isShowProduct, setIsShowProduct] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -111,4 +111,4 @@ const ProductListCard = () => {
   );
 };
 
-export default ProductListCard;
+export default ProductCard;

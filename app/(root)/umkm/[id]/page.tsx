@@ -1,11 +1,12 @@
 import { umkmData } from "@/data/umkm";
 import { notFound } from "next/navigation";
 import React from "react";
-import ProductListCard from "@/components/layout/detail/ProductListCard";
-import ImageGallery from "@/components/layout/detail/ImageGallery";
-import LocationMap from "@/components/layout/detail/LocationMap";
+import ProductCard from "@/components/ui/detail/ProductCard";
+import ImageGallery from "@/components/ui/detail/ImageGallery";
+import LocationMap from "@/components/ui/detail/LocationMap";
 import { Heart, Share2, MessageCircle, MapPin, BadgeInfo } from 'lucide-react';
-import BoxReview from "@/components/layout/detail/BoxReview";
+import BoxReview from "@/components/ui/detail/BoxReview";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -25,9 +26,18 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
         }}
         className="relative w-full min-h-screen bg-center bg-cover overflow-hidden">
 
-        <div className="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-white/60 backdrop-blur-xs" />
 
-        <div className="relative container mx-auto px-6 lg:px-12 py-16">
+        <div className="mt-5 relative container mx-auto px-6 lg:px-12 py-16">
+          <div className="mb-5">
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: umkm.title },
+              ]}
+            />
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Image Gallery - Kiri */}
             <ImageGallery images={umkm.images} title={umkm.title}/>
@@ -95,7 +105,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
               .fill(0)
               .map((_, i) => (
                 <div key={i} className="snap-center flex-shrink-0 w-[250px]">
-                  <ProductListCard/>
+                  <ProductCard/>
                 </div>
               ))
           }
