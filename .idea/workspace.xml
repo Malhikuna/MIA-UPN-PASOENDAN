@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/layout/detail/ImageGallery.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/detail/LocationMap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/detail/ProductListCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/detail/ProductListCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/Footer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "mal-dev",
+    "git-widget-placeholder": "Merging mal-dev",
     "last_opened_file_path": "C:/Users/ASUS/OneDrive/文档/WEB Projects/MERN Projects/imdb-clone/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -89,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1760893970087</updated>
       <workItem from="1760893972166" duration="2885000" />
-      <workItem from="1760961430135" duration="22400000" />
+      <workItem from="1760961430135" duration="22730000" />
     </task>
     <servers />
   </component>
