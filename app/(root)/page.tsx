@@ -37,8 +37,6 @@ export default function Home() {
         className="min-h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
       >
-        {/* <Navbar /> */}
-
         <div className="flex flex-col justify-center md:min-h-[80vh] px-25 ">
           <h1>CariKita tempat umkm berada</h1>
           <p className="md:w-[686px]">

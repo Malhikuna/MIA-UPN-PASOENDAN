@@ -89,7 +89,20 @@ const ProductListCard = () => {
                 <button className="absolute top-3 right-3 w-10 h-10 bg-red-100 flex justify-center items-center rounded-full hover:bg-red-200 transition cursor-pointer" onClick={() => handleClose()}>
                   <X/>
                 </button>
+
+                <div className="py-8 px-5">
+                  <h1 className="text-3xl font-bold">Nasi Goreng</h1>
+                  <span>Rp1.000,00</span>
+
+                  <div className="mt-5 ring-1 ring-gray-200" />
+
+                  <h1 className="mt-10 font-bold text-[#008C15]">Deskripsi</h1>
+                  <p className="text-justify">
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                  </p>
+                </div>
               </div>
+
             </div>
           </>
         )
