@@ -24,7 +24,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="relative w-full min-h-screen bg-center bg-cover overflow-hidden">
+        className="relative w-full h-auto bg-center bg-cover overflow-hidden">
 
         <div className="absolute inset-0 bg-white/60 backdrop-blur-xs" />
 
@@ -96,7 +96,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
       </section>
 
       {/* List Card Product */}
-      <section className="px-8">
+      <section className="px-12">
         <h1 className="text-center text-2xl font-bold mb-5">Produk <span className="text-[#008C15]">Kami</span></h1>
 
         <div className="flex gap-15 overflow-x-auto w-full h-auto py-2 scrollbar-hide snap-x snap-mandatory">
@@ -113,7 +113,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
       </section>
 
       {/* Location */}
-      <section className="px-8">
+      <section className="px-12">
         <div className="flex items-center justify-between mb-10">
           <h1 className="text-2xl font-bold">
             Temukan <span className="text-[#008C15]">Kami</span> di Sini

@@ -25,7 +25,7 @@ export default function Navbar() {
     { transparent: false, text: "black" };
 
   const baseClasses =
-    "fixed top-0 w-full z-50 flex justify-between items-center px-6 lg:px-12 py-3 transition-all duration-300";
+    "fixed left-0 top-0 w-full z-50 py-3 transition-all duration-300";
 
   const navClass = `
     ${baseClasses}
@@ -46,28 +46,30 @@ export default function Navbar() {
       className={navClass}
     >
       {/*<Image
-        src="/images/logo.jpg"
-        alt="logo"
-        width={50}
-        height={50}
-      />*/}
-      <h1 className={`font-bold text-lg ${textColor}`}>CariKita</h1>
-      <ul className={`flex gap-7 items-center ${textColor}`}>
-        <li>
-          <Link href={`/`}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href={`/`}>
-            About Us
-          </Link>
-        </li>
-        <li>
-          {/*<input type="search" className="w-100 h-10 bg-white rounded-full" />*/}
-          <Input className={'flex-1 outline-none text-sm text-white'} />
-        </li>
-      </ul>
+      src="/images/logo.jpg"
+      alt="logo"
+      width={50}
+      height={50}
+    />*/}
+      <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
+        <h1 className={`font-bold text-lg ${textColor}`}>CariKita</h1>
+        <ul className={`flex gap-7 items-center ${textColor}`}>
+          <li>
+            <Link href={`/`}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href={`/`}>
+              About Us
+            </Link>
+          </li>
+          <li>
+            {/*<input type="search" className="w-100 h-10 bg-white rounded-full" />*/}
+            <Input className={'flex-1 outline-none text-sm text-white'}/>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }
