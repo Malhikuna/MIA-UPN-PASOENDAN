@@ -13,38 +13,57 @@ const navbarConfig = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [isTextchanged, setIsTextchanged] = useState(false);
 
   const currentConfig = navbarConfig.find((cfg) => pathname.startsWith(cfg.path)) ?? {
     transparent: false,
     text: "black",
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = window.innerHeight * 0.9;
+
+      if(pathname.startsWith('/')) setIsTextchanged(window.scrollY > threshold)
+
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsScrolled(false);
+  }, [pathname]);
+
   const baseClasses = "fixed left-0 top-0 w-full z-50 py-3 transition-all duration-300";
 
   const navClass = `
     ${baseClasses}
-    ${isScrolled ? "glass shadow-md" : currentConfig.transparent ? "bg-transparent" : "bg-white"}
+    ${isScrolled 
+      ?  (pathname.startsWith('/') ? "text-primary-content glass shadow-md" : "glass shadow-md") : currentConfig.transparent ? "bg-transparent" : "bg-white"}
   `;
 
   const textColor = currentConfig.text === "white" ? "text-white" : "text-gray-800";
 
+  const isHome = pathname === '/';
+  const logoSrc = isHome
+    ? isTextchanged
+      ? '/images/CariKitaBlack.png'
+      : '/images/CariKitaWhite.png'
+    : '/images/CariKitaBlack.png';
+
   return (
     <nav className={navClass}>
-      {/*<Image
-      src="/images/logo.jpg"
-      alt="logo"
-      width={50}
-      height={50}
-    />*/}
       <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
-        <h1 className={`font-bold text-lg ${textColor}`}>CariKita</h1>
-        <ul className={`flex gap-7 items-center ${textColor}`}>
+        <Image
+          src={logoSrc}
+          alt="CariKita"
+          height={100}
+          width={100}
+        />
+        <ul className={`flex gap-7 items-center font-semibold ${isTextchanged ? 'text-primary-content' : textColor}`}>
           <li>
             <Link href={`/`}>Home</Link>
           </li>

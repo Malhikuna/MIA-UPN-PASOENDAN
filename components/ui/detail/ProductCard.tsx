@@ -47,7 +47,7 @@ const ProductCard = () => {
 
   return (
     <>
-      <div className="card bg-white text-black h-auto w-70 cursor-pointer"
+      <div className="card shadow-sm text-black h-auto w-70 cursor-pointer"
            onClick={() => setIsShowProduct(true)}>
         <div className="relative w-full h-[200px]">
           <Image
