@@ -38,3 +38,18 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+}
