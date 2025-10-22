@@ -32,7 +32,7 @@ export default function Footer() {
               src="/images/footer/footer1.png"
               alt="Penjual di warung"
               fill
-              className="object-cover"
+              className="object-cover border-1 border-white"
               sizes="(max-width: 768px) 100vw, 33vw"
               priority
             />
@@ -42,7 +42,7 @@ export default function Footer() {
               src="/images/footer/footer2.png"
               alt="Barista di kafe"
               fill
-              className="object-cover"
+              className="object-cover border-1 border-white"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
@@ -51,7 +51,7 @@ export default function Footer() {
               src="/images/footer/footer3.png"
               alt="Penjahit dengan kain batik"
               fill
-              className="object-cover"
+              className="object-cover border-1 border-white"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
@@ -96,7 +96,7 @@ export default function Footer() {
           <p className="flex items-center gap-2">
             <Copyright size={15} /> 2025 CariKita. All right reserve.
           </p>
-          <p>Cari Kita, Kita Dukung</p>
+          <p>Kita Cari, Kita Dukung</p>
         </section>
       </div>
     </footer>
