@@ -3,7 +3,7 @@ export const subCategories = {
     {
       value: "all",
       label: "Semua",
-      image: "/images/categories/all.png",
+      image: "",
     },
     {
       value: "nasi-goreng",
@@ -30,7 +30,7 @@ export const subCategories = {
     {
       value: "all",
       label: "Semua",
-      image: "/images/categories/all-jasa.png",
+      image: "",
     },
     {
       value: "jahit-pakaian",
@@ -51,6 +51,6 @@ export const subCategories = {
 };
 
 export const mainCategories = [
-  { value: "fnb", label: "F&B" },
+  { value: "fnb", label: "FnB" },
   { value: "jasa", label: "Jasa" },
 ];
