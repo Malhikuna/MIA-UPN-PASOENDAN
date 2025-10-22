@@ -47,7 +47,7 @@ const ProductCard = () => {
 
   return (
     <>
-      <div className="card bg-white text-black h-auto w-70 shadow-sm cursor-pointer"
+      <div className="card bg-white text-black h-auto w-70 cursor-pointer"
            onClick={() => setIsShowProduct(true)}>
         <div className="relative w-full h-[200px]">
           <Image
@@ -81,7 +81,7 @@ const ProductCard = () => {
                   src="/images/umkm1-gallery1.jpg"
                   alt="Shoes"
                   fill
-                  className="object-cover rounded-l-lg"
+                  className="object-cover"
                 />
               </div>
 

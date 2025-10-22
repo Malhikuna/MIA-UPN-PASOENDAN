@@ -28,7 +28,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
 
         <div className="absolute inset-0 bg-white/60 backdrop-blur-xs" />
 
-        <div className="mt-5 relative container mx-auto px-6 lg:px-12 py-16">
+        <div className="relative container mx-auto px-6 lg:px-12 py-16">
           <div className="mb-5">
             <Breadcrumbs
               items={[

@@ -6,9 +6,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export default function Input({ className, ...props }: InputProps) {
   return (
-    <label className="input">
+    <label className="flex items-center gap-2 w-80 h-12 bg-black/10 rounded-full px-4">
       <svg
-        className="h-[1em] opacity-50"
+        className="w-5 h-5 text-white"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -23,7 +23,11 @@ export default function Input({ className, ...props }: InputProps) {
           <path d="m21 21-4.3-4.3"></path>
         </g>
       </svg>
-      <input type="search" required placeholder="Search" className={className} {...props} />
+      <input
+        type="search"
+        required placeholder="Search"
+        className={className} {...props}
+      />
     </label>
   );
 }
