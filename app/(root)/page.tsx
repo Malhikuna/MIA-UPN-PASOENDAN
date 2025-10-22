@@ -49,7 +49,7 @@ export default function Home() {
         className="min-h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/hero-bg.png')" }}
       >
-        <div className="flex flex-col justify-center gap-5 md:min-h-[100vh] px-25 ">
+        <div className="container mx-auto flex flex-col justify-center gap-5 md:min-h-[100vh] px-12 ">
           <h1 className="text-background text-6xl font-bold">
             Dekat di <span className="text-primary-content">Hati</span> <br /> Dekat di{" "}
             <span className="text-primary-content">Lokasi</span>
@@ -67,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* Category Section */}
-      <div className="md:py-10 px-25">
+      <div className="container mx-auto md:py-10 px-12">
         <div className="flex flex-col gap-4 mb-5">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-4xl">Pilih Kategori</h1>
@@ -104,7 +104,7 @@ export default function Home() {
       </div>
 
       {/* UMKM List Section */}
-      <div className="md:py-10 px-25">
+      <div className="container mx-auto md:py-10 px-12">
         <div className="flex justify-between items-center mb-6">
           <h1 className="font-bold text-2xl">
             {selectedSubCategory === "all"
@@ -155,7 +155,7 @@ export default function Home() {
       </div>
 
       {/* Location Section */}
-      <div className="px-25 pb-10">
+      <div className="container mx-auto px-12 pb-10">
         <div className="flex justify-between items-center mb-8 ">
           <h1 className="font-bold text-2xl">
             Temukan UMKM Terdekat dari <span className="text-primary-content">Lokasimu</span>
