@@ -1,19 +1,19 @@
 import Link from "next/link";
 import React from "react";
-import Image from 'next/image';
-import { ArrowDownRight, Copyright  } from 'lucide-react';
+import Image from "next/image";
+import { ArrowDownRight, Copyright } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#002006] text-base-100 h-auto overflow rounded-tl-3xl rounded-tr-3xl">
+    <footer className="bg-secondary text-base-100 h-auto overflow rounded-tl-3xl rounded-tr-3xl">
       <div className="container mx-auto flex flex-col justify-between gap-15 pt-15 pb-10 px-6 lg:px-12">
         {/* About */}
         <section className="flex flex-col gap-5">
           <h1>About Us</h1>
 
           <p className="text-3xl">
-            Kami ingin setiap usaha lokal bisa tersenyum. CariKita menghubungkan kamu dengan UMKM terdekat, agar dukungan
-            kecilmu berarti besar bagi mereka.
+            Kami ingin setiap usaha lokal bisa tersenyum. CariKita menghubungkan kamu dengan UMKM terdekat, agar
+            dukungan kecilmu berarti besar bagi mereka.
           </p>
         </section>
 
@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="justify-end flex items-center gap-5 mr-10">
           <span>Learn More</span>
           <button className="cursor-pointer flex justify-center items-center rounded-full ring-1 w-15 h-15 hover:ring-blue-200 transition">
-            <ArrowDownRight className="rotate-270 animate-float"/>
+            <ArrowDownRight className="rotate-270 animate-float" />
           </button>
         </div>
 
@@ -57,15 +57,13 @@ export default function Footer() {
           </div>
         </section>
 
-        <h1 className="text-3xl text-center tracking-tight">Kita Cari, Kita Dukung<br/>Bareng</h1>
+        <h1 className="text-3xl text-center tracking-tight">
+          Kita Cari, Kita Dukung
+          <br />
+          Bareng
+        </h1>
 
-        <Image
-          src="/images/CariKita.png"
-          alt="CariKita"
-          height={250}
-          width={250}
-          className="mx-auto"
-        />
+        <Image src="/images/CariKita.png" alt="CariKita" height={250} width={250} className="mx-auto" />
 
         {/* Footer Links */}
         <section className="flex justify-center gap-20 text-center">
@@ -95,7 +93,9 @@ export default function Footer() {
 
         {/* Copyright */}
         <section className="flex justify-between">
-          <p className="flex items-center gap-2"><Copyright size={15}/> 2025 CariKita. All right reserve.</p>
+          <p className="flex items-center gap-2">
+            <Copyright size={15} /> 2025 CariKita. All right reserve.
+          </p>
           <p>Cari Kita, Kita Dukung</p>
         </section>
       </div>

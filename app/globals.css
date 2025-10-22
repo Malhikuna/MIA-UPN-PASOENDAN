@@ -4,24 +4,29 @@
 }
 
 @theme {
-  /* bikin variable bar  */
-  --color-primary-muted: green;
+  /* bikin variable baru  */
+  --background: #f5f5f5;
+  --foreground: #000000;
+  --color-primary-content: oklch(55.53% 0.1826 143.55);
+  --color-primary-muted: oklch(89.11% 0.166 148.62);
 }
 
-/* override warna bawaan DaisyUI */
+/* override warna bawaan DaisyUI atau yang sudah di deklarasi di @theme*/
 @plugin "daisyui/theme" {
   name: "FnB";
-  --color-primary: oklch(89.11% 0.166 148.62);
-  --color-primary-content: black;
+  --color-primary-content: oklch(55.53% 0.1826 143.55);
+  --color-primary: oklch(85.86% 0.2179 146.89);
+  --color-primary-muted: oklch(89.11% 0.166 148.62);
   --color-secondary: oklch(21.22% 0.0625 147.36);
 }
 
-/* override juga untuk dark theme */
 @plugin "daisyui/theme" {
   name: "Jasa";
+  --color-primary-content: oklch(66.87% 0.1437 107.4);
   --color-primary: oklch(95.23% 0.1401 112.26);
-  --color-primary-content: #ffffff;
-  --color-secondary: oklch(62.8% 0.0901 111.73);
+  --color-primary-muted: oklch(95.67% 0.0551 120.71);
+  --color-secondary: oklch(67.09% 0.127 110.43);
+  /* oklch(62.8% 0.0901 111.73); */
 }
 
 @theme inline {
@@ -40,7 +45,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(2px);
   }
   50% {
