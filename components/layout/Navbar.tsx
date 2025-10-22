@@ -13,7 +13,7 @@ const navbarConfig = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isTextchanged, setIsTextchanged] = useState(false);
+  const [isTextChanged, setIsTextChanged] = useState(false);
 
   const currentConfig = navbarConfig.find((cfg) => pathname.startsWith(cfg.path)) ?? {
     transparent: false,
@@ -24,7 +24,7 @@ export default function Navbar() {
     const handleScroll = () => {
       const threshold = window.innerHeight * 0.9;
 
-      if(pathname.startsWith('/')) setIsTextchanged(window.scrollY > threshold)
+      if(pathname.startsWith('/')) setIsTextChanged(window.scrollY > threshold)
 
       setIsScrolled(window.scrollY > 10);
     };
@@ -42,14 +42,14 @@ export default function Navbar() {
   const navClass = `
     ${baseClasses}
     ${isScrolled 
-      ?  (pathname.startsWith('/') ? "text-primary-content glass shadow-md" : "glass shadow-md") : currentConfig.transparent ? "bg-transparent" : "bg-white"}
+      ?  (pathname.startsWith('/') ? "text-primary-content-dark glass shadow-md" : "glass shadow-md") : currentConfig.transparent ? "bg-transparent" : "bg-white"}
   `;
 
   const textColor = currentConfig.text === "white" ? "text-white" : "text-gray-800";
 
   const isHome = pathname === '/';
   const logoSrc = isHome
-    ? isTextchanged
+    ? isTextChanged
       ? '/images/CariKitaBlack.png'
       : '/images/CariKitaWhite.png'
     : '/images/CariKitaBlack.png';
@@ -63,7 +63,7 @@ export default function Navbar() {
           height={100}
           width={100}
         />
-        <ul className={`flex gap-7 items-center font-semibold ${isTextchanged ? 'text-primary-content' : textColor}`}>
+        <ul className={`flex gap-7 items-center font-semibold ${isTextChanged ? 'text-primary-content-dark' : textColor}`}>
           <li>
             <Link href={`/`}>Home</Link>
           </li>

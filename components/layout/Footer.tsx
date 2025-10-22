@@ -96,7 +96,7 @@ export default function Footer() {
           <p className="flex items-center gap-2">
             <Copyright size={15} /> 2025 CariKita. All right reserve.
           </p>
-          <p>Cari Kita, Kita Dukung</p>
+          <p>Kita Cari, Kita Dukung</p>
         </section>
       </div>
     </footer>

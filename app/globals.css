@@ -7,7 +7,9 @@
   /* bikin variable baru  */
   --background: #f5f5f5;
   --foreground: #000000;
-  --color-primary-content: oklch(55.53% 0.1826 143.55);
+  --color-primary-content: oklchoklch(55.53% 0.1826 143.55);
+  --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
+  --color-primary-content-bright: oklch(98.2% 0.018 155.826);
   --color-primary-muted: oklch(89.11% 0.166 148.62);
 }
 
@@ -15,6 +17,8 @@
 @plugin "daisyui/theme" {
   name: "FnB";
   --color-primary-content: oklch(55.53% 0.1826 143.55);
+  --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
+  --color-primary-content-bright: oklch(98.2% 0.018 155.826);
   --color-primary: oklch(85.86% 0.2179 146.89);
   --color-primary-muted: oklch(89.11% 0.166 148.62);
   --color-secondary: oklch(21.22% 0.0625 147.36);
@@ -23,6 +27,8 @@
 @plugin "daisyui/theme" {
   name: "Jasa";
   --color-primary-content: oklch(66.87% 0.1437 107.4);
+  --color-primary-content-dark: oklch(66.87% 0.1437 107.4);
+  --color-primary-content-bright: oklch(98.7% 0.026 102.212);
   --color-primary: oklch(95.23% 0.1401 112.26);
   --color-primary-muted: oklch(95.67% 0.0551 120.71);
   --color-secondary: oklch(67.09% 0.127 110.43);
@@ -54,8 +60,24 @@
   }
 }
 
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateX(1px);
+  }
+  50% {
+    transform: translateX(-1px);
+  }
+}
+
 @layer utilities {
   .animate-float {
     animation: float 2s ease-in-out infinite;
   }
+
+  .animate-float-slow {
+    animation: float-slow 2s ease-in-out infinite;
+  }
 }
+
+/*oklch(55.53% 0.1826 143.55);*/
