@@ -17,7 +17,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
   }
 
   return (
-    <div className="container flex flex-col gap-20 mx-auto pb-8">
+    <div className="flex flex-col gap-20 pb-8">
       <section
         style={{
           backgroundImage: "url('/images/example.png')",
@@ -96,7 +96,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
       </section>
 
       {/* List Card Product */}
-      <section className="px-12">
+      <section className="container mx-auto px-6 lg:px-12">
         <h1 className="text-center text-2xl font-bold mb-5">Produk <span className="text-[#008C15]">Kami</span></h1>
 
         <div className="flex gap-15 overflow-x-auto w-full h-auto py-2 scrollbar-hide snap-x snap-mandatory">
@@ -113,7 +113,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
       </section>
 
       {/* Location */}
-      <section className="px-12">
+      <section className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between mb-10">
           <h1 className="text-2xl font-bold">
             Temukan <span className="text-[#008C15]">Kami</span> di Sini
