@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 interface Crumb {
   label: string;
   href?: string;
@@ -9,7 +12,7 @@ const Breadcrumbs = ({ items }: { items: Crumb[] }) => {
       <ul>
         {items.map((item, index) => (
           <li key={index}>
-            {item.href ? <a href={item.href}>{item.label}</a> : item.label}
+            {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
           </li>
         ))}
       </ul>
