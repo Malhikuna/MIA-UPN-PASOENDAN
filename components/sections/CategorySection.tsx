@@ -21,24 +21,22 @@ export default function CategorySection({
   currentSubCategories,
 }: CategorySectionProps) {
   return (
-    <div className="container mx-auto md:py-10 px-12">
-      <div className="flex flex-col gap-4 mb-5">
-        <div className="flex justify-between items-center">
+    <div className="container mx-auto py-5 md:py-10 px-12">
+      <div className="flex flex-col lg:flex-row  justify-center items-center lg:justify-between lg:items-start mb-5 gap-2">
+        <div className="flex flex-col gap-2 w-full text-center lg:text-start">
           <h1 className="font-bold text-4xl">Pilih Kategori</h1>
-          <ToggleSwitch
-            options={mainCategories}
-            selected={selectedMainCategory}
-            onChange={onMainCategoryChange}
-          />
+          <div className="flex justify-center lg:justify-normal">
+            <p className="md:w-[513px]">
+              Jelajahi berbagai UMKM terdekat dari kuliner, jasa, hingga produk lokal yang siap memenuhi kebutuhan Anda.
+            </p>
+          </div>
         </div>
-        <p className="md:w-[513px]">
-          Jelajahi berbagai UMKM terdekat dari kuliner, jasa, hingga produk lokal yang siap memenuhi kebutuhan Anda.
-        </p>
+        <ToggleSwitch options={mainCategories} selected={selectedMainCategory} onChange={onMainCategoryChange} />
       </div>
 
-      <div className="flex flex-wrap gap-6">
+      <div className="flex gap-6 overflow-x-scroll scrollbar-hide p-1">
         {currentSubCategories.map((subCat) => (
-          <div className="flex flex-col items-center gap-3" key={subCat.value}>
+          <div className="flex flex-col items-center gap-3 " key={subCat.value}>
             <Category
               selectedSubCategory={selectedSubCategory}
               setSelectedSubCategory={onSubCategoryChange}

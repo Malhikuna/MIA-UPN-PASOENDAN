@@ -24,7 +24,7 @@ export default function Navbar() {
     const handleScroll = () => {
       const threshold = window.innerHeight * 0.9;
 
-      if(pathname.startsWith('/')) setIsTextChanged(window.scrollY > threshold)
+      if (pathname.startsWith("/")) setIsTextChanged(window.scrollY > threshold);
 
       setIsScrolled(window.scrollY > 10);
     };
@@ -41,39 +41,43 @@ export default function Navbar() {
 
   const navClass = `
     ${baseClasses}
-    ${isScrolled 
-      ?  (pathname.startsWith('/') ? "text-primary-content-dark glass shadow-md" : "glass shadow-md") : currentConfig.transparent ? "bg-transparent" : "bg-white"}
+    ${
+      isScrolled
+        ? pathname.startsWith("/")
+          ? "text-primary-content-dark glass shadow-md"
+          : "glass shadow-md"
+        : currentConfig.transparent
+        ? "bg-transparent"
+        : "bg-white"
+    }
   `;
 
   const textColor = currentConfig.text === "white" ? "text-white" : "text-gray-800";
 
-  const isHome = pathname === '/';
+  const isHome = pathname === "/";
   const logoSrc = isHome
     ? isTextChanged
-      ? '/images/CariKitaBlack.png'
-      : '/images/CariKitaWhite.png'
-    : '/images/CariKitaBlack.png';
+      ? "/images/CariKitaBlack.png"
+      : "/images/CariKitaWhite.png"
+    : "/images/CariKitaBlack.png";
 
   return (
-    <nav className={navClass}>
+    <nav className={`flex justify-center h-16 ${navClass} `}>
       <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
-        <Image
-          src={logoSrc}
-          alt="CariKita"
-          height={100}
-          width={100}
-        />
-        <ul className={`flex gap-7 items-center font-semibold ${isTextChanged ? 'text-primary-content-dark' : textColor}`}>
+        <Image src={logoSrc} alt="CariKita" height={100} width={100} />
+        <ul
+          className={`flex gap-7 items-center font-semibold ${isTextChanged ? "text-primary-content-dark" : textColor}`}
+        >
           <li>
             <Link href={`/`}>Home</Link>
           </li>
           <li>
             <Link href={`/`}>About Us</Link>
           </li>
-          <li>
-            {/*<input type="search" className="w-100 h-10 bg-white rounded-full" />*/}
+          {/* <li>
+            <input type="search" className="w-100 h-10 bg-white rounded-full" />
             <Input className={"flex-1 outline-none text-sm text-white"} />
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>
