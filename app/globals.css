@@ -15,7 +15,7 @@
 
 /* override warna bawaan DaisyUI atau yang sudah di deklarasi di @theme*/
 @plugin "daisyui/theme" {
-  name: "FnB";
+  name: "fnb-theme";
   --color-primary-content: oklch(55.53% 0.1826 143.55);
   --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
   --color-primary-content-bright: oklch(98.2% 0.018 155.826);
@@ -25,7 +25,7 @@
 }
 
 @plugin "daisyui/theme" {
-  name: "Jasa";
+  name: "jasa-theme";
   --color-primary-content: oklch(66.87% 0.1437 107.4);
   --color-primary-content-dark: oklch(66.87% 0.1437 107.4);
   --color-primary-content-bright: oklch(98.7% 0.026 102.212);
