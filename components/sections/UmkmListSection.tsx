@@ -21,7 +21,7 @@ export default function UmkmListSection({
   onReset,
 }: UmkmListSectionProps) {
   return (
-    <div className="container mx-auto md:py-10 px-12">
+    <div className="container mx-auto py-5 md:py-10 px-12">
       <div className="flex justify-between items-center mb-6">
         <h1 className="font-bold text-2xl">
           {title} <span className="text-primary-content">Terdekat</span>

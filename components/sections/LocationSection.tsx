@@ -2,7 +2,7 @@ import LocationMap from "@/components/ui/detail/LocationMap";
 
 export default function LocationSection() {
   return (
-    <div className="container mx-auto px-12 pb-10">
+    <div className="container mx-auto px-12 py-5 pb-10">
       <div className="flex justify-between items-center mb-8">
         <h1 className="font-bold text-2xl">
           Temukan UMKM Terdekat dari <span className="text-primary-content">Lokasimu</span>
