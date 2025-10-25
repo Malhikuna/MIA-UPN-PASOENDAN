@@ -11,6 +11,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import UmkmInfo from "@/components/ui/detail/UmkmInfo";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
 import { useTheme } from "@/hooks/useTheme";
+import Image from "next/image";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -24,6 +25,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
 
   return (
     <div className="flex flex-col gap-20 pb-8">
+      {/* Hero */}
       <section
         style={{
           backgroundImage: "url('/images/example.png')",
@@ -47,12 +49,12 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
           {/* UMKM Profile */}
           <UmkmProfile umkm={umkm} />
         </div>
-
       </section>
 
       {/* List Card Product */}
       <section className="container mx-auto px-6 lg:px-12">
-        <h1 className="text-center text-2xl font-bold mb-5">Produk <span className="text-primary-content">Kami</span></h1>
+        <h1 className="text-center text-2xl font-bold mb-5">Produk <span className="text-primary-content">Kami</span>
+        </h1>
 
         <div className="flex gap-15 overflow-x-auto w-full h-auto py-2 scrollbar-hide snap-x snap-mandatory">
           {
@@ -78,7 +80,6 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
             Yuk, mampir langsung ke lokasi kami dan dukung usaha lokal di sekitarmu. Setiap kunjunganmu berarti besar bagi kami.
           </span>
         </div>
-
         <LocationMap/>
       </section>
 
@@ -86,7 +87,6 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
       {/*<section className="px-8">
         <BoxReview/>
       </section>*/}
-
     </div>
   );
 }

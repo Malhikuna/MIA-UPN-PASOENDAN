@@ -5,7 +5,6 @@ import ImageGallery from "@/components/ui/detail/ImageGallery";
 import UmkmInfo from "@/components/ui/detail/UmkmInfo";
 import {UmkmItem} from "@/types/umkm";
 import {gsap} from "gsap";
-import {CircleArrowRight} from "lucide-react";
 import UmkmDescription from "@/components/ui/detail/UmkmDescription";
 
 type UmkmProfileProps = {
@@ -18,13 +17,16 @@ const UmkmProfile: React.FC<UmkmProfileProps> = ({umkm}) => {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const showDesktopDesc = isShowDescription && !isMobile;
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const handleShowDescription = (view = "desktop") => {
+    if (isMobile) {
+      setIsShowDescription(true);
+      document.body.style.overflow = "hidden";
+    }
 
-  const handleShowDescription = () => {
-    if (!modalRef.current) return;
+    if (!modalRef.current || isMobile) return;
 
     gsap.to(modalRef.current, {
       opacity: 0,
@@ -36,6 +38,8 @@ const UmkmProfile: React.FC<UmkmProfileProps> = ({umkm}) => {
   };
 
   const handleBackToProfile = () => {
+    if (isMobile) document.body.style.overflow = "";
+
     if (!descriptionRef.current) return;
 
     gsap.to(descriptionRef.current, {
@@ -47,7 +51,21 @@ const UmkmProfile: React.FC<UmkmProfileProps> = ({umkm}) => {
     });
   };
 
-  /* Animasi muncul deskripsi */
+  useEffect(() => {
+    setIsMounted(true);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  /* Show Description Animation */
   useEffect(() => {
     if (!isMounted) return;
 
@@ -62,55 +80,65 @@ const UmkmProfile: React.FC<UmkmProfileProps> = ({umkm}) => {
         { opacity: 0, x: -200 },
         { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }
       );
-    } else if (!isShowDescription && modalRef.current) {
+    } else if (!isMobile && !isShowDescription && modalRef.current) {
       gsap.fromTo(
         modalRef.current,
         { opacity: 0, x: 200 },
         { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }
       );
     }
-  }, [isShowDescription, isMounted]);
 
+  }, [isShowDescription, isMounted]);
 
   return (
     <>
-      {
-        isShowDescription ? (
-          <div
-            ref={descriptionRef}
-            className="relative grid grid-cols-1 lg:grid-cols-2 gap-8"
-          >
-            <div className="opacity-0">
-              <ImageGallery images={umkm.images} title={umkm.title}/>
-            </div>
-
+      <div
+        ref={showDesktopDesc ? descriptionRef : modalRef}
+        className={`relative grid grid-cols-1 lg:grid-cols-2 ${showDesktopDesc ? 'gap-8' : 'gap-15'}`}
+      >
+        {/* UMKM Gallery */}
+        <div className={showDesktopDesc ? "opacity-0" : ""}>
+          <ImageGallery images={umkm.images} title={umkm.title}/>
+        </div>
+        {
+          showDesktopDesc ? (
+            /* UMKM Description */
             <UmkmDescription
               title={umkm.title}
               description={umkm.description}
               handleBackToProfile={handleBackToProfile}
             />
-          </div>
-        ) : (
-          <div
-            ref={modalRef}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-15"
-          >
-            {/* Image Gallery - Kiri */}
-            <ImageGallery images={umkm.images} title={umkm.title}/>
-
-            {/* Informasi Toko */}
+          ) : (
+            /* UMKM Information */
             <UmkmInfo
               category={umkm.category}
               title={umkm.title}
               address={umkm.address}
               handleShowDescription={handleShowDescription}
             />
+          )
+        }
+      </div>
+
+      {/* Description on Mobile */}
+      {
+        isShowDescription && isMobile && (
+          <div
+            ref={descriptionRef}
+            className="fixed inset-0 flex items-center justify-center w-full h-[100vh] bg-white z-30"
+          >
+            {/* UMKM Description */}
+            <UmkmDescription
+              title={umkm.title}
+              description={umkm.description}
+              handleBackToProfile={handleBackToProfile}
+            />
           </div>
         )
       }
     </>
-)
-  ;
+  )
+    ;
 };
 
 export default UmkmProfile;
