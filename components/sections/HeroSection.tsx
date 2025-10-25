@@ -23,7 +23,8 @@ export default function HeroSection({ searchQuery, onSearchChange }: HeroSection
           placeholder="Cari nama UMKM atau alamat..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="md:max-w-[457px] text-background"
+          className="flex-1 outline-none text-sm text-white"
+          bgColor={"bg-white/30"}
         />
       </div>
     </div>

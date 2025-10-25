@@ -29,13 +29,13 @@ const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShow
         <div className="flex items-center gap-5">
           <h2 className="text-2xl font-semibold">Deskripsi</h2>
 
+          {/* Show Description Button */}
           <button
             className="cursor-pointer flex justify-center items-center rounded-full ring-2 ring-primary-content w-7 h-7 transition mt-1"
             onClick={handleShowDescription}
           >
-              <CircleArrowRight size={20} className="text-primary-content animate-float-slow"/>
+            <CircleArrowRight size={20} className="text-primary-content animate-float-slow"/>
           </button>
-          {/*<p className="text-gray-700 leading-relaxed">{umkm.description}</p>*/}
         </div>
       </div>
 
