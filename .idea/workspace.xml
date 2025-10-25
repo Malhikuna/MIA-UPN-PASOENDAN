@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/sections/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +107,7 @@
       <workItem from="1761231728138" duration="654000" />
       <workItem from="1761272629522" duration="885000" />
       <workItem from="1761310843686" duration="73000" />
-      <workItem from="1761346234346" duration="9013000" />
+      <workItem from="1761346234346" duration="11523000" />
     </task>
     <servers />
   </component>
