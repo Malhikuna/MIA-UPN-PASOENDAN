@@ -1,4 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sections/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="private-mal-dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="34IH3qxxnljljOSywOayURfDiOc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mal-dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MIA-UPN-PASOENDAN/app/(auth)&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\MIA-UPN-PASOENDAN\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MIA-UPN-PASOENDAN\public\images" />
+      <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)\login" />
+      <recent name="D:\MIA-UPN-PASOENDAN\public\images\footer" />
+      <recent name="D:\MIA-UPN-PASOENDAN\components\ui" />
+      <recent name="D:\MIA-UPN-PASOENDAN\app\(root)" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="" />
+      <created>1760893970087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760893970087</updated>
+      <workItem from="1760893972166" duration="2885000" />
+      <workItem from="1760961430135" duration="23213000" />
+      <workItem from="1761024432132" duration="18980000" />
+      <workItem from="1761096118657" duration="11044000" />
+      <workItem from="1761122773045" duration="5961000" />
+      <workItem from="1761128859429" duration="23413000" />
+      <workItem from="1761187519386" duration="635000" />
+      <workItem from="1761231728138" duration="654000" />
+      <workItem from="1761272629522" duration="885000" />
+      <workItem from="1761310843686" duration="73000" />
+      <workItem from="1761346234346" duration="9013000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>
