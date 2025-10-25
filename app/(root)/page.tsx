@@ -31,11 +31,7 @@ export default function Home() {
   // Filter data using custom hook
   const filteredData = useUmkmFilter(umkmData, selectedMainCategory, selectedSubCategory, searchQuery);
 
-  // Display data (3 or all)
-  const displayedData = useMemo(
-    () => (showAll ? filteredData : filteredData.slice(0, 3)),
-    [showAll, filteredData]
-  );
+ 
 
   // Get title for UMKM list
   const listTitle = useMemo(() => {
@@ -84,7 +80,6 @@ export default function Home() {
       <UmkmListSection
         title={listTitle}
         filteredData={filteredData}
-        displayedData={displayedData}
         showAll={showAll}
         onToggleShowAll={() => setShowAll(!showAll)}
         onReset={handleReset}
