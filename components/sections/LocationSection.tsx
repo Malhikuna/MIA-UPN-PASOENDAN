@@ -11,7 +11,7 @@ export default function LocationSection() {
           Kami bantu kamu menemukan pelaku usaha lokal di sekitarmu, biar belanja jadi lebih mudah dan mendukung sesama.
         </p>
       </div>
-      <LocationMap />
+      {/*<LocationMap />*/}
     </div>
   );
 }
