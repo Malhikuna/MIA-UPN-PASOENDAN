@@ -80,7 +80,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
             Yuk, mampir langsung ke lokasi kami dan dukung usaha lokal di sekitarmu. Setiap kunjunganmu berarti besar bagi kami.
           </p>
         </div>
-        <LocationMap umkmName={umkm.title}/>
+        <LocationMap umkm={umkm} />
       </section>
 
       {/* Review */}
