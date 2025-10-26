@@ -7,12 +7,12 @@
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/sections/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sections/LocationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/LocationSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/detail/LocationMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/LocationMap.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +65,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\MIA-UPN-PASOENDAN\public\images" />
+      <recent name="D:\MIA-UPN-PASOENDAN\public\images\umkm" />
+      <recent name="D:\MIA-UPN-PASOENDAN\components\ui" />
       <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)\login" />
       <recent name="D:\MIA-UPN-PASOENDAN\public\images\footer" />
-      <recent name="D:\MIA-UPN-PASOENDAN\components\ui" />
-      <recent name="D:\MIA-UPN-PASOENDAN\app\(root)" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,7 +114,8 @@
       <workItem from="1761231728138" duration="654000" />
       <workItem from="1761272629522" duration="885000" />
       <workItem from="1761310843686" duration="73000" />
-      <workItem from="1761346234346" duration="9013000" />
+      <workItem from="1761346234346" duration="14013000" />
+      <workItem from="1761442472552" duration="7522000" />
     </task>
     <servers />
   </component>
