@@ -1,4 +1,4 @@
-import LocationMap from "@/components/ui/detail/LocationMap";
+import LocationMap from "@/components/ui/LocationMap";
 
 export default function LocationSection() {
   return (

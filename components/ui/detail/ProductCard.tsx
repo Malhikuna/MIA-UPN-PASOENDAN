@@ -75,10 +75,10 @@ const ProductCard = () => {
 
             <div
               ref={modalRef}
-              className="flex flex-col md:flex-row fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto h-[500px] z-20 bg-black rounded-lg overflow-hidden">
-              <div className="relative w-[700px] h-full">
+              className="flex flex-col md:flex-row fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 lg:w-auto h-[500px] z-20 bg-black rounded-lg overflow-hidden">
+              <div className="relative w-full lg:w-[700px] h-full">
                 <Image
-                  src="/images/umkm1-gallery1.jpg"
+                  src="/images/umkm/umkm1-gallery1.jpg"
                   alt="Shoes"
                   fill
                   className="object-cover"
@@ -92,7 +92,7 @@ const ProductCard = () => {
 
                 <div className="py-8 px-5">
                   <h1 className="text-3xl font-bold">Nasi Goreng</h1>
-                  <span>Rp1.000,00</span>
+                  <p>Rp1.000,00</p>
 
                   <div className="mt-5 ring-1 ring-gray-200" />
 

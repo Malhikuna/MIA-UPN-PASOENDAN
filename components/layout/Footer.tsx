@@ -6,12 +6,12 @@ import { ArrowDownRight, Copyright } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-secondary text-base-100 h-auto overflow rounded-tl-3xl rounded-tr-3xl">
-      <div className="container mx-auto flex flex-col justify-between gap-15 pt-15 pb-10 px-6 lg:px-12">
+      <div className="container mx-auto flex flex-col justify-between gap-15 pt-15 pb-1 md:pb-10 px-6 lg:px-12">
         {/* About */}
         <section className="flex flex-col gap-5">
-          <h1>About Us</h1>
+          <h1 className="text-center md:text-left">About Us</h1>
 
-          <p className="text-3xl">
+          <p className="text-center md:text-left text-3xl">
             Kami ingin setiap usaha lokal bisa tersenyum. CariKita menghubungkan kamu dengan UMKM terdekat, agar
             dukungan kecilmu berarti besar bagi mereka.
           </p>
@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Images */}
-        <section className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="relative col-span-2 w-full lg:h-90 2xl:h-100 aspect-[3/2]">
             <Image
               src="/images/footer/footer1.png"
@@ -37,7 +37,7 @@ export default function Footer() {
               priority
             />
           </div>
-          <div className="relative w-full lg:h-90 2xl:h-100 aspect-[3/2]">
+          <div className="relative w-full h-70 lg:h-90 2xl:h-100 aspect-[3/2]">
             <Image
               src="/images/footer/footer2.png"
               alt="Barista di kafe"
@@ -46,7 +46,7 @@ export default function Footer() {
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
-          <div className="relative w-full lg:h-90 2xl:h-100 aspect-[3/2]">
+          <div className="relative w-full h-70 lg:h-90 2xl:h-100 aspect-[3/2]">
             <Image
               src="/images/footer/footer3.png"
               alt="Penjahit dengan kain batik"
@@ -66,9 +66,9 @@ export default function Footer() {
         <Image src="/images/CariKita.png" alt="CariKita" height={250} width={250} className="mx-auto" />
 
         {/* Footer Links */}
-        <section className="flex justify-center gap-20 text-center">
+        <section className="flex flex-col md:flex-row justify-center gap-10 md:gap-20 text-center">
           <div className="flex flex-col gap-5">
-            <h1 className="font-bold">Page</h1>
+            <h1 className="font-bold text-2xl">Page</h1>
             <Link href="/" className="hover:underline">
               Home
             </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-5">
-            <h1 className="font-bold">Social</h1>
+            <h1 className="font-bold text-2xl">Social</h1>
             <Link href="/" className="hover:underline">
               Instagram
             </Link>
@@ -93,10 +93,10 @@ export default function Footer() {
 
         {/* Copyright */}
         <section className="flex justify-between">
-          <p className="flex items-center gap-2">
+          <p className="text-sm md:text-base flex items-center gap-2">
             <Copyright size={15} /> 2025 CariKita. All right reserve.
           </p>
-          <p>Kita Cari, Kita Dukung</p>
+          <p className="text-sm md:text-base">Kita Cari, Kita Dukung</p>
         </section>
       </div>
     </footer>
