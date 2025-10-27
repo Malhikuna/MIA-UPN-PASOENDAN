@@ -3,25 +3,19 @@ import { umkmData } from "@/data/umkm";
 import { notFound } from "next/navigation";
 import React from "react";
 import ProductCard from "@/components/ui/detail/ProductCard";
-import ImageGallery from "@/components/ui/detail/ImageGallery";
-import LocationMap from "@/components/ui/LocationMap";
-import { Heart, Share2, MessageCircle, MapPin, BadgeInfo } from 'lucide-react';
+import DetailLocationMap from "@/components/ui/map/DetailLocationMap";
 import BoxReview from "@/components/ui/detail/BoxReview";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import UmkmInfo from "@/components/ui/detail/UmkmInfo";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
 import { useTheme } from "@/hooks/useTheme";
-import Image from "next/image";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
   const umkm = umkmData.find((item) => item.id === parseInt(id));
 
-   useTheme();
+  useTheme();
 
-  if (!umkm) {
-    notFound();
-  }
+  if (!umkm) notFound();
 
   return (
     <div className="flex flex-col gap-20 pb-8">
@@ -80,7 +74,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
             Yuk, mampir langsung ke lokasi kami dan dukung usaha lokal di sekitarmu. Setiap kunjunganmu berarti besar bagi kami.
           </p>
         </div>
-        <LocationMap umkm={umkm} />
+        <DetailLocationMap umkm={umkm} />
       </section>
 
       {/* Review */}

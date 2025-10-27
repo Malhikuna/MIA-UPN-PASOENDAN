@@ -31,8 +31,6 @@ export default function Home() {
   // Filter data using custom hook
   const filteredData = useUmkmFilter(umkmData, selectedMainCategory, selectedSubCategory, searchQuery);
 
- 
-
   // Get title for UMKM list
   const listTitle = useMemo(() => {
     if (selectedSubCategory === "all") {
@@ -85,7 +83,7 @@ export default function Home() {
         onReset={handleReset}
       />
 
-      <LocationSection />
+      <LocationSection  />
     </div>
   );
 }

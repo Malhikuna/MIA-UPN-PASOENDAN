@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/ui/map/DetailLocationMap.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/sections/LocationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/LocationSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/LeafletMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/LeafletMap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/LocationMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/LocationMap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/LeafletMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/DetailLocationLeaflet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/LocationMap.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +65,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\MIA-UPN-PASOENDAN\public\images" />
       <recent name="D:\MIA-UPN-PASOENDAN\public\images\umkm" />
+      <recent name="D:\MIA-UPN-PASOENDAN\components\ui\map" />
       <recent name="D:\MIA-UPN-PASOENDAN\components\ui" />
       <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)\login" />
-      <recent name="D:\MIA-UPN-PASOENDAN\public\images\footer" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,7 +115,10 @@
       <workItem from="1761310843686" duration="73000" />
       <workItem from="1761346234346" duration="14013000" />
       <workItem from="1761442472552" duration="7686000" />
-      <workItem from="1761483600638" duration="13122000" />
+      <workItem from="1761483600638" duration="13407000" />
+      <workItem from="1761527993488" duration="3171000" />
+      <workItem from="1761533152937" duration="119000" />
+      <workItem from="1761547320444" duration="8566000" />
     </task>
     <servers />
   </component>

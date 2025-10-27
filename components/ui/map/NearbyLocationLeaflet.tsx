@@ -7,14 +7,14 @@ import {Footprints, MapPin, Maximize2, Minimize2, Motorbike} from "lucide-react"
 import Link from "next/link";
 
 interface LeafletMapProps {
-  umkm: UmkmItem;
+  umkm: UmkmItem[];
 }
 
-const LeafletMap: React.FC<LeafletMapProps> = ({umkm}) => {
+const NearbyLocationLeaflet = () => {
   const [isShowMaximumMap, setIsShowMaximumMap] = useState(false);
 
   useEffect(() => {
-    const map = L.map(isShowMaximumMap ? "mapFull" : "mapSmall").setView([-6.864548192578693, 107.5933793366201], 20);
+    const map = L.map(isShowMaximumMap ? "mapFull" : "mapSmall").setView([-6.864548192578693, 107.5933793366201], 18);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
@@ -23,17 +23,61 @@ const LeafletMap: React.FC<LeafletMapProps> = ({umkm}) => {
     const iconUMKM = L.icon({
       iconUrl: "/images/map-pin.png",
       iconSize: [120, 80],
-      iconAnchor: [60, 70],
+      iconAnchor: [60, 60],
     });
 
-    const marker = L.marker([-6.864548192578693, 107.5933793366201], { icon: iconUMKM }).addTo(map);
+    const iconUser = L.icon({
+      iconUrl: "/images/map-pin-red.png",
+      iconSize: [120, 80],
+      iconAnchor: [60, 60],
+    });
+
+    const dummyData = [
+      {
+        lat: -6.864548192578693,
+        lon: 107.5933793366201
+      },
+      {
+        lat: -6.864490792577077,
+        lon: 107.59258037945818
+      },
+      {
+        lat: -6.864848903043863,
+        lon: 107.59291375020196
+      },
+      {
+        lat: -6.864648144183463,
+        lon: 107.59364060772961
+      },
+      {
+        lat: -6.8647892179892365,
+        lon: 107.593790897819
+      }
+    ]
+
+    /*const marker = L.marker([-6.864548192578693, 107.5933793366201], { icon: iconUMKM }).addTo(map);*/
+
+    L.marker([-6.864588459094727, 107.59323072566325], { icon: iconUser }).addTo(map);
+
+    L.circle([-6.864588459094727, 107.59323072566325], {
+      radius: 100,
+      color: "#31725C",
+      fillColor: "#31725C",
+      fillOpacity: 0.3,
+    }).addTo(map);
+
+    dummyData.forEach((value) => {
+      L.marker([value.lat, value.lon], { icon: iconUMKM }).addTo(map).on("mouseover", function (e) {
+        popup.setLatLng(e.latlng).openOn(map);
+      });
+    })
 
     const popupContent = `
       <div class="popup-card">
         <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400" 
              alt="Nasi Goreng Pak Joko"
              class="popup-image"/>
-        <h3 class="popup-title">${umkm.title}</h3>
+        <h3 class="popup-title">contoh</h3>
 <!--        <p class="popup-desc">Buka setiap hari 17.00–23.00</p>-->
         <a href="https://www.google.com/maps?q=-6.864548,107.593379" 
            target="_blank" 
@@ -49,9 +93,9 @@ const LeafletMap: React.FC<LeafletMapProps> = ({umkm}) => {
       offset: L.point(0, -10),
     }).setContent(popupContent);
 
-    marker.on("mouseover", function (e) {
+    /*marker.on("mouseover", function (e) {
       popup.setLatLng(e.latlng).openOn(map);
-    });
+    });*/
 
     /*marker.on("mouseout", function () {
       map.closePopup(popup);
@@ -77,37 +121,42 @@ const LeafletMap: React.FC<LeafletMapProps> = ({umkm}) => {
       <div className="flex flex-col gap-4">
         <p className="text-gray-600 flex font-medium items-center gap-2">
           <MapPin/>
-          {umkm.address}
+          5 UMKM Terdeteksi
         </p>
 
+        {/*<p className="text-gray-600 flex font-medium items-center gap-2">
+          <MapPin/>
+          {umkm.address}
+        </p>*/}
+
         <p className="text-gray-600 flex font-medium items-center gap-2">
-          <Footprints />
+          <Footprints/>
           100m
         </p>
 
         <p className="text-gray-600 flex font-medium items-center gap-2">
-          <Motorbike />
+          <Motorbike/>
           100m
         </p>
       </div>
 
-      <Link href={"https://www.google.com/maps?q=-6.864548,107.593379"}>
+      {/*<Link href={"https://www.google.com/maps?q=-6.864548,107.593379"} target="_blank">
         <button className={`btn ${isShowMaximumMap ? 'w-50' : 'w-full'} bg-primary-content text-white rounded-md`}>
           Tampilkan di Google Map
         </button>
       </Link>
-    <button className={`btn ${isShowMaximumMap ? 'w-50' : 'w-full'} bg-blue-500 text-white rounded-md`}>Tampilkan Lokasi Kamu</button>
+      <button className={`btn ${isShowMaximumMap ? 'w-50' : 'w-full'} bg-blue-500 text-white rounded-md`}>Tampilkan Lokasi Kamu</button>*/}
 
-    {
-      !isShowMaximumMap && (
-        <button
-          className="flex-center absolute w-10 h-10 bg-white border-2 border-primary-content top-2 right-2 cursor-pointer"
-          onClick={() => {setIsShowMaximumMap(true)}}
-        >
-          <Maximize2 className="text-primary-content" />
-        </button>
-      )
-    }
+      {
+        !isShowMaximumMap && (
+          <button
+            className="flex-center absolute w-10 h-10 bg-white border-2 border-primary-content top-2 right-2 cursor-pointer"
+            onClick={() => {setIsShowMaximumMap(true)}}
+          >
+            <Maximize2 className="text-primary-content" />
+          </button>
+        )
+      }
     </div>
   )
 
@@ -148,4 +197,4 @@ const LeafletMap: React.FC<LeafletMapProps> = ({umkm}) => {
   );
 };
 
-export default LeafletMap;
+export default NearbyLocationLeaflet;
