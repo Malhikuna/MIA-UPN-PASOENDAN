@@ -1,7 +1,9 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useUmkmStore } from "@/store/useUmkmStore";
+import { useEffect, useState } from "react";
 
 export function useTheme() {
+  const { selectedMainCategory } = useUmkmStore();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -10,7 +12,7 @@ export function useTheme() {
 
   useEffect(() => {
     if (isClient) {
-      const savedCategory = localStorage.getItem("selectedMainCategory");
+      const savedCategory = selectedMainCategory;
       const theme = savedCategory === "jasa" ? "jasa-theme" : "fnb-theme";
       document.documentElement.setAttribute("data-theme", theme);
     }

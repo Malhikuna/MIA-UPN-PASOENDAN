@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/lib/umkm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/useUmkmStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/loading.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/Breadcrumbs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Breadcrumbs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/DetailLocationMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/DetailLocationMap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sections/CategorySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/CategorySection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sections/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sections/UmkmListSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/UmkmListSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/NearbyLocationMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/NearbyLocationMap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useLocalStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useLocalStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useTheme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +55,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "mal-dev",
+    "git-widget-placeholder": "Merging mal-dev",
     "last_opened_file_path": "D:/MIA-UPN-PASOENDAN/app/(auth)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
