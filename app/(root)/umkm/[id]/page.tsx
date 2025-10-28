@@ -1,4 +1,3 @@
-"use client"
 import { umkmData } from "@/data/umkm";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -7,18 +6,16 @@ import DetailLocationMap from "@/components/ui/map/DetailLocationMap";
 import BoxReview from "@/components/ui/detail/BoxReview";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
-import { useTheme } from "@/hooks/useTheme";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
   const umkm = umkmData.find((item) => item.id === parseInt(id));
 
-  useTheme();
-
   if (!umkm) notFound();
 
   return (
     <div className="flex flex-col gap-20 pb-8">
+
       {/* Hero */}
       <section
         style={{

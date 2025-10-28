@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 interface Crumb {
   label: string;
   href?: string;

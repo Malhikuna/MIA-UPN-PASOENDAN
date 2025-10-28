@@ -1,7 +1,7 @@
+"use client";
+
 import dynamic from "next/dynamic";
-import {images} from "next/dist/build/webpack/config/blocks/images";
 import {UmkmItem} from "@/types/umkm";
-import { usePathname } from "next/navigation";
 
 const NearbyUmkmMap = dynamic(() => import("./NearbyLocationLeaflet"), {
   ssr: false,
