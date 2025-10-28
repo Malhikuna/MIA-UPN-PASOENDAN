@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { ArrowDownRight, Copyright } from "lucide-react";
+import {useTheme} from "@/hooks/useTheme";
 
 export default function Footer() {
+  useTheme();
   return (
     <footer className="bg-secondary text-base-100 h-auto overflow rounded-tl-3xl rounded-tr-3xl">
       <div className="container mx-auto flex flex-col justify-between gap-15 pt-15 pb-1 md:pb-10 px-6 lg:px-12">
@@ -63,7 +67,7 @@ export default function Footer() {
           Bareng
         </h1>
 
-        <Image src="/images/CariKita.png" alt="CariKita" height={250} width={250} className="mx-auto" />
+        <Image src="/images/CariKitaWhite.png" alt="CariKita" height={250} width={250} className="mx-auto" />
 
         {/* Footer Links */}
         <section className="flex flex-col md:flex-row justify-center gap-10 md:gap-20 text-center">
