@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default;
+  /* themes: light --default; */
 }
 
 @theme {
   /* bikin variable baru  */
   --background: #f5f5f5;
   --foreground: #000000;
-  --color-primary-content: oklchoklch(55.53% 0.1826 143.55);
+  --color-primary-content: oklch(55.53% 0.1826 143.55);
   --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
   --color-primary-content-bright: oklch(98.2% 0.018 155.826);
   --color-primary-muted: oklch(89.11% 0.166 148.62);

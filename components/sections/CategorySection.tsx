@@ -1,25 +1,21 @@
+"use client";
 import ToggleSwitch from "@/components/ui/ToggleSwitchProps";
 import Category from "@/components/ui/Category";
+import { useUmkmStore } from "@/store/useUmkmStore";
+import { mainCategories, subCategories } from "@/data/categories";
+import { useUmkmLogic } from "@/app/lib/umkm";
+import { useEffect } from "react";
 
-interface CategorySectionProps {
-  selectedMainCategory: string;
-  selectedSubCategory: string;
-  onMainCategoryChange: (value: string) => void;
-  onSubCategoryChange: (value: string) => void;
-  setShowAll: (value: boolean) => void;
-  mainCategories: { value: string; label: string }[];
-  currentSubCategories: any[];
-}
+export default function CategorySection() {
+  const { selectedMainCategory, selectedSubCategory, setShowAll } = useUmkmStore();
 
-export default function CategorySection({
-  selectedMainCategory,
-  selectedSubCategory,
-  onMainCategoryChange,
-  onSubCategoryChange,
-  setShowAll,
-  mainCategories,
-  currentSubCategories,
-}: CategorySectionProps) {
+  const { currentSubCategories, handleMainCategoryChange, handleSubCategoryChange } = useUmkmLogic();
+
+  useEffect(() => {
+    const theme = selectedMainCategory === "fnb" ? "fnb-theme" : "jasa-theme";
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [selectedMainCategory]);
+
   return (
     <div className="container mx-auto py-5 md:py-10 px-12">
       <div className="flex flex-col lg:flex-row  justify-center items-center lg:justify-between lg:items-start mb-5 gap-2">
@@ -31,7 +27,7 @@ export default function CategorySection({
             </p>
           </div>
         </div>
-        <ToggleSwitch options={mainCategories} selected={selectedMainCategory} onChange={onMainCategoryChange} />
+        <ToggleSwitch options={mainCategories} selected={selectedMainCategory} onChange={handleMainCategoryChange} />
       </div>
 
       <div className="flex gap-6 overflow-x-scroll scrollbar-hide p-1">
@@ -39,7 +35,7 @@ export default function CategorySection({
           <div className="flex flex-col items-center gap-3 " key={subCat.value}>
             <Category
               selectedSubCategory={selectedSubCategory}
-              setSelectedSubCategory={onSubCategoryChange}
+              setSelectedSubCategory={handleSubCategoryChange}
               subCat={subCat}
               setShowAll={setShowAll}
             />

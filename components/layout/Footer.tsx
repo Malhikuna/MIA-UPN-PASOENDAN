@@ -63,7 +63,7 @@ export default function Footer() {
           Bareng
         </h1>
 
-        <Image src="/images/CariKita.png" alt="CariKita" height={250} width={250} className="mx-auto" />
+        <Image src="/images/CariKitaWhite.png" alt="CariKita" height={250} width={250} className="mx-auto" />
 
         {/* Footer Links */}
         <section className="flex justify-center gap-20 text-center">
