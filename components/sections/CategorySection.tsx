@@ -32,7 +32,7 @@ export default function CategorySection() {
 
       <div className="flex gap-6 overflow-x-scroll scrollbar-hide p-1">
         {currentSubCategories.map((subCat) => (
-          <div className="flex flex-col items-center gap-3 " key={subCat.value}>
+          <div className="flex flex-col items-center gap-3" key={subCat.value}>
             <Category
               selectedSubCategory={selectedSubCategory}
               setSelectedSubCategory={handleSubCategoryChange}

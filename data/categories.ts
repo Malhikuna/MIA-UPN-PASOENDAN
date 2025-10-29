@@ -3,7 +3,7 @@ export const subCategories = {
     {
       value: "all",
       label: "Semua",
-      image: "",
+      image: "/images/category/all-f&b.png",
     },
     {
       value: "nasi-goreng",
