@@ -21,7 +21,7 @@ const MainInfoPanel: React.FC<InfoPanelProps> = ({ isShowMaximumMap, handleShowM
         </p>
 
         <Input
-          // labelClass="w-full h-12 px-4 rounded-full"
+          labelClassName="w-full h-12 px-4 rounded-full"
           placeholder="Cari nama UMKM atau alamat..."
           className="flex-1 outline-none text-sm text-white w-full"
           bgColor={"bg-black/30"}
