@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input from "../ui/Input";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useUmkmStore } from "@/store/useUmkmStore";
 
@@ -63,6 +63,23 @@ export default function Navbar() {
       : "/images/CariKitaWhite.png"
     : "/images/CariKitaBlack.png";
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const focus = searchParams.get("focus");
+
+  console.log(focus);
+
+  useEffect(() => {
+    if (pathname.startsWith("/umkm") && focus === "true" && inputRef.current) {
+      inputRef.current.focus();
+      const url = new URL(window.location.href);
+      url.searchParams.delete("focus");
+      router.replace(url.pathname);
+    }
+  }, [pathname, focus, router]);
+
   return (
     <nav className={`flex justify-center h-16 ${navClass} `}>
       <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
@@ -71,18 +88,17 @@ export default function Navbar() {
         </Link>
 
         {pathname.startsWith("/umkm") ? (
-          <Link href={`/umkm`} className="w-fit">
-            <Input
-              placeholder="Cari nama UMKM"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 outline-none text-sm text-white"
-              labelClassName="w-[30vw]"
-              bgColor={"bg-black/30"}
-            />
-          </Link>
+          <Input
+            ref={inputRef}
+            placeholder="Cari nama UMKM"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex-1 outline-none text-sm text-white"
+            labelClassName="w-[30vw]"
+            bgColor={"bg-black/30"}
+          />
         ) : (
-          <Link href={`/umkm`} className="w-fit">
+          <Link href={`/umkm?focus=true`} className="w-fit">
             <Input
               placeholder="Cari nama UMKM"
               value={searchQuery}
