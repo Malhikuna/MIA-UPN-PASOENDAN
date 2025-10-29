@@ -2,8 +2,7 @@ import { umkmData } from "@/data/umkm";
 import { notFound } from "next/navigation";
 import React from "react";
 import ProductCard from "@/components/ui/detail/ProductCard";
-import DetailLocationMap from "@/components/ui/map/DetailLocationMap";
-import BoxReview from "@/components/ui/detail/BoxReview";
+import LocationMap from "@/components/ui/map/LocationMap";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
 
@@ -71,7 +70,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
             Yuk, mampir langsung ke lokasi kami dan dukung usaha lokal di sekitarmu. Setiap kunjunganmu berarti besar bagi kami.
           </p>
         </div>
-        <DetailLocationMap umkm={umkm} />
+        <LocationMap umkm={umkm} mode={"detail"} />
       </section>
 
       {/* Review */}
