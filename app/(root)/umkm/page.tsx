@@ -8,20 +8,15 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Input from "@/components/ui/Input";
+import { useUmkmStore } from "@/store/useUmkmStore";
 
 export default function UmkmPage() {
+  const { searchQuery, setSearchQuery } = useUmkmStore();
   const { listTitle, filteredData, handleReset } = useUmkmLogic();
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const {
-    currentPage,
-    totalPages,
-    paginatedItems,
-    goToPage,
-    goToPrevious,
-    goToNext,
-    getPageNumbers,
-  } = usePagination({
+  const { currentPage, totalPages, paginatedItems, goToPage, goToPrevious, goToNext, getPageNumbers } = usePagination({
     items: filteredData,
     itemsPerPage: 9,
     showAll: true,
@@ -69,21 +64,27 @@ export default function UmkmPage() {
   return (
     <div className="container mx-auto py-5 md:py-10 px-12 min-h-screen border">
       {/* Header */}
-      <div className="mb-8">
-   
-        
+      <div className="mb-8 mt-12">
+        {/* Search Bar */}
+        {/* <div className="w-full mt-5 flex justify-center">
+          <Input
+            placeholder="Cari nama UMKM"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="flex-1 outline-none text-sm text-black"
+            labelClassName="w-[60%]"
+            bgColor={"bg-black/30"}
+          />
+        </div> */}
+
         <h1 className="font-bold text-3xl mt-4">
           Semua {listTitle} <span className="text-primary-content">Terdekat</span>
         </h1>
-    
       </div>
 
       {/* Cards Grid */}
       {hasResults && (
-        <div 
-          ref={gridRef} 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[530px]"
-        >
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[530px]">
           {paginatedItems.map((umkm: UmkmItem) => (
             <Link href={`/umkm/${umkm.id}`} key={umkm.id}>
               <Card title={umkm.title} address={umkm.address} image={umkm.images[0]} />

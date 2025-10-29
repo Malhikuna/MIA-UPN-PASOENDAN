@@ -1,10 +1,4 @@
-"use client";
-import Input from "@/components/ui/Input";
-import { useUmkmStore } from "@/store/useUmkmStore";
-
 export default function HeroSection() {
-  const { searchQuery, setSearchQuery } = useUmkmStore();
-
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat"
@@ -18,13 +12,6 @@ export default function HeroSection() {
         <p className="md:w-[403px] text-background">
           Cari makanan, minuman, dan jasa dari UMKM terdekat cepat, mudah, dan dekat di hati.
         </p>
-        <Input
-          placeholder="Cari nama UMKM atau alamat..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="flex-1 outline-none text-sm text-white"
-          bgColor={"bg-white/30"}
-        />
       </div>
     </div>
   );

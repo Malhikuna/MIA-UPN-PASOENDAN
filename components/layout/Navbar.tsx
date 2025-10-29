@@ -4,6 +4,7 @@ import Input from "../ui/Input";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useUmkmStore } from "@/store/useUmkmStore";
 
 const navbarConfig = [
   { path: "/umkm", transparent: true, text: "black" },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTextChanged, setIsTextChanged] = useState(false);
+  const { searchQuery, setSearchQuery } = useUmkmStore();
 
   const currentConfig = navbarConfig.find((cfg) => pathname.startsWith(cfg.path)) ?? {
     transparent: false,
@@ -64,12 +66,42 @@ export default function Navbar() {
   return (
     <nav className={`flex justify-center h-16 ${navClass} `}>
       <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
-        <Image src={logoSrc} alt="CariKita" height={100} width={100} />
+        <Link href={`/`}>
+          <Image src={logoSrc} alt="CariKita" height={100} width={100} />
+        </Link>
+
+        {pathname.startsWith("/umkm") ? (
+          <Link href={`/umkm`} className="w-fit">
+            <Input
+              placeholder="Cari nama UMKM"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 outline-none text-sm text-white"
+              labelClassName="w-[30vw]"
+              bgColor={"bg-black/30"}
+            />
+          </Link>
+        ) : (
+          <Link href={`/umkm`} className="w-fit">
+            <Input
+              placeholder="Cari nama UMKM"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 outline-none text-sm text-white"
+              labelClassName="w-[30vw]"
+              bgColor={"bg-white/30"}
+            />
+          </Link>
+        )}
+
         <ul
           className={`flex gap-7 items-center font-semibold ${isTextChanged ? "text-primary-content-dark" : textColor}`}
         >
           <li>
             <Link href={`/`}>Home</Link>
+          </li>
+          <li>
+            <Link href={`/umkm`}>Umkm</Link>
           </li>
           <li>
             <Link href={`/`}>About Us</Link>
