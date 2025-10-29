@@ -1,5 +1,4 @@
 import LocationMap from "@/components/ui/map/LocationMap";
-import NearbyLocationMap from "@/components/ui/map/NearbyLocationMap";
 import React from "react";
 
 export default function LocationSection() {
