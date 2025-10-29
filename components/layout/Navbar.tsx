@@ -64,7 +64,10 @@ export default function Navbar() {
   return (
     <nav className={`flex justify-center h-16 ${navClass} `}>
       <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
-        <Image src={logoSrc} alt="CariKita" height={100} width={100} />
+        <Link href={`/`}>
+          <Image src={logoSrc} alt="CariKita" height={100} width={100} />
+        </Link>
+
         <ul
           className={`flex gap-7 items-center font-semibold ${isTextChanged ? "text-primary-content-dark" : textColor}`}
         >
