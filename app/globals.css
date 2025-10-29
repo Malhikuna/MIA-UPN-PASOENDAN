@@ -26,13 +26,12 @@
 
 @plugin "daisyui/theme" {
   name: "jasa-theme";
-  --color-primary-content: oklch(66.87% 0.1437 107.4);
-  --color-primary-content-dark: oklch(66.87% 0.1437 107.4);
+  --color-primary-content: oklch(56.34% 0.23 260.78);
+  --color-primary-content-dark: oklch(47.37% 0.177 260.14);
   --color-primary-content-bright: oklch(98.7% 0.026 102.212);
-  --color-primary: oklch(95.23% 0.1401 112.26);
-  --color-primary-muted: oklch(95.67% 0.0551 120.71);
-  --color-secondary: oklch(67.09% 0.127 110.43);
-  /* oklch(62.8% 0.0901 111.73); */
+  --color-primary: oklch(62.65% 0.204 255.31);
+  --color-primary-muted: oklch(68.69% 0.16 251.14);
+  --color-secondary: oklch(30.66% 0.096 253.55);
 }
 
 @theme inline {
@@ -99,7 +98,7 @@
 .popup-card {
   width: 180px;
   text-align: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .popup-image {
@@ -111,7 +110,7 @@
 .popup-title {
   font-size: 14px;
   font-weight: 600;
-  color: #31725C;
+  color: #31725c;
   margin: 6px 0 2px;
 }
 
@@ -123,7 +122,7 @@
 
 .popup-button {
   display: inline-block;
-  background: #31725C;
+  background: #31725c;
   color: white !important;
   text-decoration: none;
   padding: 6px 10px;
