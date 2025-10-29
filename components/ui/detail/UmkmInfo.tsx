@@ -1,5 +1,5 @@
 import React from 'react';
-import {CircleArrowRight , BadgeInfo, MapPin, MessageCircle} from "lucide-react";
+import {CircleArrowRight, BadgeInfo, MapPin, MessageCircle, Heart, Share2} from "lucide-react";
 
 interface UmkmInfoProps {
   category: string;
@@ -50,14 +50,18 @@ const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShow
           </button>
         </div>
 
-        <div className="flex gap-2">
-          {/*<button className="flex justify-center items-center gap-2 cursor-pointer">
-                    <Heart/> <span>Favorite</span>
-                  </button>
+        <div className="flex gap-2 w-auto h-auto py-2 px-5 bg-white rounded-full shadow-sm">
+          <button className="flex justify-center items-center gap-2 cursor-pointer">
+            <MessageCircle/> <span>Favorite</span>
+          </button>
 
-                  <button className="flex justify-center items-center gap-2 cursor-pointer">
-                    <Share2/> <span>Share</span>
-                  </button>*/}
+          <button className="flex justify-center items-center gap-2 cursor-pointer">
+            <Heart/> <span>Favorite</span>
+          </button>
+
+          <button className="flex justify-center items-center gap-2 cursor-pointer">
+            <Share2/> <span>Share</span>
+          </button>
         </div>
       </div>
     </div>

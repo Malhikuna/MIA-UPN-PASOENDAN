@@ -1,5 +1,6 @@
-import DetailLocationMap from "@/components/ui/map/DetailLocationMap";
+import LocationMap from "@/components/ui/map/LocationMap";
 import NearbyLocationMap from "@/components/ui/map/NearbyLocationMap";
+import React from "react";
 
 export default function LocationSection() {
   return (
@@ -12,7 +13,7 @@ export default function LocationSection() {
           Kami bantu kamu menemukan pelaku usaha lokal di sekitarmu, biar belanja jadi lebih mudah dan mendukung sesama.
         </p>
       </div>
-      <NearbyLocationMap />
+      <LocationMap mode={"list"} />
     </div>
   );
 }

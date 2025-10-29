@@ -1,7 +1,8 @@
-import HeroSection from "@/components/sections/HeroSection";
-import CategorySection from "@/components/sections/CategorySection";
-import UmkmListSection from "@/components/sections/UmkmListSection";
-import LocationSection from "@/components/sections/LocationSection";
+import HeroSection from "@/components/section/HeroSection";
+import CategorySection from "@/components/section/CategorySection";
+import UmkmListSection from "@/components/section/UmkmListSection";
+import LocationSection from "@/components/section/LocationSection";
+import Image from "next/image";
 
 export default function Home() {
   return (
