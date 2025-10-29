@@ -26,13 +26,12 @@
 
 @plugin "daisyui/theme" {
   name: "jasa-theme";
-  --color-primary-content: oklch(66.87% 0.1437 107.4);
-  --color-primary-content-dark: oklch(66.87% 0.1437 107.4);
+  --color-primary-content: oklch(56.34% 0.23 260.78);
+  --color-primary-content-dark: oklch(47.37% 0.177 260.14);
   --color-primary-content-bright: oklch(98.7% 0.026 102.212);
-  --color-primary: oklch(95.23% 0.1401 112.26);
-  --color-primary-muted: oklch(95.67% 0.0551 120.71);
-  --color-secondary: oklch(67.09% 0.127 110.43);
-  /* oklch(62.8% 0.0901 111.73); */
+  --color-primary: oklch(62.65% 0.204 255.31);
+  --color-primary-muted: oklch(68.69% 0.16 251.14);
+  --color-secondary: oklch(30.66% 0.096 253.55);
 }
 
 @theme inline {
@@ -88,75 +87,50 @@
 
 /* Leafjs */
 
-/* Custom style untuk popup leaflet */
-
-@layer base {
-  .popup-card {
-    @apply w-[260px] p-2 max-h-none;
-  }
-
-  .popup-header {
-    @apply flex w-full h-auto gap-2 items-center;
-  }
-}
-
-.leaflet-popup-content-wrapper {
-  background: #111;
-  color: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+.custom-popup .leaflet-popup-content-wrapper {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   padding: 0;
 }
 
-.leaflet-popup-content {
-  margin: 0;
-  padding: 0;
+.popup-card {
+  width: 180px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
 }
 
-/* Card Layout */
-/*.popup-card {
-  width: 260px;
-  padding: 16px;
-  font-family: 'Inter', sans-serif;
-}*/
-
-.popup-image-container {
-  width: 50px;
-  height: auto;
-  border-radius: 100%;
-}
-
-.popup-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+.popup-image {
+  width: 100%;
+  height: 100px;
   object-fit: cover;
 }
 
 .popup-title {
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.popup-body {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #ccc;
-}
-
-.popup-btn {
-  margin-top: 14px;
-  width: 100%;
-  background: #2dd4bf;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 8px;
+  font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
+  color: #31725c;
+  margin: 6px 0 2px;
 }
 
-.popup-btn:hover {
-  background: #22c1ac;
+.popup-desc {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.popup-button {
+  display: inline-block;
+  background: #31725c;
+  color: white !important;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.popup-button:hover {
+  background: #245947;
 }

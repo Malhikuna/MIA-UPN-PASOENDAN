@@ -22,7 +22,7 @@ export default function Category({ selectedSubCategory, setSelectedSubCategory, 
       }`}
       onClick={() => {
         setSelectedSubCategory(subCat.value as UmkmCategory | "all");
-        setShowAll(false); // ← Reset showAll saat ganti sub category
+        setShowAll(false); 
       }}
     >
       {/* Image */}
