@@ -39,7 +39,7 @@ const ProductCard = () => {
   return (
     <>
       {/* Card */}
-      <div className="card shadow-sm text-black h-auto w-60 lg:w-70 cursor-pointer"
+      <div className="card shadow-sm text-black p-2 p h-auto w-60 lg:w-70 cursor-pointer"
            onClick={() => setShowModal(true)}
       >
         <div className="relative w-full h-[200px]">
