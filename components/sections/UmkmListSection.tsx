@@ -4,13 +4,20 @@ import Card from "@/components/ui/Card";
 import { UmkmItem } from "@/types/umkm";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 
 export default function UmkmListSection() {
   const { listTitle, filteredData, handleReset } = useUmkmLogic();
   const sliderRef = useRef<HTMLDivElement>(null);
+  const newestSliderRef = useRef<HTMLDivElement>(null);
 
+  // Sort data terbaru berdasarkan ID terbesar ke terkecil
+  const newestData = useMemo(() => {
+    return [...filteredData].sort((a, b) => b.id - a.id);
+  }, [filteredData]);
+
+  // Animasi untuk section Terdekat
   useEffect(() => {
     if (sliderRef.current) {
       const cards = sliderRef.current.children;
@@ -34,8 +41,33 @@ export default function UmkmListSection() {
     }
   }, [filteredData]);
 
+  // Animasi untuk section Terbaru
+  useEffect(() => {
+    if (newestSliderRef.current) {
+      const cards = newestSliderRef.current.children;
+      
+      gsap.fromTo(
+        cards,
+        {
+          opacity: 0,
+          x: 100,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power3.out",
+        }
+      );
+    }
+  }, [newestData]);
+
   const hasResults = filteredData.length > 0;
-  const displayedData = filteredData.slice(0, 6); // Tampilkan maksimal 6 item di slider
+  const displayedData = filteredData.slice(0, 6);
+  const displayedNewestData = newestData.slice(0, 6);
 
   return (
     <div className="container mx-auto py-5 md:py-10 px-12">
@@ -93,6 +125,51 @@ export default function UmkmListSection() {
           </button>
         </div>
       )}
+
+      {/* Section F&B Terbaru */}
+      {hasResults && (
+        <div className="mt-8 pt-8 border-t-2 border-gray-200">
+          {/* Header Terbaru */}
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="font-bold text-2xl">
+              {listTitle} <span className="text-primary-content">Terbaru</span>
+            </h1>
+
+            {newestData.length > 0 && (
+              <Link
+                href="/umkm"
+                className="flex items-center gap-2 hover:text-primary-content transition-colors group"
+              >
+                <p className="font-semibold">Show All</p>
+                <ChevronRight className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            )}
+          </div>
+
+          {/* Horizontal Slider Terbaru */}
+          <div className="relative mt-8">
+            <div 
+              ref={newestSliderRef}
+              className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
+              {displayedNewestData.map((umkm: UmkmItem) => (
+                <Link 
+                  href={`/umkm/${umkm.id}`} 
+                  key={`newest-${umkm.id}`}
+                  className="flex-shrink-0 w-[300px] md:w-[350px] snap-start"
+                >
+                  <Card title={umkm.title} address={umkm.address} image={umkm.images[0]} />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      
     </div>
   );
 }
