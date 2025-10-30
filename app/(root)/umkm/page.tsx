@@ -4,7 +4,7 @@ import Card from "@/components/ui/Card";
 import Pagination from "@/components/ui/Pagination";
 import { usePagination } from "@/hooks/usePagination";
 import { UmkmItem } from "@/types/umkm";
-import { ArrowLeft } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -13,7 +13,7 @@ import { useUmkmStore } from "@/store/useUmkmStore";
 
 export default function UmkmPage() {
   const { searchQuery, setSearchQuery } = useUmkmStore();
-  const { listTitle, filteredData, handleReset } = useUmkmLogic();
+  const { currentSubCategories, filteredData, handleReset, handleSubCategoryChange } = useUmkmLogic();
   const gridRef = useRef<HTMLDivElement>(null);
 
   const { currentPage, totalPages, paginatedItems, goToPage, goToPrevious, goToNext, getPageNumbers } = usePagination({
@@ -22,6 +22,9 @@ export default function UmkmPage() {
     showAll: true,
   });
 
+  console.log(paginatedItems);
+
+  const { selectedMainCategory } = useUmkmStore();
   // Animasi saat ganti halaman
   useEffect(() => {
     if (gridRef.current) {
@@ -64,22 +67,41 @@ export default function UmkmPage() {
   return (
     <div className="container mx-auto py-5 md:py-10 px-12 min-h-screen border">
       {/* Header */}
-      <div className="mb-8 mt-12">
-        {/* Search Bar */}
-        {/* <div className="w-full mt-5 flex justify-center">
-          <Input
-            placeholder="Cari nama UMKM"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 outline-none text-sm text-black"
-            labelClassName="w-[60%]"
-            bgColor={"bg-black/30"}
-          />
-        </div> */}
-
-        <h1 className="font-bold text-3xl mt-4">
-          Semua {listTitle} <span className="text-primary-content">Terdekat</span>
+      <div className="flex justify-between items-center w-full mb-8 mt-12">
+        <h1 className="font-bold text-3xl">
+          Semua Umkm <span className="text-primary-content">{(selectedMainCategory as string).toUpperCase()}</span>
         </h1>
+
+        <div className="flex justify-between items-center gap-7">
+          <details className="dropdown">
+            <summary className="btn m-1">Filter {<ChevronDown />}</summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              <li
+                className="p-1.5 hover:bg-foreground/10 rounded-lg cursor-pointer"
+                // onClick={() => handleSubCategoryChange(subcat.value)}
+              >
+                Terbaru
+              </li>
+              <li className="p-1.5 hover:bg-foreground/10 rounded-lg cursor-pointer">Terdekat</li>
+            </ul>
+          </details>
+          <details className="dropdown">
+            <summary className="btn m-1">Category {<ChevronDown />}</summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              {currentSubCategories.map((subcat) => {
+                return (
+                  <li
+                    key={subcat.value}
+                    className="p-1.5 hover:bg-foreground/10 rounded-lg cursor-pointer"
+                    onClick={() => handleSubCategoryChange(subcat.value)}
+                  >
+                    {subcat.label}
+                  </li>
+                );
+              })}
+            </ul>
+          </details>
+        </div>
       </div>
 
       {/* Cards Grid */}
