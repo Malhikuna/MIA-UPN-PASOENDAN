@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <div
+    <section  
       className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
     >
@@ -13,6 +13,6 @@ export default function HeroSection() {
           Cari makanan, minuman, dan jasa dari UMKM terdekat cepat, mudah, dan dekat di hati.
         </p>
       </div>
-    </div>
+    </section>
   );
 }

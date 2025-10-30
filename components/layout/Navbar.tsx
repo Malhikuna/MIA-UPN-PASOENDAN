@@ -120,7 +120,7 @@ export default function Navbar() {
             <Link href={`/umkm`}>Umkm</Link>
           </li>
           <li>
-            <Link href={`/`}>About Us</Link>
+            <Link href={`/about`}>About Us</Link>
           </li>
           {/* <li>
             <input type="search" className="w-100 h-10 bg-white rounded-full" />

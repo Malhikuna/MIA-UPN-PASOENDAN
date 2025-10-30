@@ -70,7 +70,7 @@ export default function UmkmListSection() {
   const displayedNewestData = newestData.slice(0, 6);
 
   return (
-    <div className="container mx-auto py-5 md:py-10 px-12">
+    <section className="container mx-auto py-5 md:py-10 px-12">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="font-bold text-2xl">
@@ -170,6 +170,6 @@ export default function UmkmListSection() {
         </div>
       )}
       
-    </div>
+    </section>
   );
 }
