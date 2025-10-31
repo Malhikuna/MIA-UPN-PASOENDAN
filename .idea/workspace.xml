@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/umkm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/useUserLocationStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/formatDistance.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/getDistance.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/sections/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmDescription.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/detail/UmkmProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/info_panel/DetailInfoPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/info_panel/DetailInfoPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/DetailLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/DetailLocationLeaflet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/umkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/umkm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/useUmkmStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useUmkmStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/umkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/umkm.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +27,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="private-mal-dev" />
+        <entry key="$PROJECT_DIR$" value="private-mal-dev-2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,11 +69,11 @@
       <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MIA-UPN-PASOENDAN\components\ui\map\info_panel" />
+      <recent name="D:\MIA-UPN-PASOENDAN\components\ui\map\leaflet" />
       <recent name="D:\MIA-UPN-PASOENDAN\public\images" />
-      <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)\login" />
-      <recent name="D:\MIA-UPN-PASOENDAN\public\images\footer" />
-      <recent name="D:\MIA-UPN-PASOENDAN\components\ui" />
-      <recent name="D:\MIA-UPN-PASOENDAN\app\(root)" />
+      <recent name="D:\MIA-UPN-PASOENDAN\public\images\umkm" />
+      <recent name="D:\MIA-UPN-PASOENDAN\components\ui\map" />
     </key>
   </component>
   <component name="RunManager">
@@ -84,6 +89,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.dev" />
       </list>
@@ -114,7 +122,20 @@
       <workItem from="1761231728138" duration="654000" />
       <workItem from="1761272629522" duration="885000" />
       <workItem from="1761310843686" duration="73000" />
-      <workItem from="1761346234346" duration="9013000" />
+      <workItem from="1761346234346" duration="14013000" />
+      <workItem from="1761442472552" duration="7686000" />
+      <workItem from="1761483600638" duration="13407000" />
+      <workItem from="1761527993488" duration="3171000" />
+      <workItem from="1761533152937" duration="119000" />
+      <workItem from="1761547320444" duration="13676000" />
+      <workItem from="1761616991761" duration="1400000" />
+      <workItem from="1761662831669" duration="6051000" />
+      <workItem from="1761670646427" duration="54000" />
+      <workItem from="1761670707522" duration="46000" />
+      <workItem from="1761670766255" duration="33000" />
+      <workItem from="1761670812158" duration="45000" />
+      <workItem from="1761670872612" duration="58812000" />
+      <workItem from="1761900534971" duration="7840000" />
     </task>
     <servers />
   </component>

@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="FnB">
+    <html lang="en" data-theme="fnb-theme">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}>
         {/* <Navbar /> */}
         {children}

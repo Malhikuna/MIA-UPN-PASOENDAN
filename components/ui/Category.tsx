@@ -1,8 +1,9 @@
+import { UmkmCategory } from "@/types/umkm";
 import Image from "next/image";
 
 type CategoryProps = {
   selectedSubCategory: string;
-  setSelectedSubCategory: (value: string) => void;
+  setSelectedSubCategory: (value: UmkmCategory | "all") => void;
   subCat: {
     value: string;
     label: string;
@@ -20,8 +21,8 @@ export default function Category({ selectedSubCategory, setSelectedSubCategory, 
           : "bg-primary-muted text-black hover:bg-primary"
       }`}
       onClick={() => {
-        setSelectedSubCategory(subCat.value);
-        setShowAll(false); // ← Reset showAll saat ganti sub category
+        setSelectedSubCategory(subCat.value as UmkmCategory | "all");
+        setShowAll(false); 
       }}
     >
       {/* Image */}

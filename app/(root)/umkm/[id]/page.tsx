@@ -1,30 +1,20 @@
-"use client"
 import { umkmData } from "@/data/umkm";
 import { notFound } from "next/navigation";
 import React from "react";
 import ProductCard from "@/components/ui/detail/ProductCard";
-import ImageGallery from "@/components/ui/detail/ImageGallery";
-import LocationMap from "@/components/ui/detail/LocationMap";
-import { Heart, Share2, MessageCircle, MapPin, BadgeInfo } from 'lucide-react';
-import BoxReview from "@/components/ui/detail/BoxReview";
+import LocationMap from "@/components/ui/map/LocationMap";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import UmkmInfo from "@/components/ui/detail/UmkmInfo";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
-import { useTheme } from "@/hooks/useTheme";
-import Image from "next/image";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
   const umkm = umkmData.find((item) => item.id === parseInt(id));
 
-   useTheme();
-
-  if (!umkm) {
-    notFound();
-  }
+  if (!umkm) notFound();
 
   return (
     <div className="flex flex-col gap-20 pb-8">
+
       {/* Hero */}
       <section
         style={{
@@ -71,16 +61,16 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
 
       {/* Location */}
       <section className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-10">
           <h1 className="text-2xl font-bold">
             Temukan <span className="text-primary-content">Kami</span> di Sini
           </h1>
 
-          <span className="max-w-150">
+          <p className="text-center md:text-left max-w-150">
             Yuk, mampir langsung ke lokasi kami dan dukung usaha lokal di sekitarmu. Setiap kunjunganmu berarti besar bagi kami.
-          </span>
+          </p>
         </div>
-        <LocationMap/>
+        <LocationMap umkm={umkm} mode={"detail"} />
       </section>
 
       {/* Review */}
