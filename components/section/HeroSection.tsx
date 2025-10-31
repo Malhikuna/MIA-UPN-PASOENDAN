@@ -33,7 +33,7 @@ export default function HeroSection() {
           dekat di hati.
         </p>
       
-        <div className="absolute bottom-8 right-1/2 md:right-1/2 flex flex-col items-center gap-3 text-white">
+        <div className="absolute inset-x-0 bottom-5 flex flex-col items-center gap-3 text-white">
           <p className="text-sm font-medium hidden md:block">Scroll Down</p>
           <button
             onClick={handleScrollDown}

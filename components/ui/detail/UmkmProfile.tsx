@@ -77,14 +77,14 @@ const UmkmProfile: React.FC<UmkmProfileProps> = ({umkm}) => {
     if (isShowDescription && descriptionRef.current) {
       gsap.fromTo(
         descriptionRef.current,
-        { opacity: 0, x: -200 },
-        { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }
+        {opacity: 0, x: -200},
+        {opacity: 1, x: 0, duration: 0.6, ease: "power2.out"}
       );
     } else if (!isMobile && !isShowDescription && modalRef.current) {
       gsap.fromTo(
         modalRef.current,
-        { opacity: 0, x: 200 },
-        { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }
+        {opacity: 0, x: 200},
+        {opacity: 1, x: 0, duration: 0.6, ease: "power2.out"}
       );
     }
 
