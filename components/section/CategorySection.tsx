@@ -3,7 +3,7 @@ import ToggleSwitch from "@/components/ui/ToggleSwitchProps";
 import Category from "@/components/ui/Category";
 import { useUmkmStore } from "@/store/useUmkmStore";
 import { mainCategories, subCategories } from "@/data/categories";
-import { useUmkmLogic } from "@/app/lib/umkm";
+import { useUmkmLogic } from "@/hooks/useUmkmLogic";
 import { useEffect } from "react";
 
 export default function CategorySection() {
