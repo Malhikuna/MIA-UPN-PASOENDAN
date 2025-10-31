@@ -99,7 +99,6 @@ export default function Footer() {
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Linkedin, href: "#", label: "Pinterest" },
   ];
 
   return (
@@ -125,12 +124,12 @@ export default function Footer() {
         {/* Description Text */}
         <div className="text-center mb-12">
           <p className="text-neutral-400 text-sm leading-relaxed max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-            obcaecati id facilis consequatur deserunt eius beatae voluptatibus
-            explicabo est sed, delectus, sequi dicta perspiciatis praesentium?
-            Quaerat vero soluta blanditiis tenetur quo similique sit aut quis
-            omnis nulla molestiae nihil rerum laborum numquam ab, corporis
-            beatae quia nisi illum praesentium veritatis.
+            Kami hadir untuk menjadi jembatan antara pelaku UMKM dan masyarakat
+            luas. Dengan menampilkan berbagai usaha lokal dari seluruh penjuru
+            negeri, kami ingin menumbuhkan semangat dukung produk dalam negeri
+            serta memperkuat ekonomi masyarakat. Setiap UMKM memiliki cerita dan
+            perjuangan, dan kami ingin membantu mereka agar lebih dikenal serta
+            dihargai melalui teknologi dan kolaborasi digital.
           </p>
         </div>
 

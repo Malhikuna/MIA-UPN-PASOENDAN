@@ -1,5 +1,5 @@
 "use client";
-import { useUmkmLogic } from "@/app/lib/umkm";
+import { useUmkmLogic } from "@/hooks/useUmkmLogic";
 import Card from "@/components/ui/Card";
 import Pagination from "@/components/ui/Pagination";
 import { usePagination } from "@/hooks/usePagination";

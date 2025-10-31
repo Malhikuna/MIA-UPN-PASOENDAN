@@ -81,7 +81,7 @@ export default function Navbar() {
   }, [pathname, focus, router]);
 
   return (
-    <nav className={`flex justify-center h-16 ${navClass} `}>
+    <nav className={`flex justify-center h-16 ${navClass} ${isTextChanged ? "bg-gradient-to-r from-white to-black/60" : ""}`}>
       <div className="container flex mx-auto justify-between items-center px-6 lg:px-12">
         <Link href={`/`}>
           <Image src={logoSrc} alt="CariKita" height={100} width={100} />
@@ -111,7 +111,7 @@ export default function Navbar() {
         )}
 
         <ul
-          className={`flex gap-7 items-center font-semibold ${isTextChanged ? "text-primary-content-dark" : textColor}`}
+          className={`flex gap-7 items-center font-semibold ${isTextChanged ? "text-white" : textColor}`}
         >
           <li>
             <Link href={`/`}>Home</Link>

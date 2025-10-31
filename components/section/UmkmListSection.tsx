@@ -1,5 +1,5 @@
 "use client";
-import { useUmkmLogic } from "@/app/lib/umkm";
+import { useUmkmLogic } from "@/hooks/useUmkmLogic";
 import Card from "@/components/ui/Card";
 import { UmkmItem } from "@/types/umkm";
 import { ChevronRight } from "lucide-react";
