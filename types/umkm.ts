@@ -17,4 +17,6 @@ export type UmkmItem = {
   images: string[];
   mainCategory: UmkmMainCategory;
   category: UmkmCategory;
+  /*lat: number;
+  lng: number;*/
 };

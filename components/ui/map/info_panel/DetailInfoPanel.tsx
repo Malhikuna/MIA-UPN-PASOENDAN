@@ -2,6 +2,7 @@ import React from 'react';
 import {Footprints, MapPin, Maximize2, Motorbike} from "lucide-react";
 import Link from "next/link";
 import {UmkmItem} from "@/types/umkm";
+import {useUserLocationStore} from "@/store/useUserLocationStore";
 
 interface DetailInfoPanelProps {
   isShowMaximumMap: boolean;
@@ -10,6 +11,7 @@ interface DetailInfoPanelProps {
 }
 
 const DetailInfoPanel: React.FC<DetailInfoPanelProps> = ({isShowMaximumMap, handleShowMaximumMap, umkm}) => {
+  const fetchUserLocation = useUserLocationStore(state => state.fetchUserLocation)
   return (
     <div
       className={`flex flex-col md:gap-5 justify-between bg-white md:border-r-2 border-primary-content p-5 ${isShowMaximumMap ? 'absolute left-2 bottom-2 w-auto h-auto border-2 z-50' : 'relative h-auto md:h-full w-auto'}`}>
@@ -21,12 +23,12 @@ const DetailInfoPanel: React.FC<DetailInfoPanelProps> = ({isShowMaximumMap, hand
 
         <p className="text-gray-600 flex font-medium items-center gap-2">
           <Footprints/>
-          100m
+          0 m
         </p>
 
         <p className="text-gray-600 flex font-medium items-center gap-2">
           <Motorbike/>
-          100m
+          0 m
         </p>
       </div>
 
@@ -35,8 +37,11 @@ const DetailInfoPanel: React.FC<DetailInfoPanelProps> = ({isShowMaximumMap, hand
           Tampilkan di Google Map
         </button>
       </Link>
-      <button className={`btn ${isShowMaximumMap ? 'w-50' : 'w-full'} bg-blue-500 text-white rounded-md`}>
-        Tampilkan Lokasi Kamu
+      <button
+        className={`btn ${isShowMaximumMap ? 'w-50' : 'w-full'} bg-blue-500 text-white rounded-md`}
+        onClick={fetchUserLocation}
+      >
+        Aktifkan Lokasi Kamu
       </button>
 
       {

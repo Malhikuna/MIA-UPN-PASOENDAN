@@ -205,7 +205,7 @@ export const umkmData: UmkmItem[] = [
     mainCategory: "fnb",
     category: "ayam-geprek",
   },
-   {
+  {
     id: 15,
     title: "Ayam Geprek Bensu",
     address: "Jl. Geprek No.2",
@@ -218,7 +218,7 @@ export const umkmData: UmkmItem[] = [
     mainCategory: "fnb",
     category: "ayam-geprek",
   },
-    {
+  {
     id: 16,
     title: "Jahit Pakaian Berkah",
     address: "Jl. Jahit No.1",

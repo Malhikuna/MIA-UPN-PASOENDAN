@@ -1,13 +1,22 @@
 import Image from "next/image";
-import {Clock, Footprints, MapPinned, Smile} from "lucide-react";
+import {Clock, Footprints, LandPlot, MapPinned, Smile} from "lucide-react";
 import React from "react";
 import Link from "next/link";
+import {formatDistance} from "@/utils/formatDistance";
+import {getDistance} from "@/utils/getDistance";
+
+interface location {
+  lat: number;
+  lng: number;
+}
 
 interface UmkmInfoModalProps {
   pageName: string;
+  userLocation?: location | null;
+  umkmLocation: location | null;
 }
 
-const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName}) => {
+const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, umkmLocation}) => {
   return (
     <div className="w-[280px] p-2 max-h-none">
       <div className="relative popup-header">
@@ -25,7 +34,7 @@ const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName}) => {
           F&B • <span className="text-primary-content-dark font-bold">Buka 08:00 WIB</span>
         </div>
 
-        <Link href={"https://www.google.com/maps?q=-6.864548,107.593379"} target="_blank">
+        <Link href={`https://www.google.com/maps?q=${umkmLocation?.lat},${umkmLocation?.lng}`} target="_blank">
           <button className="btn absolute top-0 right-0 w-auto h-auto p-1 ring-2 rounded-full bg-primary-content-bright">
             <MapPinned color="red" />
           </button>
@@ -36,7 +45,10 @@ const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName}) => {
         className="flex items-center justify-evenly mt-4 w-full h-8 rounded-md bg-primary-content-bright ring-2 ring-primary-content">
         <p className="flex items-center gap-1"><Smile size={20}/> 10 </p>
         <p className="flex items-center gap-1"><Clock size={20}/> 08:00 WIB </p>
-        <p className="flex items-center gap-1"><Footprints size={20}/> 10ml </p>
+        <p className="flex items-center gap-1"><LandPlot size={20}/>{
+          userLocation && umkmLocation ? formatDistance(getDistance(umkmLocation.lat, umkmLocation.lng, userLocation.lat, userLocation.lng))
+            : '0m'
+        }</p>
       </div>
 
       {
