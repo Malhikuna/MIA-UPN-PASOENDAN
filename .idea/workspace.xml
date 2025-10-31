@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/umkm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/useUserLocationStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/formatDistance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/getDistance.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/info_panel/DetailInfoPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/info_panel/DetailInfoPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/DetailLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/DetailLocationLeaflet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/umkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/umkm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/useUmkmStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useUmkmStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/umkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/umkm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +42,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;mal-dev&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.17.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.17.2&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/MIA-UPN-PASOENDAN/app/(auth)&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -59,7 +51,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\MIA-UPN-PASOENDAN\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -135,7 +127,7 @@
       <workItem from="1761670766255" duration="33000" />
       <workItem from="1761670812158" duration="45000" />
       <workItem from="1761670872612" duration="58812000" />
-      <workItem from="1761900534971" duration="7840000" />
+      <workItem from="1761900534971" duration="11512000" />
     </task>
     <servers />
   </component>
