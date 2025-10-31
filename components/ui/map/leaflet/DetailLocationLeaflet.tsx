@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import {UmkmItem} from "@/types/umkm";
@@ -11,30 +11,61 @@ import UmkmInfoModal from "@/components/ui/map/UmkmInfoModal";
 import DetailInfoPanel from "@/components/ui/map/info_panel/DetailInfoPanel";
 import {initMap} from "@/utils/map/initMap";
 import {createDivIcon} from "@/utils/map/createDivIcon";
+import {useUserLocationStore} from "@/store/useUserLocationStore";
 
 interface LeafletMapProps {
   umkm: UmkmItem;
 }
 
+const DEFAULT_CENTER = { lat: -6.86507099703059, lng: 107.59368327596205 };
+
 const DetailLocationLeaflet: React.FC<LeafletMapProps> = ({umkm}) => {
+  const { userLocation, fetchUserLocation, clearUserLocation, isLoading, error } = useUserLocationStore();
+
   const [isShowMaximumMap, setIsShowMaximumMap] = useState(false);
 
-  const handleShowMaximumMap = (isShow: boolean) => {
-    setIsShowMaximumMap(isShow);
-    document.body.style.overflow = isShow ? "hidden" : "";
-  }
+  const mapRef = useRef<L.Map | null>(null);
 
   useEffect(() => {
-    const center: L.LatLngExpression = [-6.864598796216134, 107.59336857083889];
-    const map = initMap(isShowMaximumMap ? "mapFull" : "mapSmall", center);
+    return () => {
+      clearUserLocation();
+    };
+  }, []);
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors",
-      minZoom: 19
-    }).addTo(map);
+  /** -------------------------------
+   *  INITIALIZE MAP
+   * -------------------------------- */
+  useEffect(() => {
+    const mapId = isShowMaximumMap ? "mapFull" : "mapSmall";
+    let center: L.LatLngExpression = [-6.864598796216134, 107.59336857083889];
 
+    const map = initMap(mapId, center);
+    mapRef.current = map;
+
+    return () => {
+      map.off();
+      map.remove();
+      mapRef.current = null;
+    };
+  }, [isShowMaximumMap, userLocation]);
+
+  /** -------------------------------
+   *  UPDATE MARKER
+   * -------------------------------- */
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    // Hapus marker lama
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Marker || layer instanceof L.Circle || layer instanceof L.GeoJSON) {
+        map.removeLayer(layer);
+      }
+    });
+
+    /* UMKM Icon */
     const iconUMKM = createDivIcon(
-      <div className="relative w-8 h-8 bg-white rounded-full ring-2 ring-black">
+      <div className={`relative w-8 h-8 bg-white rounded-full ring-2 ring-black z-10 ${isLoading ? 'hidden' : 'block'}`}>
         <Image
           src="/images/umkm/default-umkm-profile.webp"
           alt="poto profil umkm"
@@ -48,14 +79,24 @@ const DetailLocationLeaflet: React.FC<LeafletMapProps> = ({umkm}) => {
       [-14, 5]
     );
 
-    const popupHtml = ReactDOMServer.renderToString(<UmkmInfoModal pageName="detail"/>);
+    const popupHtml = ReactDOMServer.renderToString(
+      <UmkmInfoModal
+        pageName="detail"
+        userLocation={userLocation}
+        umkmLocation={{lat: -6.864598796216134, lng: 107.59336857083889}}
+      />
+    );
 
     L.marker([-6.864548192578693, 107.5933793366201], {icon: iconUMKM}).bindPopup(popupHtml).addTo(map);
+  }, [isLoading, isShowMaximumMap, userLocation]);
 
-    return () => {
-      map.remove();
-    };
-  }, [isShowMaximumMap]);
+  /** -------------------------------
+   *  HANDLER
+   * -------------------------------- */
+  const handleShowMaximumMap = (isShow: boolean) => {
+    setIsShowMaximumMap(isShow);
+    document.body.style.overflow = isShow ? "hidden" : "";
+  }
 
   return (
     <>
@@ -65,20 +106,52 @@ const DetailLocationLeaflet: React.FC<LeafletMapProps> = ({umkm}) => {
           umkm={umkm}
           handleShowMaximumMap={handleShowMaximumMap}
         />
-        <div
-          id="mapSmall"
-          className="z-10 md:col-span-2 h-full md:h-full"
-        />
+        {
+          isLoading ? (
+            <div
+              className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
+            >
+              <p className="text-gray-700">Mendeteksi Lokasi...</p>
+            </div>
+          ) : error ? (
+            <div
+              className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
+            >
+              <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
+            </div>
+          ) : (
+            <div
+              id="mapSmall"
+              className="z-10 md:col-span-2 h-full md:h-full"
+            />
+          )
+        }
       </div>
 
       {
         isShowMaximumMap && (
           <div className="container w-screen h-screen bg-black/50 p-5 fixed inset-0 z-50">
             <div className="relative flex flex-col w-full h-full bg-black border-2 border-primary-content">
-              <div
-                id="mapFull"
-                className="z-10 col-span-2 h-full"
-              />
+              {
+                isLoading ? (
+                  <div
+                    className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
+                  >
+                    <p className="text-gray-700">Mendeteksi Lokasi...</p>
+                  </div>
+                ) : error ? (
+                  <div
+                    className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
+                  >
+                    <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
+                  </div>
+                ) : (
+                  <div
+                    id="mapFull"
+                    className="z-10 md:col-span-2 h-full md:h-full"
+                  />
+                )
+              }
 
               <DetailInfoPanel
                 isShowMaximumMap={isShowMaximumMap}
