@@ -1,12 +1,6 @@
-"use client";
-import Input from "@/components/ui/Input";
-import { useUmkmStore } from "@/store/useUmkmStore";
-
 export default function HeroSection() {
-  const { searchQuery, setSearchQuery } = useUmkmStore();
-
   return (
-    <div
+    <section  
       className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
     >
@@ -18,15 +12,7 @@ export default function HeroSection() {
         <p className="md:w-[403px] text-background">
           Cari makanan, minuman, dan jasa dari UMKM terdekat cepat, mudah, dan dekat di hati.
         </p>
-        <Input
-          placeholder="Cari nama UMKM atau alamat..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          labelClass="w-60 sm:w-80 h-12 px-4 rounded-full"
-          inputClass="flex-1 outline-none text-sm text-white"
-          bgColor={"bg-white/30"}
-        />
       </div>
-    </div>
+    </section>
   );
 }
