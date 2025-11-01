@@ -1,14 +1,10 @@
 [
   {
     "id": 1,
-    "title": "Nasi Goreng Pak Joko",
+    "name": "Nasi Goreng Pak Joko",
     "address": "Jl. Nasi Goreng No.1",
     "description": "Nasi goreng spesial dengan bumbu rahasia",
-    "images": [
-      "/images/umkm/umkmWarung.jpg",
-      "/images/nasgor1-2.jpg",
-      "/images/nasgor1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkmWarung.jpg", "/images/nasgor1-2.jpg", "/images/nasgor1-3.jpg"],
     "mainCategory": "fnb",
     "category": "nasi-goreng",
     "lat": -6.864548192578693,
@@ -16,14 +12,10 @@
   },
   {
     "id": 2,
-    "title": "Ayam Geprek Bensu",
+    "name": "Ayam Geprek Bensu",
     "address": "Jl. Geprek No.2",
     "description": "Ayam geprek dengan level pedas bisa request",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.864757563617405,
@@ -31,14 +23,10 @@
   },
   {
     "id": 3,
-    "title": "Bakso Mas Adi",
+    "name": "Bakso Mas Adi",
     "address": "Jl. Bakso No.3",
     "description": "Bakso sapi asli dengan kuah yang gurih",
-    "images": [
-      "/images/bakso1.jpg",
-      "/images/bakso1-2.jpg",
-      "/images/bakso1-3.jpg"
-    ],
+    "images": ["/images/bakso1.jpg", "/images/bakso1-2.jpg", "/images/bakso1-3.jpg"],
     "mainCategory": "fnb",
     "category": "bakso",
     "lat": -6.864548192578693,
@@ -46,14 +34,10 @@
   },
   {
     "id": 4,
-    "title": "Sate & Soto Pak Haji",
+    "name": "Sate & Soto Pak Haji",
     "address": "Jl. Sate No.4",
     "description": "Sate ayam dan soto ayam yang lezat",
-    "images": [
-      "/images/sate1.jpg",
-      "/images/sate1-2.jpg",
-      "/images/sate1-3.jpg"
-    ],
+    "images": ["/images/sate1.jpg", "/images/sate1-2.jpg", "/images/sate1-3.jpg"],
     "mainCategory": "fnb",
     "category": "soto-sate",
     "lat": -6.864648144183463,
@@ -61,14 +45,10 @@
   },
   {
     "id": 5,
-    "title": "Jahit Pakaian Berkah",
+    "name": "Jahit Pakaian Berkah",
     "address": "Jl. Jahit No.1",
     "description": "Jasa jahit pakaian profesional",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "jasa",
     "category": "jahit-pakaian",
     "lat": -6.8647892179892365,
@@ -76,14 +56,10 @@
   },
   {
     "id": 6,
-    "title": "Kembang Laundry",
+    "name": "Kembang Laundry",
     "address": "Jl. Kapten Abdul Hamid No.85, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Jasa laundry",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "jasa",
     "category": "jahit-pakaian",
     "lat": -6.8654549492783055,
@@ -91,14 +67,10 @@
   },
   {
     "id": 7,
-    "title": "Bakso Mas Bandi",
+    "name": "Bakso Mas Bandi",
     "address": "JL. Kapten Hamid Panorama III, No. 65/1672, Setiabudi, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Jasa jahit pakaian profesional",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "fnb",
     "category": "jahit-pakaian",
     "lat": -6.8655315098447405,
@@ -106,14 +78,10 @@
   },
   {
     "id": 8,
-    "title": "RM Panorama",
+    "name": "RM Panorama",
     "address": "Jl. Kapten Abdul Hamid No.3, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Rumah masakkan padang panorama",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "fnb",
     "category": "jahit-pakaian",
     "lat": -6.864977233710673,
@@ -121,14 +89,10 @@
   },
   {
     "id": 9,
-    "title": "Warung Imas",
+    "name": "Warung Imas",
     "address": "Jl. Kapten Abdul Hamid No.53, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Warung kelontong",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.86589225063404,
@@ -136,14 +100,10 @@
   },
   {
     "id": 10,
-    "title": "Ayam Geprek Bensu",
+    "name": "Ayam Geprek Bensu",
     "address": "Jl. Geprek No.2",
     "description": "Ayam geprek dengan level pedas bisa request",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.865693562270846,
@@ -151,14 +111,10 @@
   },
   {
     "id": 11,
-    "title": "Warnas 94",
+    "name": "Warnas 94",
     "address": "Jl. Kapten Abdul Hamid No.87, Ledeng, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Warung Nasi sejak 1994",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.865886508202573,
@@ -166,14 +122,10 @@
   },
   {
     "id": 12,
-    "title": "Sate Ayam Kambing Cak Kumis 1",
+    "name": "Sate Ayam Kambing Cak Kumis 1",
     "address": "Panorama II, Jl. Kapten Abdul Hamid No.36, Hegarmanah, Cidadap, Bandung City, West Java 40141",
     "description": "Menjual sate kambing",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.8651836333695435,
@@ -181,14 +133,10 @@
   },
   {
     "id": 13,
-    "title": "Salon Berkah",
+    "name": "Salon Berkah",
     "address": "4HPR+5X9, Jl. Gegerkalong Girang, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153",
     "description": "Ayam geprek dengan level pedas bisa request",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "jasa",
     "category": "ayam-geprek",
     "lat": -6.864587611952869,
@@ -196,14 +144,10 @@
   },
   {
     "id": 14,
-    "title": "Mie Ayam dan Baso Bakar Panorama",
+    "name": "Mie Ayam dan Baso Bakar Panorama",
     "address": "4HMW+V2F, Hegarmanah, Cidadap, Bandung City, West Java 40141",
     "description": "Ayam geprek dengan level pedas bisa request",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.865297806129939,
@@ -211,14 +155,10 @@
   },
   {
     "id": 15,
-    "title": "Nasi Kuning dan Nasi Uduk Teh Nyai",
+    "name": "Nasi Kuning dan Nasi Uduk Teh Nyai",
     "address": "Jl. Kapten Abdul Hamid Panorama II, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Ayam geprek dengan level pedas bisa request",
-    "images": [
-      "/images/umkm/umkm1-gallery3.jpg",
-      "/images/geprek1-2.jpg",
-      "/images/geprek1-3.jpg"
-    ],
+    "images": ["/images/umkm/umkm1-gallery3.jpg", "/images/geprek1-2.jpg", "/images/geprek1-3.jpg"],
     "mainCategory": "fnb",
     "category": "ayam-geprek",
     "lat": -6.865353728651366,
@@ -226,14 +166,10 @@
   },
   {
     "id": 16,
-    "title": "Jahit Pakaian Berkah",
+    "name": "Jahit Pakaian Berkah",
     "address": "Jl. Jahit No.1",
     "description": "Jasa jahit pakaian profesional",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "jasa",
     "category": "jahit-pakaian",
     "lat": -6.86556676676889,
@@ -241,14 +177,10 @@
   },
   {
     "id": 17,
-    "title": "Chicken Cobek Berkah",
+    "name": "Chicken Cobek Berkah",
     "address": "Jl. Jahit No.1",
     "description": "Jasa jahit pakaian profesional",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "jasa",
     "category": "jahit-pakaian",
     "lat": -6.865154719934496,
@@ -256,14 +188,10 @@
   },
   {
     "id": 18,
-    "title": "Daang Food & Drink",
+    "name": "Daang Food & Drink",
     "address": "Jl. Kapten Abdul Hamid, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     "description": "Jasa jahit pakaian profesional",
-    "images": [
-      "/images/jahit1.jpg",
-      "/images/jahit1-2.jpg",
-      "/images/jahit1-3.jpg"
-    ],
+    "images": ["/images/jahit1.jpg", "/images/jahit1-2.jpg", "/images/jahit1-3.jpg"],
     "mainCategory": "fnb",
     "category": "jahit-pakaian",
     "lat": -6.86520398502498,
