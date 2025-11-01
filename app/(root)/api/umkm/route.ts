@@ -2,13 +2,27 @@ import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  try {
+    const { searchParams } = new URL(request.url);
 
-  const mainCategory = searchParams.get("mainCategory");
-  const umkmList = await prisma.umkm.findMany({
-    where: {
-      mainCategory,
-    },
-  });
-  return NextResponse.json(umkmList);
+    const mainCategory = searchParams.get("mainCategory");
+    
+    console.log("Fetching UMKM with mainCategory:", mainCategory);
+    
+    const umkmList = await prisma.umkm.findMany({
+      where: mainCategory ? {
+        mainCategory,
+      } : undefined,
+    });
+    
+    console.log("Found UMKM:", umkmList.length);
+    
+    return NextResponse.json(umkmList);
+  } catch (error) {
+    console.error("Error fetching UMKM:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch UMKM data", details: error instanceof Error ? error.message : String(error) },
+      { status: 500 }
+    );
+  }
 }
