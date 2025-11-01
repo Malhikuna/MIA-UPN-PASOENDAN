@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import {UmkmItem} from "@/types/umkm";
@@ -15,6 +15,7 @@ import {initMap} from "@/utils/map/initMap";
 import {getDistance} from "@/utils/getDistance";
 import umkmData from "@/data/umkm.json";
 import {useUserLocationStore} from "@/store/useUserLocationStore";
+import {useUmkmLogic} from "@/hooks/useUmkmLogic";
 
 interface LeafletMapProps {
   umkm: UmkmItem[];
@@ -58,13 +59,19 @@ const NearbyLocationLeaflet = ({}) => {
   /*const mainLocation = useState(userLocation ?? {lat: -6.86507099703059, lng: 107.59368327596205});*/
   const mapRef = useRef<L.Map | null>(null);
 
+  const { filteredData } = useUmkmLogic();
+
+  const newestData = useMemo(() => {
+    return [...filteredData].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }, [filteredData]);
+
   /** -------------------------------
    *  FILTER UMKM TERDEKAT
    * -------------------------------- */
   useEffect(() => {
     const base = userLocation ?? DEFAULT_CENTER;
 
-    const filtered = umkmData
+    const filtered = newestData
       .map((u) => ({
         ...u,
         distance: getDistance(base.lat, base.lng, u.lat, u.lng),
