@@ -14,14 +14,16 @@ export default function UmkmListSection() {
 
   // Sort data terbaru berdasarkan ID terbesar ke terkecil
   const newestData = useMemo(() => {
-    return [...filteredData].sort((a, b) => b.id - a.id);
+    return [...filteredData].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   }, [filteredData]);
+
+  console.log([...filteredData]);
 
   // Animasi untuk section Terdekat
   useEffect(() => {
     if (sliderRef.current) {
       const cards = sliderRef.current.children;
-      
+
       gsap.fromTo(
         cards,
         {
@@ -45,7 +47,7 @@ export default function UmkmListSection() {
   useEffect(() => {
     if (newestSliderRef.current) {
       const cards = newestSliderRef.current.children;
-      
+
       gsap.fromTo(
         cards,
         {
@@ -78,10 +80,7 @@ export default function UmkmListSection() {
         </h1>
 
         {filteredData.length > 0 && (
-          <Link
-            href="/umkm"
-            className="flex items-center gap-2 hover:text-primary-content transition-colors group"
-          >
+          <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
             <p className="font-semibold">Show All</p>
             <ChevronRight className="transition-transform group-hover:translate-x-1" />
           </Link>
@@ -91,25 +90,20 @@ export default function UmkmListSection() {
       {/* Horizontal Slider */}
       {hasResults && (
         <div className="relative mt-8">
-          <div 
+          <div
             ref={sliderRef}
             className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
             style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
             }}
           >
             {displayedData.map((umkm: UmkmItem) => (
-              <Link 
-                href={`/umkm/${umkm.id}`} 
-                key={umkm.id}
-                className="flex-shrink-0 w-[300px] md:w-[350px] snap-start"
-              >
-                <Card title={umkm.title} address={umkm.address} image={umkm.images[0]} />
+              <Link href={`/umkm/${umkm.id}`} key={umkm.id} className="flex-shrink-0 w-[300px] md:w-[350px] snap-start">
+                <Card title={umkm.name} address={umkm.address} image={umkm.imageUrl[0]} />
               </Link>
             ))}
           </div>
-        
         </div>
       )}
 
@@ -136,10 +130,7 @@ export default function UmkmListSection() {
             </h1>
 
             {newestData.length > 0 && (
-              <Link
-                href="/umkm"
-                className="flex items-center gap-2 hover:text-primary-content transition-colors group"
-              >
+              <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
                 <p className="font-semibold">Show All</p>
                 <ChevronRight className="transition-transform group-hover:translate-x-1" />
               </Link>
@@ -148,28 +139,27 @@ export default function UmkmListSection() {
 
           {/* Horizontal Slider Terbaru */}
           <div className="relative mt-8">
-            <div 
+            <div
               ref={newestSliderRef}
               className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
               style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
               }}
             >
               {displayedNewestData.map((umkm: UmkmItem) => (
-                <Link 
-                  href={`/umkm/${umkm.id}`} 
+                <Link
+                  href={`/umkm/${umkm.id}`}
                   key={`newest-${umkm.id}`}
                   className="flex-shrink-0 w-[300px] md:w-[350px] snap-start"
                 >
-                  <Card title={umkm.title} address={umkm.address} image={umkm.images[0]} />
+                  <Card title={umkm.name} address={umkm.address} image={umkm.imageUrl[0]} />
                 </Link>
               ))}
             </div>
           </div>
         </div>
       )}
-      
     </section>
   );
 }

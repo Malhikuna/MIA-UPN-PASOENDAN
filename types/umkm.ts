@@ -1,22 +1,24 @@
-export type UmkmCategory = 
-  | "nasi-goreng" 
-  | "ayam-geprek" 
-  | "bakso" 
-  | "soto-sate" 
-  | "jahit-pakaian" 
-  | "salon" 
+export type UmkmCategory =
+  | "nasi-goreng"
+  | "ayam-geprek"
+  | "bakso"
+  | "soto-sate"
+  | "jahit-pakaian"
+  | "salon"
   | "bengkel";
 
 export type UmkmMainCategory = "fnb" | "jasa";
 
 export type UmkmItem = {
   id: number;
-  title: string;
+  name: string;
   address: string;
-  description: string;
-  images: string[];
   mainCategory: UmkmMainCategory;
-  category: UmkmCategory;
-  /*lat: number;
-  lng: number;*/
+  subCategory: UmkmCategory;
+  description: string;
+  imageUrl: string[];
+  lat?: number;
+  lng?: number;
+  createdAt: Date;
+  updatedAt: Date;
 };

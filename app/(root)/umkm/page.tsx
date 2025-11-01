@@ -109,7 +109,7 @@ export default function UmkmPage() {
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[530px]">
           {paginatedItems.map((umkm: UmkmItem) => (
             <Link href={`/umkm/${umkm.id}`} key={umkm.id}>
-              <Card title={umkm.title} address={umkm.address} image={umkm.images[0]} />
+              <Card title={umkm.name} address={umkm.address} image={umkm.imageUrl[0]} />
             </Link>
           ))}
         </div>
