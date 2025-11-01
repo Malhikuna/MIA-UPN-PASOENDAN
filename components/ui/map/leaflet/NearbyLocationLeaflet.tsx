@@ -1,10 +1,8 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { UmkmItem } from "@/types/umkm";
 import { LocateFixed, Minimize2, UserRound } from "lucide-react";
-import Link from "next/link";
 import { FeatureCollection } from "geojson";
 import Image from "next/image";
 import ReactDOMServer from "react-dom/server";
@@ -14,32 +12,17 @@ import { createDivIcon } from "@/utils/map/createDivIcon";
 import { initMap } from "@/utils/map/initMap";
 import { getDistance } from "@/utils/getDistance";
 import { useUserLocationStore } from "@/store/useUserLocationStore";
-import { useUmkm } from "@/hooks/useUmkm";
-
-interface LeafletMapProps {
-  umkm: UmkmItem[];
-}
-
-export interface UmkmItemm {
-  id: number;
-  title: string;
-  address: string;
-  description: string;
-  images: string[];
-  mainCategory: string;
-  category: string;
-  lat: number;
-  lng: number;
-}
+import { useUmkmLogic } from "@/hooks/useUmkmLogic";
+import { UmkmItem } from "@/types/umkm";
 
 const DEFAULT_CENTER = { lat: -6.86507099703059, lng: 107.59368327596205 };
 
-const dataUMKM = (nearbyUMKM: UmkmItemm[]): FeatureCollection => ({
+const dataUMKM = (nearbyUMKM: UmkmItem[]): FeatureCollection => ({
   type: "FeatureCollection",
   features: nearbyUMKM.map((v) => ({
     type: "Feature",
     properties: {
-      nama: v.title,
+      nama: v.name,
       jenis: v.mainCategory,
     },
     geometry: {
@@ -50,7 +33,6 @@ const dataUMKM = (nearbyUMKM: UmkmItemm[]): FeatureCollection => ({
 });
 
 const NearbyLocationLeaflet = ({}) => {
-  const umkmData = useUmkm();
   const { userLocation, fetchUserLocation, clearUserLocation, isLoading, error } = useUserLocationStore();
 
   const [nearbyUMKM, setNearbyUMKM] = useState<any[]>([]);
@@ -59,13 +41,20 @@ const NearbyLocationLeaflet = ({}) => {
   /*const mainLocation = useState(userLocation ?? {lat: -6.86507099703059, lng: 107.59368327596205});*/
   const mapRef = useRef<L.Map | null>(null);
 
+  const { filteredData } = useUmkmLogic();
+
+  const newestData = filteredData;
+
+  console.log(newestData);
+  console.log(filteredData);
+
   /** -------------------------------
    *  FILTER UMKM TERDEKAT
    * -------------------------------- */
   useEffect(() => {
     const base = userLocation ?? DEFAULT_CENTER;
 
-    const filtered = umkmData
+    const filtered = newestData
       .map((u) => ({
         ...u,
         distance: getDistance(base.lat, base.lng, u.lat, u.lng),
@@ -74,7 +63,7 @@ const NearbyLocationLeaflet = ({}) => {
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyUMKM(filtered);
-  }, [radius]);
+  }, [radius, filteredData]);
 
   useEffect(() => {
     return () => {
