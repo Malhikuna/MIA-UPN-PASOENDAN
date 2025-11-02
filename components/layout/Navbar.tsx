@@ -81,7 +81,7 @@ export default function Navbar() {
   }, [pathname, focus, router]);
 
   return (
-    <nav className={`flex justify-center h-16 ${navClass} ${isTextChanged ? "bg-white/80" : ""}`}>
+    <nav className={`flex justify-center h-16 ${navClass} ${pathname.startsWith("/umkm") || isTextChanged ? "bg-white/80 shadow-md" : ""}`}>
       <div className="container flex mx-auto justify-between items-center px-8 md:px-12">
         <Link href={`/`}>
           <Image src={logoSrc} alt="CariKita" height={100} width={100} />
@@ -94,8 +94,8 @@ export default function Navbar() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="flex-1 outline-none text-sm text-white"
-            labelClassName="w-[30vw]"
-            bgColor={"bg-black/30"}
+            labelClassName="w-[40vw]"
+            bgColor={`bg-black/20`}
           />
         ) : (
           <Link href={`/umkm?focus=true`} className="w-fit">
