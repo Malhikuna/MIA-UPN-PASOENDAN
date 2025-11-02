@@ -18,7 +18,7 @@ const DetailInfoPanel: React.FC<DetailInfoPanelProps> = ({isShowMaximumMap, hand
       <div className="flex flex-col gap-4">
         <p className="text-gray-600 flex font-medium items-center gap-2">
           <MapPin/>
-          {umkm.address}
+          {isShowMaximumMap ? umkm.address : umkm.address.slice(0, 25) + '...'}
         </p>
 
         <p className="text-gray-600 flex font-medium items-center gap-2">

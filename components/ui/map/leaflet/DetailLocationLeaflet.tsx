@@ -37,7 +37,7 @@ const DetailLocationLeaflet: React.FC<LeafletMapProps> = ({umkm}) => {
    * -------------------------------- */
   useEffect(() => {
     const mapId = isShowMaximumMap ? "mapFull" : "mapSmall";
-    let center: L.LatLngExpression = [-6.864598796216134, 107.59336857083889];
+    let center: L.LatLngExpression = [umkm.lat, umkm.lng];
 
     const map = initMap(mapId, center);
     mapRef.current = map;
@@ -83,11 +83,11 @@ const DetailLocationLeaflet: React.FC<LeafletMapProps> = ({umkm}) => {
       <UmkmInfoModal
         pageName="detail"
         userLocation={userLocation}
-        umkmLocation={{lat: -6.864598796216134, lng: 107.59336857083889}}
+        umkmLocation={{lat: umkm.lat, lng: umkm.lng}}
       />
     );
 
-    L.marker([-6.864548192578693, 107.5933793366201], {icon: iconUMKM}).bindPopup(popupHtml).addTo(map);
+    L.marker([umkm.lat, umkm.lng], {icon: iconUMKM}).bindPopup(popupHtml).addTo(map);
   }, [isLoading, isShowMaximumMap, userLocation]);
 
   /** -------------------------------

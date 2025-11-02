@@ -44,14 +44,14 @@ export default function Navbar() {
   const navClass = `
     ${baseClasses}
     ${
-      isScrolled
-        ? pathname.startsWith("/")
-          ? "text-primary-content-dark glass shadow-md"
-          : "glass shadow-md"
-        : currentConfig.transparent
+    isScrolled
+      ? pathname.startsWith("/")
+        ? "text-primary-content-dark glass shadow-md"
+        : "glass shadow-md"
+      : currentConfig.transparent
         ? "bg-transparent"
         : "bg-white"
-    }
+  }
   `;
 
   const textColor = currentConfig.text === "white" ? "text-white" : "text-primary-content";
@@ -69,8 +69,6 @@ export default function Navbar() {
 
   const focus = searchParams.get("focus");
 
-  console.log(focus);
-
   useEffect(() => {
     if (pathname.startsWith("/umkm") && focus === "true" && inputRef.current) {
       inputRef.current.focus();
@@ -81,7 +79,7 @@ export default function Navbar() {
   }, [pathname, focus, router]);
 
   return (
-    <nav className={`flex justify-center h-16 ${navClass} ${pathname.startsWith("/umkm") || isTextChanged ? "bg-white/80 shadow-md" : ""}`}>
+    <nav className={`flex justify-center h-16 ${navClass} ${isTextChanged ? "bg-white/80 shadow-md" : ""}`}>
       <div className="container flex mx-auto justify-between items-center px-8 md:px-12">
         <Link href={`/`}>
           <Image src={logoSrc} alt="CariKita" height={100} width={100} />

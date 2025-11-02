@@ -25,10 +25,10 @@ export const useUmkmLogic = () => {
   );
 
   // get data
-  const umkmData = useUmkm();
+  const { umkmList, loading } = useUmkm();
 
   // Filter data using custom hook
-  const filteredData = useUmkmFilter(umkmData, selectedSubCategory, searchQuery);
+  const filteredData = useUmkmFilter(umkmList, selectedSubCategory, searchQuery);
 
   // Display data (3 or all)
   const displayedData = useMemo(() => (showAll ? filteredData : filteredData.slice(0, 3)), [showAll, filteredData]);
@@ -64,6 +64,7 @@ export const useUmkmLogic = () => {
     filteredData,
     displayedData,
     listTitle,
+    loading,
     handleMainCategoryChange,
     handleSubCategoryChange,
     handleReset,

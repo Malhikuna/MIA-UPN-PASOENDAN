@@ -43,3 +43,10 @@ next-env.d.ts
 /app/generated/prisma
 
 .vercel
+
+# Prisma generated client
+app/generated/prisma/
+prisma/app/generated/prisma/
+
+# JetBrains IDE settings
+.idea/

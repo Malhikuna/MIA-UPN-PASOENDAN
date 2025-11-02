@@ -4,13 +4,18 @@ import Card from "@/components/ui/Card";
 import { UmkmItem } from "@/types/umkm";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
+import Loading from "@/app/(root)/loading";
 
 export default function UmkmListSection() {
-  const { listTitle, filteredData, handleReset } = useUmkmLogic();
+  const { listTitle, filteredData, handleReset, loading} = useUmkmLogic();
   const sliderRef = useRef<HTMLDivElement>(null);
   const newestSliderRef = useRef<HTMLDivElement>(null);
+
+  /*if (loading) {
+    return <Loading page="detail"></Loading>
+  }*/
 
   // Sort data terbaru berdasarkan ID terbesar ke terkecil
   const newestData = useMemo(() => {
