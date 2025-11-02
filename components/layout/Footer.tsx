@@ -47,7 +47,7 @@ export default function Footer() {
             CariKita
           </h2> */}
           <Image
-            src="/images/CariKitaWhite.png"
+            src="/images/logo/carikita-white.webp"
             alt="CariKita"
             height={250}
             width={250}

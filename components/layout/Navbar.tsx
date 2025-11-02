@@ -59,9 +59,9 @@ export default function Navbar() {
   const isHome = pathname === "/";
   const logoSrc = isHome
     ? isTextChanged
-      ? "/images/CariKitaBlack.png"
-      : "/images/CariKitaWhite.png"
-    : "/images/CariKitaBlack.png";
+      ? "/images/logo/carikita-black.webp"
+      : "/images/logo/carikita-white.webp"
+    : "/images/logo/carikita-black.webp";
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -122,10 +122,6 @@ export default function Navbar() {
           <li>
             <Link href={`/about`}>About Us</Link>
           </li>
-          {/* <li>
-            <input type="search" className="w-100 h-10 bg-white rounded-full" />
-            <Input className={"flex-1 outline-none text-sm text-white"} />
-          </li> */}
         </ul>
       </div>
     </nav>
