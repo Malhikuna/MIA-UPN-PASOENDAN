@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from "../app/generated/prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const IMAGE_BASE = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || "http://localhost:3000";
@@ -6,8 +6,7 @@ const IMAGE_BASE = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || "http://localhost:3
 const umkmData: Prisma.UmkmCreateInput[] = [
   {
     name: "MAB Copy Shop",
-    address:
-      "Gg. H. Ridho No.56, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153",
+    address: "Gg. H. Ridho No.56, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153",
     description: "toko fotokopi",
     imageUrl: [
       "/images/umkm/jasa/fotokopi/mab-copyshop-1.webp",
@@ -21,8 +20,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Satria Fotocopy",
-    address:
-      "Jl. Gegerkalong Girang No.49, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40154",
+    address: "Jl. Gegerkalong Girang No.49, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40154",
     description: "Tempat untuk print dan fotokopi",
     whatsApp: "082119398944",
     imageUrl: [
@@ -37,8 +35,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Kembang Laundry",
-    address:
-      "Jl. Kapten Abdul Hamid No.85, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
+    address: "Jl. Kapten Abdul Hamid No.85, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     description: "Jasa laundry",
     whatsApp: "081321114235",
     imageUrl: [
@@ -68,8 +65,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Tako Takoyaki",
-    address:
-      "Jl. Gegerkalong Girang No.31, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153",
+    address: "Jl. Gegerkalong Girang No.31, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153",
     description: "Jajanan takoyaki",
     whatsApp: "085224409982",
     imageUrl: [
@@ -100,8 +96,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Warung Nasi Padang 88 Uni Angel",
-    address:
-      "Jl. Gegerkalong Girang, Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154",
+    address: "Jl. Gegerkalong Girang, Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154",
     description: "Masakan ala padang",
     imageUrl: [
       "/images/umkm/fnb/nasi-padang/nasdang-88-1.webp",
@@ -115,8 +110,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Nasi Goreng Rono",
-    address:
-      "Jl. Kapten Abdul Hamid No.35, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
+    address: "Jl. Kapten Abdul Hamid No.35, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     description: "Tempat makan nasi goreng berbagai varian",
     whatsApp: "087730300304",
     imageUrl: [
@@ -131,8 +125,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Daang Food & Drink",
-    address:
-      "Jl. Kapten Abdul Hamid, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
+    address: "Jl. Kapten Abdul Hamid, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     description: "Tempat makan dan nongkrong kekinian",
     whatsApp: "085294135424",
     imageUrl: [
@@ -147,8 +140,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Warnas 94",
-    address:
-      "Jl. Kapten Abdul Hamid No.87, Ledeng, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
+    address: "Jl. Kapten Abdul Hamid No.87, Ledeng, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     description: "Warung Nasi legendaris sejak 1994",
     imageUrl: [
       "/images/umkm/fnb/warnas/warnas-94-1.webp",
@@ -162,8 +154,7 @@ const umkmData: Prisma.UmkmCreateInput[] = [
   },
   {
     name: "Toko Panorama 54",
-    address:
-      "Jl. Kapten Abdul Hamid No.35, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
+    address: "Jl. Kapten Abdul Hamid No.35, Hegarmanah, Kec. Cidadap, Kota Bandung, Jawa Barat 40141",
     description: "Toko kenlontong jln panorama",
     whatsApp: "089538429008",
     imageUrl: [

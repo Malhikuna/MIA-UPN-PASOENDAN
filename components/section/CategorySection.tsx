@@ -11,10 +11,10 @@ export default function CategorySection() {
 
   const { currentSubCategories, handleMainCategoryChange, handleSubCategoryChange } = useUmkmLogic();
 
-  useEffect(() => {
-    const theme = selectedMainCategory === "fnb" ? "fnb-theme" : "jasa-theme";
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [selectedMainCategory]);
+  // useEffect(() => {
+  //   const theme = selectedMainCategory === "fnb" ? "fnb-theme" : "jasa-theme";
+  //   document.documentElement.setAttribute("data-theme", theme);
+  // }, [selectedMainCategory]);
 
   return (
     <section id="category-section" className="container mx-auto py-5 md:py-10 px-8 md:px-12">
