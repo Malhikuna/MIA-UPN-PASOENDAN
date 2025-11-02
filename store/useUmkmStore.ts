@@ -1,6 +1,5 @@
 import { UmkmCategory, UmkmMainCategory } from "@/types/umkm";
 import { create } from "zustand";
-import {UmkmItemm} from "@/components/ui/map/leaflet/NearbyLocationLeaflet";
 
 interface UmkmStore {
   // nearbyUmkm: UmkmItemm[];
