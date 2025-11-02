@@ -27,7 +27,7 @@ export default function Card({ title, description, image, address, className = '
         {address && (
           <div className="flex items-center gap-2">
             <MapPin size={16} />
-            <p className="text-sm text-gray-200">{address}</p>
+            <p className="text-sm text-gray-200">{address ? address.slice(0, 25) + (address.length > 25 ? "..." : "") : "No address"}</p>
           </div>
         )}
       </div>

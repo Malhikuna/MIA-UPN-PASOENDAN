@@ -1,45 +1,28 @@
 "use client";
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import {UmkmItem} from "@/types/umkm";
-import {LocateFixed, Minimize2, UserRound} from "lucide-react";
-import Link from "next/link";
+import {LocateFixed, Maximize2, Minimize2, UserRound} from "lucide-react";
 import { FeatureCollection } from "geojson";
 import Image from "next/image";
 import ReactDOMServer from "react-dom/server";
 import UmkmInfoModal from "@/components/ui/map/UmkmInfoModal";
 import MainInfoPanel from "@/components/ui/map/info_panel/MainInfoPanel";
-import {createDivIcon} from "@/utils/map/createDivIcon";
-import {initMap} from "@/utils/map/initMap";
-import {getDistance} from "@/utils/getDistance";
-import umkmData from "@/data/umkm.json";
-import {useUserLocationStore} from "@/store/useUserLocationStore";
-
-interface LeafletMapProps {
-  umkm: UmkmItem[];
-}
-
-export interface UmkmItemm {
-  id: number;
-  title: string;
-  address: string;
-  description: string;
-  images: string[];
-  mainCategory: string;
-  category: string;
-  lat: number;
-  lng: number;
-}
+import { createDivIcon } from "@/utils/map/createDivIcon";
+import { initMap } from "@/utils/map/initMap";
+import { getDistance } from "@/utils/getDistance";
+import { useUserLocationStore } from "@/store/useUserLocationStore";
+import { useUmkmLogic } from "@/hooks/useUmkmLogic";
+import { UmkmItem } from "@/types/umkm";
 
 const DEFAULT_CENTER = { lat: -6.86507099703059, lng: 107.59368327596205 };
 
-const dataUMKM = (nearbyUMKM: UmkmItemm[]): FeatureCollection => ({
+const dataUMKM = (nearbyUMKM: UmkmItem[]): FeatureCollection => ({
   type: "FeatureCollection",
   features: nearbyUMKM.map((v) => ({
     type: "Feature",
     properties: {
-      nama: v.title,
+      nama: v.name,
       jenis: v.mainCategory,
     },
     geometry: {
@@ -58,13 +41,17 @@ const NearbyLocationLeaflet = ({}) => {
   /*const mainLocation = useState(userLocation ?? {lat: -6.86507099703059, lng: 107.59368327596205});*/
   const mapRef = useRef<L.Map | null>(null);
 
+  const { filteredData } = useUmkmLogic();
+
+  const newestData = filteredData;
+
   /** -------------------------------
    *  FILTER UMKM TERDEKAT
    * -------------------------------- */
   useEffect(() => {
     const base = userLocation ?? DEFAULT_CENTER;
 
-    const filtered = umkmData
+    const filtered = newestData
       .map((u) => ({
         ...u,
         distance: getDistance(base.lat, base.lng, u.lat, u.lng),
@@ -73,7 +60,7 @@ const NearbyLocationLeaflet = ({}) => {
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyUMKM(filtered);
-  }, [radius]);
+  }, [radius, filteredData]);
 
   useEffect(() => {
     return () => {
@@ -87,10 +74,10 @@ const NearbyLocationLeaflet = ({}) => {
   useEffect(() => {
     const mapId = isShowMaximumMap ? "mapFull" : "mapSmall";
     let center: L.LatLngExpression;
-    if (userLocation)
-      center = [userLocation.lat, userLocation.lng];
-    else
-      center = [DEFAULT_CENTER.lat, DEFAULT_CENTER.lng];
+    if (userLocation) center = [userLocation.lat, userLocation.lng];
+    else center = [DEFAULT_CENTER.lat, DEFAULT_CENTER.lng];
+
+    console.log("kontol");
 
     const map = initMap(mapId, center);
     mapRef.current = map;
@@ -118,7 +105,9 @@ const NearbyLocationLeaflet = ({}) => {
 
     /* UMKM Icon */
     const iconUMKM = createDivIcon(
-      <div className={`relative w-8 h-8 bg-white rounded-full ring-2 ring-black z-10 ${isLoading ? 'hidden' : 'block'}`}>
+      <div
+        className={`relative w-8 h-8 bg-white rounded-full ring-2 ring-black z-10 ${isLoading ? "hidden" : "block"}`}
+      >
         <Image
           src="/images/umkm/default-umkm-profile.webp"
           alt="poto profil umkm"
@@ -142,21 +131,20 @@ const NearbyLocationLeaflet = ({}) => {
       [-3, 5]
     );
 
-    if(userLocation) {
+    if (userLocation) {
       const popupUser = ReactDOMServer.renderToString(
         <div className="w-auto h-auto p-2 z-20">
           <div className="relative popup-header">
             <div className="flex-center w-8 h-8 bg-red-200 rounded-full ring-2 ring-black">
-              <UserRound/>
+              <UserRound />
             </div>
-            <p>
-              Lokasi Anda Saat Ini
-            </p>
+            <p>Lokasi Anda Saat Ini</p>
           </div>
-        </div>);
+        </div>
+      );
 
       /* User Marker */
-      L.marker([userLocation.lat, userLocation.lng], {icon: iconUser, zIndexOffset: 1000})
+      L.marker([userLocation.lat, userLocation.lng], { icon: iconUser, zIndexOffset: 1000 })
         .bindPopup(popupUser)
         .addTo(map);
 
@@ -178,16 +166,13 @@ const NearbyLocationLeaflet = ({}) => {
         onEachFeature: (feature, layer) => {
           const [lng, lat] = (feature.geometry as GeoJSON.Point).coordinates;
           const popupHtml = ReactDOMServer.renderToString(
-            <UmkmInfoModal
-              pageName="home"
-              userLocation={userLocation}
-              umkmLocation={{lat, lng}}
-            />);
+            <UmkmInfoModal pageName="home" userLocation={userLocation} umkmLocation={{ lat, lng }} />
+          );
           layer.bindPopup(popupHtml);
         },
       }).addTo(map);
     }
-  }, [isLoading, userLocation, nearbyUMKM]);
+  }, [isLoading, userLocation, nearbyUMKM, isShowMaximumMap]);
 
   /** -------------------------------
    *  HANDLER
@@ -195,7 +180,7 @@ const NearbyLocationLeaflet = ({}) => {
   const handleShowMaximumMap = (isShow: boolean) => {
     setIsShowMaximumMap(isShow);
     document.body.style.overflow = isShow ? "hidden" : "";
-  }
+  };
 
   return (
     <>
@@ -205,81 +190,78 @@ const NearbyLocationLeaflet = ({}) => {
           isShowMaximumMap={isShowMaximumMap}
           handleShowMaximumMap={handleShowMaximumMap}
         />
-        {
-          isLoading ? (
-            <div
-              className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
-            >
-              <p className="text-gray-700">Mendeteksi Lokasi...</p>
-            </div>
-          ) : error ? (
-            <div
-              className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
-            >
-              <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
-            </div>
-          ) : (
-            <div
-              id="mapSmall"
-              className="z-10 md:col-span-2 h-full md:h-full"
-            />
-          )
-        }
+        {isLoading ? (
+          <div className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300">
+            <p className="text-gray-700">Mendeteksi Lokasi...</p>
+          </div>
+        ) : error ? (
+          <div className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300">
+            <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
+          </div>
+        ) : (
+          <div id="mapSmall" className="z-10 md:col-span-2 h-full md:h-full"/>
+        )}
         <button
           className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20"
           onClick={fetchUserLocation}
         >
           <LocateFixed className="text-primary-content"/>
         </button>
+
+        <button
+          className="flex justify-center items-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20 block lg:hidden right-14"
+          onClick={() => handleShowMaximumMap(true)}
+        >
+          <Maximize2 className="text-primary-content"/>
+        </button>
       </div>
 
-      {
+      {/*{
         isShowMaximumMap && (
           <div className="container w-screen h-screen bg-black/50 p-5 fixed inset-0 z-50">
-            <div className="relative flex w-full h-full bg-black border-2 border-primary-content">
-              <MainInfoPanel
-                isShowMaximumMap={isShowMaximumMap}
-                handleShowMaximumMap={handleShowMaximumMap}
-              />
-
-              {
-                isLoading ? (
-                  <div
-                    className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
-                  >
-                    <p className="text-gray-700">Mendeteksi Lokasi...</p>
-                  </div>
-                ) : error ? (
-                  <div
-                    className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300"
-                  >
-                    <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
-                  </div>
-                ) : (
-                  <div
-                    id="mapFull"
-                    className="z-10 md:col-span-2 h-full md:h-full"
-                  />
-                )
-              }
-
-              <button
-                className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20"
-                onClick={() => handleShowMaximumMap(false)}
-              >
-                <Minimize2 className="text-primary-content"/>
-              </button>
-
-              <button
-                className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-14 cursor-pointer bg-white z-20"
-                onClick={fetchUserLocation}
-              >
-                <LocateFixed className="text-primary-content"/>
-              </button>
+            <div className="relative flex w-full h-full border-2 border-primary-content grid grid-cols-1 md:grid-cols-3">
+              <div id="mapFull" className="z-10 md:col-span-2 h-full md:h-full"/>
             </div>
           </div>
         )
-      }
+      }*/}
+
+      {isShowMaximumMap && (
+        <div className="container w-screen h-screen bg-black/50 p-5 fixed inset-0 z-50">
+          <div className="relative flex w-full h-full border-2 border-primary-content overflow-hidden grid grid-cols-2 lg:grid-cols-3">
+            <MainInfoPanel
+              isShowMaximumMap={isShowMaximumMap}
+              handleShowMaximumMap={handleShowMaximumMap}
+            />
+
+            {isLoading ? (
+              <div className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300">
+                <p className="text-gray-700">Mendeteksi Lokasi...</p>
+              </div>
+            ) : error ? (
+              <div className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300">
+                <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
+              </div>
+            ) : (
+              <div id="mapFull" className="z-10 col-span-2 h-full"/>
+            )}
+
+            <button
+              className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20"
+              onClick={() => handleShowMaximumMap(false)}
+            >
+              <Minimize2 className="text-primary-content"/>
+            </button>
+
+            <button
+              className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-14 cursor-pointer bg-white z-20"
+              onClick={fetchUserLocation}
+            >
+              <LocateFixed className="text-primary-content"/>
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

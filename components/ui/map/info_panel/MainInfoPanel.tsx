@@ -11,8 +11,8 @@ interface InfoPanelProps {
 const MainInfoPanel: React.FC<InfoPanelProps> = ({ isShowMaximumMap, handleShowMaximumMap }) => {
   return (
     <div
-      className={`flex flex-col md:gap-5 m justify-between bg-white md:border-r-2 border-primary-content px-5 pt-5 pb-2 ${
-        isShowMaximumMap ? "w-100 h-auto z-50" : "relative h-auto md:h-full w-auto"
+      className={`flex flex-col md:gap-5 justify-between bg-white md:border-r-2 border-primary-content px-5 pt-5 pb-2 hidden lg:block ${
+        isShowMaximumMap ? "h-auto z-50" : "relative h-auto md:h-full w-auto"
       }`}
     >
       <div className="flex flex-col gap-4">

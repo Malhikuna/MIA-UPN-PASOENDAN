@@ -22,7 +22,7 @@ export default function HeroSection() {
       className="relative min-h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
     >
-      <div className="container mx-auto flex flex-col justify-center gap-5 min-h-[100vh] px-12">
+      <div className="container mx-auto flex flex-col justify-center gap-5 min-h-[100vh] px-8 md:px-12">
 
         <h1 className="text-background text-5xl sm:text-6xl font-bold">
           Dekat di <span className="text-primary-content">Hati</span> <br />

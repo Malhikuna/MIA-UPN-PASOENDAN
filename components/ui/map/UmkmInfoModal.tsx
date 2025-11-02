@@ -19,7 +19,7 @@ interface UmkmInfoModalProps {
 const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, umkmLocation}) => {
   return (
     <div className="w-[280px] p-2 max-h-none">
-      <div className="relative popup-header">
+      <div className="relative flex items-center gap-5 popup-header">
         <div className="relative w-15 h-15 rounded-full ring-2 ring-black">
           <Image
             src="/images/umkm/default-umkm-profile.webp"

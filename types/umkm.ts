@@ -17,8 +17,8 @@ export type UmkmItem = {
   subCategory: UmkmCategory;
   description: string;
   imageUrl: string[];
-  lat?: number;
-  lng?: number;
+  lat: number;
+  lng: number;
   createdAt: Date;
   updatedAt: Date;
 };
