@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/useUmkmStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useUmkmStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/info_panel/MainInfoPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/info_panel/MainInfoPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +132,7 @@
       <workItem from="1761670812158" duration="45000" />
       <workItem from="1761670872612" duration="58812000" />
       <workItem from="1761900534971" duration="11512000" />
-      <workItem from="1762049346543" duration="26637000" />
+      <workItem from="1762049346543" duration="30375000" />
     </task>
     <servers />
   </component>

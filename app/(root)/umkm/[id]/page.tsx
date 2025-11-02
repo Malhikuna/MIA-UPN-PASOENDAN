@@ -44,7 +44,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
       </section>
 
       {/* List Card Product */}
-      <section className="container mx-auto px-6 lg:px-12">
+      {/*<section className="container mx-auto px-6 lg:px-12">
         <h1 className="text-center text-2xl font-bold mb-5">
           Produk <span className="text-primary-content">Kami</span>
         </h1>
@@ -58,7 +58,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
               </div>
             ))}
         </div>
-      </section>
+      </section>*/}
 
       {/* Location */}
       <section className="container mx-auto px-6 lg:px-12">
