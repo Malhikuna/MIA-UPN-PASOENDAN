@@ -14,9 +14,12 @@ interface UmkmInfoModalProps {
   pageName: string;
   userLocation?: location | null;
   umkmLocation: location | null;
+  umkmId: string;
+  umkmName: string;
+  umkmCategory: string;
 }
 
-const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, umkmLocation}) => {
+const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, umkmLocation, umkmName, umkmCategory, umkmId}) => {
   return (
     <div className="w-[280px] p-2 max-h-none">
       <div className="relative flex items-center gap-5 popup-header">
@@ -30,8 +33,8 @@ const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, um
           />
         </div>
         <div>
-          Bakso Pak Dedi <br/>
-          F&B • <span className="text-primary-content-dark font-bold">Buka 08:00 WIB</span>
+          {umkmName} <br/>
+          {umkmCategory === "fnb" ? 'F&B' : 'Jasa'} • <span className="text-primary-content-dark font-bold">Buka 08:00 WIB</span>
         </div>
 
         <Link href={`https://www.google.com/maps?q=${umkmLocation?.lat},${umkmLocation?.lng}`} target="_blank">
@@ -59,7 +62,7 @@ const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, um
             </div>
 
 
-            <Link href={"/umkm/1"}>
+            <Link href={`/umkm/${umkmId}`}>
               <button className="btn w-full p-5 rounded-xl bg-primary-content-bright ring-2 ring-primary-content">Lihat
                 Detail
               </button>

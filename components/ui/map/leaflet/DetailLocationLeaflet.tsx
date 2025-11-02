@@ -82,6 +82,9 @@ const DetailLocationLeaflet: React.FC<LeafletMapProps> = ({umkm}) => {
     const popupHtml = ReactDOMServer.renderToString(
       <UmkmInfoModal
         pageName="detail"
+        umkmId={umkm.id}
+        umkmName={umkm.name}
+        umkmCategory={umkm.mainCategory}
         userLocation={userLocation}
         umkmLocation={{lat: umkm.lat, lng: umkm.lng}}
       />

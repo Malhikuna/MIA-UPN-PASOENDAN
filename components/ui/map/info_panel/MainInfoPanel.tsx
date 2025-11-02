@@ -2,13 +2,15 @@ import { MapPin, Maximize2 } from "lucide-react";
 import Input from "@/components/ui/Input";
 import Image from "next/image";
 import React from "react";
+import {UmkmItem} from "@/types/umkm";
 
-interface InfoPanelProps {
+interface MainInfoPanelProps {
   isShowMaximumMap: boolean;
   handleShowMaximumMap: (isShow: boolean) => void;
+  umkm: UmkmItem[];
 }
 
-const MainInfoPanel: React.FC<InfoPanelProps> = ({ isShowMaximumMap, handleShowMaximumMap }) => {
+const MainInfoPanel: React.FC<MainInfoPanelProps> = ({ isShowMaximumMap, handleShowMaximumMap, umkm}) => {
   return (
     <div
       className={`flex flex-col md:gap-5 justify-between bg-white md:border-r-2 border-primary-content px-5 pt-5 pb-2 hidden lg:block ${
@@ -17,7 +19,7 @@ const MainInfoPanel: React.FC<InfoPanelProps> = ({ isShowMaximumMap, handleShowM
     >
       <div className="flex flex-col gap-4">
         <p className="text-gray-600 flex font-medium items-center gap-2">
-          <MapPin />5 UMKM Terdeteksi
+          <MapPin />{umkm.length} umkm <span className="text-primary-content">terdeteksi</span>
         </p>
 
         <Input
@@ -28,9 +30,7 @@ const MainInfoPanel: React.FC<InfoPanelProps> = ({ isShowMaximumMap, handleShowM
         />
 
         <div className={`flex flex-col gap-2 w-full ${isShowMaximumMap ? "h-full" : "h-35"} overflow-y-auto`}>
-          {Array(5)
-            .fill(0)
-            .map((_, i) => (
+          {umkm.map((value, i) => (
               <div key={i} className="popup-header cursor-pointer flex gap-2 items-center p-2 bg-white rounded-md">
                 <div className="relative w-15 h-15 rounded-full ring-2 ring-black">
                   <Image
@@ -42,7 +42,7 @@ const MainInfoPanel: React.FC<InfoPanelProps> = ({ isShowMaximumMap, handleShowM
                   />
                 </div>
                 <div>
-                  Bakso Pak Dedi {i + 1} <br />
+                  {value.name} <br />
                   F&B • <span className="text-primary-content-dark font-bold">Buka 08:00 WIB</span>
                 </div>
               </div>
