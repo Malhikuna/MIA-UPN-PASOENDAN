@@ -43,6 +43,7 @@ model Umkm {
   mainCategory String?
   subCategory  String?
   description  String?
+  whatsApp     String?
   imageUrl     String[]
   lat          Float
   lng          Float

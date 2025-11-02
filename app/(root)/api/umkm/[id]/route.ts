@@ -2,12 +2,12 @@ import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 interface Params {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function GET(_req: Request, { params }: Params) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const umkm = await prisma.umkm.findUnique({
       where: { id },

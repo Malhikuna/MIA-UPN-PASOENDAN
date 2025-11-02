@@ -5,44 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(root)/api/umkm/[id]/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/client.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/default.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/default.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/edge.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/edge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/index-browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/query_engine-windows.dll.node" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/query_engine_bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/query_engine_bg.wasm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/edge-esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/edge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/index-browser.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/index-browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/library.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/library.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/react-native.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/wasm-compiler-edge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/wasm-engine-edge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/schema.prisma" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm-edge-light-loader.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm-worker-loader.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/coffee/daang-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/japanese-food/tako-takoyaki-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/japanese-food/tako-takoyaki-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/japanese-food/tako-takoyaki-3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/kelontong/toko-panorama54-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/kelontong/toko-panorama54-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/kelontong/toko-panorama54-3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/nasi-goreng/nasi-goreng-rono-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/nasi-goreng/nasi-goreng-rono-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/nasi-goreng/nasi-goreng-rono-3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/nasi-padang/nasdang-88-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/nasi-padang/nasdang-88-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/soto/kbr84-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/soto/kbr84-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/soto/kbr84-3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/warnas/warnas-94-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/fnb/warnas/warnas-94-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/barbershop/sigma-barbershop-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/barbershop/sigma-barbershop-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/barbershop/sigma-barbershop-3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/fotokopi/mab-copyshop-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/fotokopi/satria-fotocopy-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/fotokopi/satria-fotocopy-2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/fotokopi/satria-fotocopy-3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/laundry/laundry-1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/umkm/jasa/laundry/laundry-2.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/api/umkm/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/section/UmkmListSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/section/UmkmListSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useUmkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUmkm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useUmkmLogic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUmkmLogic.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/api/umkm/[id]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/info_panel/DetailInfoPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/info_panel/DetailInfoPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/categories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seed.ts" afterDir="false" />
     </list>
@@ -99,11 +93,11 @@
       <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\logo" />
-      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\app" />
-      <recent name="D:\MIA-UPN-PASOENDAN\lib" />
-      <recent name="D:\MIA-UPN-PASOENDAN\components\ui\map\info_panel" />
-      <recent name="D:\MIA-UPN-PASOENDAN\components\ui\map\leaflet" />
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\jasa\fotokopi" />
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\fnb\japanese-food" />
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\jasa\barbershop" />
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\fnb\nasi-padang" />
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\fnb\warnas" />
     </key>
   </component>
   <component name="RunManager">
@@ -166,7 +160,7 @@
       <workItem from="1761670812158" duration="45000" />
       <workItem from="1761670872612" duration="58812000" />
       <workItem from="1761900534971" duration="11512000" />
-      <workItem from="1762049346543" duration="13499000" />
+      <workItem from="1762049346543" duration="25332000" />
     </task>
     <servers />
   </component>
