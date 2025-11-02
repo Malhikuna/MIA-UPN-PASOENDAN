@@ -3,7 +3,7 @@ import React from "react";
 
 export default function LocationSection() {
   return (
-    <section className="container mx-auto px-12 py-5 pb-5">
+    <section className="container mx-auto px-8 md:px-12 py-5 pb-5">
       <div className="flex justify-between items-center mb-8">
         <h1 className="font-bold text-2xl">
           Temukan UMKM Terdekat dari <span className="text-primary-content">Lokasimu</span>

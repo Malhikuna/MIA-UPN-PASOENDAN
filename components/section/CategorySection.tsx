@@ -17,7 +17,7 @@ export default function CategorySection() {
   }, [selectedMainCategory]);
 
   return (
-    <section id="category-section" className="container mx-auto py-5 md:py-10 px-12">
+    <section id="category-section" className="container mx-auto py-5 md:py-10 px-8 md:px-12">
       <div className="flex flex-col lg:flex-row  justify-center items-center lg:justify-between lg:items-start mb-5 gap-2">
         <div className="flex flex-col gap-2 w-full text-center lg:text-start">
           <h1 className="font-bold text-4xl">Pilih Kategori</h1>
