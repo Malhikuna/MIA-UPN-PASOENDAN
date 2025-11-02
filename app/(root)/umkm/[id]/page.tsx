@@ -5,14 +5,20 @@ import ProductCard from "@/components/ui/detail/ProductCard";
 import LocationMap from "@/components/ui/map/LocationMap";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
-import { useUmkm } from "@/hooks/useUmkm";
+import {useUmkm, useUmkmById} from "@/hooks/useUmkm";
+import Loading from "@/app/(root)/loading";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
-  const umkmData = useUmkm();
-  const umkm = umkmData.find((item) => item.id === parseInt(id));
+  const { umkm, loading, error } = useUmkmById(id);
 
-  if (!umkm) notFound();
+  if (loading) {
+    return <Loading page="detail"></Loading>
+  }
+
+  if (error || !umkm) {
+    notFound();
+  }
 
   return (
     <div className="flex flex-col gap-20 pb-8">

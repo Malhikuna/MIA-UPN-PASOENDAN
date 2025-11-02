@@ -1,12 +1,15 @@
 import { PrismaClient, Prisma } from "../app/generated/prisma/client";
 const prisma = new PrismaClient();
 
+const IMAGE_BASE = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || "http://localhost:3000";
+
 const umkmData: Prisma.UmkmCreateInput[] = [
   {
     name: "Nasi Goreng Pak Joko",
     address: "Jl. Nasi Goreng No.1",
     description: "Nasi goreng spesial dengan bumbu rahasia",
     imageUrl: [
+      // `${IMAGE_BASE}/images/umkm/umkmWarung.jpg`,
       "/images/umkm/umkmWarung.jpg",
       "/images/nasgor1-2.jpg",
       "/images/nasgor1-3.jpg",

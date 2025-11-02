@@ -5,11 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(root)/api/umkm/[id]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/default.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/default.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/edge.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/edge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/index-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/query_engine-windows.dll.node" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/query_engine_bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/query_engine_bg.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/edge-esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/edge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/index-browser.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/index-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/library.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/library.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/react-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/wasm-compiler-edge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/runtime/wasm-engine-edge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/schema.prisma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm-edge-light-loader.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm-worker-loader.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/app/generated/prisma/client/wasm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/api/umkm/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/section/LocationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/section/LocationSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/info_panel/MainInfoPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/info_panel/MainInfoPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/section/UmkmListSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/section/UmkmListSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useUmkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUmkm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useUmkmLogic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUmkmLogic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seed.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +166,7 @@
       <workItem from="1761670812158" duration="45000" />
       <workItem from="1761670872612" duration="58812000" />
       <workItem from="1761900534971" duration="11512000" />
-      <workItem from="1762049346543" duration="3811000" />
+      <workItem from="1762049346543" duration="13499000" />
     </task>
     <servers />
   </component>
