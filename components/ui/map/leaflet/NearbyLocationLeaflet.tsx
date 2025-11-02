@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { LocateFixed, Minimize2, UserRound } from "lucide-react";
+import {LocateFixed, Maximize2, Minimize2, UserRound} from "lucide-react";
 import { FeatureCollection } from "geojson";
 import Image from "next/image";
 import ReactDOMServer from "react-dom/server";
@@ -45,9 +45,6 @@ const NearbyLocationLeaflet = ({}) => {
 
   const newestData = filteredData;
 
-  console.log(newestData);
-  console.log(filteredData);
-
   /** -------------------------------
    *  FILTER UMKM TERDEKAT
    * -------------------------------- */
@@ -79,6 +76,8 @@ const NearbyLocationLeaflet = ({}) => {
     let center: L.LatLngExpression;
     if (userLocation) center = [userLocation.lat, userLocation.lng];
     else center = [DEFAULT_CENTER.lat, DEFAULT_CENTER.lng];
+
+    console.log("kontol");
 
     const map = initMap(mapId, center);
     mapRef.current = map;
@@ -173,7 +172,7 @@ const NearbyLocationLeaflet = ({}) => {
         },
       }).addTo(map);
     }
-  }, [isLoading, userLocation, nearbyUMKM]);
+  }, [isLoading, userLocation, nearbyUMKM, isShowMaximumMap]);
 
   /** -------------------------------
    *  HANDLER
@@ -185,8 +184,12 @@ const NearbyLocationLeaflet = ({}) => {
 
   return (
     <>
-      <div className="relative overflow-hidden h-120 md:h-70 w-full mb-10 grid grid-cols-1 md:grid-cols-3 border-2 border-primary-content">
-        <MainInfoPanel isShowMaximumMap={isShowMaximumMap} handleShowMaximumMap={handleShowMaximumMap} />
+      <div
+        className="relative overflow-hidden h-120 md:h-70 w-full mb-10 grid grid-cols-1 md:grid-cols-3 border-2 border-primary-content">
+        <MainInfoPanel
+          isShowMaximumMap={isShowMaximumMap}
+          handleShowMaximumMap={handleShowMaximumMap}
+        />
         {isLoading ? (
           <div className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300">
             <p className="text-gray-700">Mendeteksi Lokasi...</p>
@@ -196,20 +199,40 @@ const NearbyLocationLeaflet = ({}) => {
             <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
           </div>
         ) : (
-          <div id="mapSmall" className="z-10 md:col-span-2 h-full md:h-full" />
+          <div id="mapSmall" className="z-10 md:col-span-2 h-full md:h-full"/>
         )}
         <button
           className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20"
           onClick={fetchUserLocation}
         >
-          <LocateFixed className="text-primary-content" />
+          <LocateFixed className="text-primary-content"/>
+        </button>
+
+        <button
+          className="flex justify-center items-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20 block lg:hidden right-14"
+          onClick={() => handleShowMaximumMap(true)}
+        >
+          <Maximize2 className="text-primary-content"/>
         </button>
       </div>
 
+      {/*{
+        isShowMaximumMap && (
+          <div className="container w-screen h-screen bg-black/50 p-5 fixed inset-0 z-50">
+            <div className="relative flex w-full h-full border-2 border-primary-content grid grid-cols-1 md:grid-cols-3">
+              <div id="mapFull" className="z-10 md:col-span-2 h-full md:h-full"/>
+            </div>
+          </div>
+        )
+      }*/}
+
       {isShowMaximumMap && (
         <div className="container w-screen h-screen bg-black/50 p-5 fixed inset-0 z-50">
-          <div className="relative flex w-full h-full bg-black border-2 border-primary-content">
-            <MainInfoPanel isShowMaximumMap={isShowMaximumMap} handleShowMaximumMap={handleShowMaximumMap} />
+          <div className="relative flex w-full h-full border-2 border-primary-content overflow-hidden grid grid-cols-2 lg:grid-cols-3">
+            <MainInfoPanel
+              isShowMaximumMap={isShowMaximumMap}
+              handleShowMaximumMap={handleShowMaximumMap}
+            />
 
             {isLoading ? (
               <div className="flex-center z-10 md:col-span-2 h-full md:h-full bg-gray-300">
@@ -220,21 +243,21 @@ const NearbyLocationLeaflet = ({}) => {
                 <p className="text-gray-700">Gagal Mendeteksi Lokasi</p>
               </div>
             ) : (
-              <div id="mapFull" className="z-10 md:col-span-2 h-full md:h-full" />
+              <div id="mapFull" className="z-10 col-span-2 h-full"/>
             )}
 
             <button
               className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-2 cursor-pointer bg-white z-20"
               onClick={() => handleShowMaximumMap(false)}
             >
-              <Minimize2 className="text-primary-content" />
+              <Minimize2 className="text-primary-content"/>
             </button>
 
             <button
               className="flex-center absolute w-10 h-10 border-2 border-primary-content top-2 right-14 cursor-pointer bg-white z-20"
               onClick={fetchUserLocation}
             >
-              <LocateFixed className="text-primary-content" />
+              <LocateFixed className="text-primary-content"/>
             </button>
           </div>
         </div>
