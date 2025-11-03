@@ -10,7 +10,7 @@ export type UmkmCategory =
 export type UmkmMainCategory = "fnb" | "jasa";
 
 export type UmkmItem = {
-  id: number;
+  id: string;
   name: string;
   address: string;
   mainCategory: UmkmMainCategory;

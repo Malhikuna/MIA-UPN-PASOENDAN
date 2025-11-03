@@ -22,8 +22,9 @@ const dataUMKM = (nearbyUMKM: UmkmItem[]): FeatureCollection => ({
   features: nearbyUMKM.map((v) => ({
     type: "Feature",
     properties: {
-      nama: v.name,
-      jenis: v.mainCategory,
+      id: v.id,
+      name: v.name,
+      category: v.mainCategory,
     },
     geometry: {
       type: "Point",
@@ -36,7 +37,7 @@ const NearbyLocationLeaflet = ({}) => {
   const { userLocation, fetchUserLocation, clearUserLocation, isLoading, error } = useUserLocationStore();
 
   const [nearbyUMKM, setNearbyUMKM] = useState<any[]>([]);
-  const [radius, setRadius] = useState(5);
+  const [radius, setRadius] = useState(0);
   const [isShowMaximumMap, setIsShowMaximumMap] = useState(false);
   /*const mainLocation = useState(userLocation ?? {lat: -6.86507099703059, lng: 107.59368327596205});*/
   const mapRef = useRef<L.Map | null>(null);
@@ -52,12 +53,14 @@ const NearbyLocationLeaflet = ({}) => {
     const base = userLocation ?? DEFAULT_CENTER;
 
     const filtered = newestData
-      .map((u) => ({
+      .map((u) => (
+        {
         ...u,
         distance: getDistance(base.lat, base.lng, u.lat, u.lng),
       }))
       .filter((u) => u.distance <= radius)
       .sort((a, b) => a.distance - b.distance);
+
 
     setNearbyUMKM(filtered);
   }, [radius, filteredData]);
@@ -165,8 +168,16 @@ const NearbyLocationLeaflet = ({}) => {
         pointToLayer: (_, latlng) => L.marker(latlng, { icon: iconUMKM }),
         onEachFeature: (feature, layer) => {
           const [lng, lat] = (feature.geometry as GeoJSON.Point).coordinates;
+          const { id, name, category } = feature.properties as { id: string, name: string, category: string };
           const popupHtml = ReactDOMServer.renderToString(
-            <UmkmInfoModal pageName="home" userLocation={userLocation} umkmLocation={{ lat, lng }} />
+            <UmkmInfoModal
+              pageName="home"
+              umkmId={id}
+              umkmName={name}
+              umkmCategory={category}
+              userLocation={userLocation}
+              umkmLocation={{ lat, lng }}
+            />
           );
           layer.bindPopup(popupHtml);
         },
@@ -188,6 +199,7 @@ const NearbyLocationLeaflet = ({}) => {
         className="relative overflow-hidden h-120 md:h-70 w-full mb-10 grid grid-cols-1 md:grid-cols-3 border-2 border-primary-content">
         <MainInfoPanel
           isShowMaximumMap={isShowMaximumMap}
+          umkm={nearbyUMKM}
           handleShowMaximumMap={handleShowMaximumMap}
         />
         {isLoading ? (
@@ -231,6 +243,7 @@ const NearbyLocationLeaflet = ({}) => {
           <div className="relative flex w-full h-full border-2 border-primary-content overflow-hidden grid grid-cols-2 lg:grid-cols-3">
             <MainInfoPanel
               isShowMaximumMap={isShowMaximumMap}
+              umkm={nearbyUMKM}
               handleShowMaximumMap={handleShowMaximumMap}
             />
 
