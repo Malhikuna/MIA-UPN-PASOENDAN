@@ -17,4 +17,5 @@ export default function Loading({page = 'home'}: {page?: string}) {
     </>
   )
 
+  
 }
