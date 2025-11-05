@@ -121,13 +121,40 @@ export default function Navbar() {
             className={`hidden md:flex gap-7 items-center font-semibold ${isTextChanged ? "text-primary-content" : textColor}`}
           >
             <li>
-              <Link href={`/`} className="hover:text-primary-content transition-colors">Home</Link>
+              <Link 
+                href={`/`} 
+                className={`relative hover:text-primary-content transition-colors pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:origin-left after:transition-transform after:duration-300 ${
+                  pathname === "/" 
+                    ? "after:scale-x-100" 
+                    : "after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
+                Home
+              </Link>
             </li>
             <li>
-              <Link href={`/umkm`} className="hover:text-primary-content transition-colors">Umkm</Link>
+              <Link 
+                href={`/umkm`} 
+                className={`relative hover:text-primary-content transition-colors pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:origin-left after:transition-transform after:duration-300 ${
+                  pathname.startsWith("/umkm") 
+                    ? "after:scale-x-100" 
+                    : "after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
+                Umkm
+              </Link>
             </li>
             <li>
-              <Link href={`/about`} className="hover:text-primary-content transition-colors">About Us</Link>
+              <Link 
+                href={`/about`} 
+                className={`relative hover:text-primary-content transition-colors pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-current after:origin-left after:transition-transform after:duration-300 ${
+                  pathname.startsWith("/about") 
+                    ? "after:scale-x-100" 
+                    : "after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
+                About Us
+              </Link>
             </li>
           </ul>
 
@@ -161,7 +188,14 @@ export default function Navbar() {
               }`}
               style={{ transitionDelay: isMobileMenuOpen ? "100ms" : "0ms" }}
             >
-              <Link href={`/`} className="block py-3 text-primary-content hover:text-green-600 transition-colors">
+              <Link 
+                href={`/`} 
+                className={`block py-3 text-primary-content hover:text-green-600 transition-colors relative after:content-[''] after:absolute after:bottom-2 after:left-0 after:w-full after:h-1 after:bg-green-600 after:origin-left after:transition-transform after:duration-300 ${
+                  pathname === "/" 
+                    ? "after:scale-x-100" 
+                    : "after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
                 Home
               </Link>
             </li>
@@ -173,7 +207,14 @@ export default function Navbar() {
               }`}
               style={{ transitionDelay: isMobileMenuOpen ? "200ms" : "0ms" }}
             >
-              <Link href={`/umkm`} className="block py-3 text-primary-content hover:text-green-600 transition-colors">
+              <Link 
+                href={`/umkm`} 
+                className={`block py-3 text-primary-content hover:text-green-600 transition-colors relative after:content-[''] after:absolute after:bottom-2 after:left-0 after:w-full after:h-1 after:bg-green-600 after:origin-left after:transition-transform after:duration-300 ${
+                  pathname.startsWith("/umkm") 
+                    ? "after:scale-x-100" 
+                    : "after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
                 Umkm
               </Link>
             </li>
@@ -185,7 +226,14 @@ export default function Navbar() {
               }`}
               style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
             >
-              <Link href={`/about`} className="block py-3 text-primary-content hover:text-green-600 transition-colors">
+              <Link 
+                href={`/about`} 
+                className={`block py-3 text-primary-content hover:text-green-600 transition-colors relative after:content-[''] after:absolute after:bottom-2 after:left-0 after:w-full after:h-1 after:bg-green-600 after:origin-left after:transition-transform after:duration-300 ${
+                  pathname.startsWith("/about") 
+                    ? "after:scale-x-100" 
+                    : "after:scale-x-0 hover:after:scale-x-100"
+                }`}
+              >
                 About Us
               </Link>
             </li>
