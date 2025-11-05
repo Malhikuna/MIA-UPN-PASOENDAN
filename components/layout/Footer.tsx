@@ -10,10 +10,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-neutral-900 text-white py-16 px-8 md:px-12">
+    <footer className="bg-neutral-900 text-white py-7 px-8 md:px-12">
       <div className="max-w-4xl mx-auto">
         {/* Social Media Icons */}
-        <div className="flex justify-center gap-8 mb-12">
+        <div className="flex justify-center gap-8 mb-7">
           {socialLinks.map((social) => {
             const Icon = social.icon;
             return (
@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         {/* Description Text */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-7">
           <p className="text-neutral-400 text-sm leading-relaxed max-w-2xl mx-auto">
             Kami hadir untuk menjadi jembatan antara pelaku UMKM dan masyarakat
             luas. Dengan menampilkan berbagai usaha lokal dari seluruh penjuru
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* Logo */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           {/* <h2 className="text-5xl font-bold italic text-white tracking-wide">
             CariKita
           </h2> */}
@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
 
         {/* Location and Currency */}
-        <div className="text-center border-t border-neutral-700 pt-8">
+        <div className="text-center border-t border-neutral-700 pt-5">
           <p className="text-neutral-400 text-sm">
             2025 CariKita. All right reserve.
           </p>

@@ -77,9 +77,9 @@ export default function UmkmListSection() {
   const displayedNewestData = newestData.slice(0, 6);
 
   return (
-    <section className="container mx-auto py-5 md:py-10 px-8 md:px-12">
+    <section className="container mx-auto py-5 md:py-5 px-8 md:px-12">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-3">
         <h1 className="font-bold text-2xl">
           {listTitle} <span className="text-primary-content">Terdekat</span>
         </h1>
@@ -94,7 +94,7 @@ export default function UmkmListSection() {
 
       {/* Horizontal Slider */}
       {hasResults && (
-        <div className="relative mt-8">
+        <div className="relative mt-5">
           <div
             ref={sliderRef}
             className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
@@ -127,9 +127,9 @@ export default function UmkmListSection() {
 
       {/* Section F&B Terbaru */}
       {hasResults && (
-        <div className="mt-8 pt-8 border-t-2 border-gray-200">
+        <div className="mt-6 pt-6 border-t-2 border-gray-200">
           {/* Header Terbaru */}
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex justify-between items-center mb-3">
             <h1 className="font-bold text-2xl">
               {listTitle} <span className="text-primary-content">Terbaru</span>
             </h1>
@@ -143,7 +143,7 @@ export default function UmkmListSection() {
           </div>
 
           {/* Horizontal Slider Terbaru */}
-          <div className="relative mt-8">
+          <div className="relative mt-5 ">
             <div
               ref={newestSliderRef}
               className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
