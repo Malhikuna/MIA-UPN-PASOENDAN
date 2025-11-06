@@ -33,7 +33,7 @@ const UmkmInfoModal: React.FC<UmkmInfoModalProps> = ({pageName, userLocation, um
           />
         </div>
         <div>
-          {umkmName} <br/>
+          {umkmName.slice(0, 18) + (umkmName.length > 18 ? "..." : "")} <br/>
           {umkmCategory === "fnb" ? 'F&B' : 'Jasa'} • <span className="text-primary-content-dark font-bold">Buka 08:00 WIB</span>
         </div>
 

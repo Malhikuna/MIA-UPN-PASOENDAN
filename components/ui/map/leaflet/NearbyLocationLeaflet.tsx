@@ -37,7 +37,7 @@ const NearbyLocationLeaflet = ({}) => {
   const { userLocation, fetchUserLocation, clearUserLocation, isLoading, error } = useUserLocationStore();
 
   const [nearbyUMKM, setNearbyUMKM] = useState<any[]>([]);
-  const [radius, setRadius] = useState(0);
+  const [radius, setRadius] = useState(5);
   const [isShowMaximumMap, setIsShowMaximumMap] = useState(false);
   /*const mainLocation = useState(userLocation ?? {lat: -6.86507099703059, lng: 107.59368327596205});*/
   const mapRef = useRef<L.Map | null>(null);
@@ -53,14 +53,12 @@ const NearbyLocationLeaflet = ({}) => {
     const base = userLocation ?? DEFAULT_CENTER;
 
     const filtered = newestData
-      .map((u) => (
-        {
+      .map((u) => ({
         ...u,
         distance: getDistance(base.lat, base.lng, u.lat, u.lng),
       }))
       .filter((u) => u.distance <= radius)
       .sort((a, b) => a.distance - b.distance);
-
 
     setNearbyUMKM(filtered);
   }, [radius, filteredData]);
