@@ -14,7 +14,9 @@ export const useUmkm = () => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch(`/api/umkm?mainCategory=${selectedMainCategory}`);
+        const response = await fetch(
+          `/api/umkm?mainCategory=${selectedMainCategory}`
+        );
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
@@ -32,7 +34,7 @@ export const useUmkm = () => {
   }, [selectedMainCategory]);
 
   return { umkmList, loading, error };
-}
+};
 
 export const useUmkmById = (id?: string) => {
   const [umkm, setUmkm] = useState<UmkmItem | null>(null);
@@ -64,4 +66,4 @@ export const useUmkmById = (id?: string) => {
   }, [id]);
 
   return { umkm, loading, error };
-}
+};
