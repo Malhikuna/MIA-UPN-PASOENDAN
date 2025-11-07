@@ -18,29 +18,29 @@ export default function Pagination({
   getPageNumbers,
 }: PaginationProps) {
   return (
-    <div className="flex justify-center items-center gap-2 mt-8">
+    <div className="flex justify-center items-center gap-1 md:gap-2 mt-6 md:mt-8">
       {/* Previous Button */}
       <button
         onClick={onPrevious}
         disabled={currentPage === 1}
-        className={`flex items-center gap-1 px-4 py-2 rounded-lg font-semibold transition-colors ${
+        className={`flex items-center gap-1 px-3 py-1 md:px-4 md:py-2 rounded-lg font-semibold transition-colors ${
           currentPage === 1
             ? "bg-gray-200 text-gray-400 cursor-not-allowed"
             : "bg-gray-200 text-gray-700 hover:bg-primary-content hover:text-white"
         }`}
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
         <span className="hidden sm:inline">Previous</span>
       </button>
 
       {/* Page Numbers */}
-      <div className="flex gap-2">
+      <div className="flex gap-1 md:gap-2">
         {getPageNumbers().map((page, index) => (
           <button
             key={index}
             onClick={() => typeof page === 'number' && onPageChange(page)}
             disabled={page === '...'}
-            className={`min-w-[40px] h-[40px] rounded-lg font-semibold transition-colors ${
+            className={`min-w-[28px] md:min-w-[32px] h-[28px] md:h-[32px] rounded-lg text-xs md:text-sm font-semibold transition-colors ${
               page === currentPage
                 ? "bg-primary-content text-white"
                 : page === '...'
@@ -57,14 +57,14 @@ export default function Pagination({
       <button
         onClick={onNext}
         disabled={currentPage === totalPages}
-        className={`flex items-center gap-1 px-4 py-2 rounded-lg font-semibold transition-colors ${
+        className={`flex items-center gap-1 px-3 py-1 md:px-4 md:py-2 rounded-lg font-semibold transition-colors ${
           currentPage === totalPages
             ? "bg-gray-200 text-gray-400 cursor-not-allowed"
             : "bg-gray-200 text-gray-700 hover:bg-primary-content hover:text-white"
         }`}
       >
         <span className="hidden sm:inline">Next</span>
-        <ChevronRight size={20} />
+        <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
       </button>
     </div>
   );

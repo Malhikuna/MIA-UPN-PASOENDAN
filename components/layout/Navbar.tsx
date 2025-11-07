@@ -129,7 +129,7 @@ export default function Navbar() {
                     : "after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
-                Home
+                HOME
               </Link>
             </li>
             <li>
@@ -141,7 +141,7 @@ export default function Navbar() {
                     : "after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
-                Umkm
+                UMKM
               </Link>
             </li>
             <li>
@@ -153,7 +153,7 @@ export default function Navbar() {
                     : "after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
-                About Us
+                ABOUT US
               </Link>
             </li>
           </ul>
@@ -171,7 +171,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Fullscreen */}
       <div
-        className={`md:hidden fixed inset-0 z-40 glass backdrop-blur-md transition-all duration-500 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-40 bg-white/70 backdrop-blur-md transition-all duration-500 ease-in-out ${
           isMobileMenuOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible"
@@ -196,7 +196,7 @@ export default function Navbar() {
                     : "after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
-                Home
+                HOME
               </Link>
             </li>
             <li
@@ -215,7 +215,7 @@ export default function Navbar() {
                     : "after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
-                Umkm
+                UMKM
               </Link>
             </li>
             <li
@@ -234,12 +234,13 @@ export default function Navbar() {
                     : "after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
-                About Us
+                ABOUT US
               </Link>
             </li>
           </ul>
         </div>
       </div>
+
     </>
   );
 }
