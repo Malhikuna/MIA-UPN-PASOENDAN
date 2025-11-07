@@ -7,9 +7,10 @@ import Link from "next/link";
 import React, { useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import Loading from "@/app/(root)/loading";
+import { useNearbyUmkm, useNewestUmkm, useUmkm } from "@/hooks/useUmkm";
 
 export default function UmkmListSection() {
-  const { listTitle, filteredData, handleReset, loading} = useUmkmLogic();
+  const { listTitle, handleReset } = useUmkmLogic();
   const sliderRef = useRef<HTMLDivElement>(null);
   const newestSliderRef = useRef<HTMLDivElement>(null);
 
@@ -18,63 +19,60 @@ export default function UmkmListSection() {
   }*/
 
   // Sort data terbaru berdasarkan ID terbesar ke terkecil
-  const newestData = useMemo(() => {
-    return [...filteredData].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-  }, [filteredData]);
-
-  console.log([...filteredData]);
 
   // Animasi untuk section Terdekat
-  useEffect(() => {
-    if (sliderRef.current) {
-      const cards = sliderRef.current.children;
+  // useEffect(() => {
+  //   if (sliderRef.current) {
+  //     const cards = sliderRef.current.children;
 
-      gsap.fromTo(
-        cards,
-        {
-          opacity: 0,
-          x: 100,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power3.out",
-        }
-      );
-    }
-  }, [filteredData]);
+  //     gsap.fromTo(
+  //       cards,
+  //       {
+  //         opacity: 0,
+  //         x: 100,
+  //         scale: 0.9,
+  //       },
+  //       {
+  //         opacity: 1,
+  //         x: 0,
+  //         scale: 1,
+  //         duration: 0.6,
+  //         stagger: 0.1,
+  //         ease: "power3.out",
+  //       }
+  //     );
+  //   }
+  // }, [filteredData]);
 
   // Animasi untuk section Terbaru
-  useEffect(() => {
-    if (newestSliderRef.current) {
-      const cards = newestSliderRef.current.children;
+  // useEffect(() => {
+  //   if (newestSliderRef.current) {
+  //     const cards = newestSliderRef.current.children;
 
-      gsap.fromTo(
-        cards,
-        {
-          opacity: 0,
-          x: 100,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power3.out",
-        }
-      );
-    }
-  }, [newestData]);
+  //     gsap.fromTo(
+  //       cards,
+  //       {
+  //         opacity: 0,
+  //         x: 100,
+  //         scale: 0.9,
+  //       },
+  //       {
+  //         opacity: 1,
+  //         x: 0,
+  //         scale: 1,
+  //         duration: 0.6,
+  //         stagger: 0.1,
+  //         ease: "power3.out",
+  //       }
+  //     );
+  //   }
+  // }, [newestData]);
 
-  const hasResults = filteredData.length > 0;
-  const displayedData = filteredData.slice(0, 6);
-  const displayedNewestData = newestData.slice(0, 6);
+  const { nearbyUmkmList } = useNearbyUmkm();
+  const { newestUmkmList } = useNewestUmkm();
+
+  const displayedData = nearbyUmkmList;
+  const displayedNewestData = newestUmkmList;
 
   return (
     <section className="container mx-auto py-5 md:py-5 px-8 md:px-12">
@@ -84,16 +82,16 @@ export default function UmkmListSection() {
           {listTitle} <span className="text-primary-content">Terdekat</span>
         </h1>
 
-        {filteredData.length > 0 && (
-          <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
-            <p className="font-semibold">Show All</p>
-            <ChevronRight className="transition-transform group-hover:translate-x-1" />
-          </Link>
-        )}
+        {/* {filteredData.length > 0 && ( */}
+        <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
+          <p className="font-semibold">Show All</p>
+          <ChevronRight className="transition-transform group-hover:translate-x-1" />
+        </Link>
+        {/* )} */}
       </div>
 
       {/* Horizontal Slider */}
-      {hasResults && (
+      {displayedData && (
         <div className="relative mt-5">
           <div
             ref={sliderRef}
@@ -113,7 +111,7 @@ export default function UmkmListSection() {
       )}
 
       {/* Empty State */}
-      {!hasResults && (
+      {!displayedData && (
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">Tidak ada UMKM ditemukan untuk kategori ini</p>
           <button
@@ -126,7 +124,7 @@ export default function UmkmListSection() {
       )}
 
       {/* Section F&B Terbaru */}
-      {hasResults && (
+      {displayedNewestData && (
         <div className="mt-6 pt-6 border-t-2 border-gray-200">
           {/* Header Terbaru */}
           <div className="flex justify-between items-center mb-3">
@@ -134,7 +132,7 @@ export default function UmkmListSection() {
               {listTitle} <span className="text-primary-content">Terbaru</span>
             </h1>
 
-            {newestData.length > 0 && (
+            {displayedNewestData.length > 0 && (
               <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
                 <p className="font-semibold">Show All</p>
                 <ChevronRight className="transition-transform group-hover:translate-x-1" />

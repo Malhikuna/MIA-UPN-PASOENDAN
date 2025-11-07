@@ -7,7 +7,6 @@ export async function GET(request: Request) {
 
     const mainCategory = searchParams.get("mainCategory");
     const subCategory = searchParams.get("subCategory");
-    const searchQuery = searchParams.get("searchQuery");
 
     const where = {};
 
@@ -19,15 +18,12 @@ export async function GET(request: Request) {
       (where as any).subCategory = subCategory;
     }
 
-    if (searchQuery) {
-      (where as any).name = {
-        contains: searchQuery,
-        mode: "insensitive",
-      };
-    }
+    console.log("Fetching UMKM with mainCategory:", mainCategory);
 
     const umkmList = await prisma.umkm.findMany({
       where,
+
+      take: 3,
     });
 
     console.log("Found UMKM:", umkmList.length);
