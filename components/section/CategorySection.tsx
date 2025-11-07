@@ -28,7 +28,7 @@ export default function CategorySection() {
     >
       <div className="flex flex-col lg:flex-row  justify-center items-center lg:justify-between lg:items-start mb-5 gap-2">
         <div className="flex flex-col gap-2 w-full text-center lg:text-start">
-          <h1 className="font-bold text-4xl">Pilih Kategori</h1>
+          <h1 className="font-bold text-3xl md:text-4xl">Pilih Kategori</h1>
           <div className="flex justify-center lg:justify-normal">
             <p className="md:w-[513px]">
               Jelajahi berbagai UMKM terdekat dari kuliner, jasa, hingga produk

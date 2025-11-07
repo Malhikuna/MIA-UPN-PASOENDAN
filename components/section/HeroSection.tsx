@@ -1,7 +1,9 @@
 "use client";
 import { ArrowDown } from "lucide-react";
+import { useUmkmStore } from "@/store/useUmkmStore";
 
 export default function HeroSection() {
+  const { selectedMainCategory } = useUmkmStore();
   const handleScrollDown = () => {
     const categorySection = document.getElementById("category-section");
     if (categorySection) {
@@ -17,10 +19,14 @@ export default function HeroSection() {
     }
   };
 
+  const backgroundImage = selectedMainCategory === "jasa" 
+    ? "url('/images/hero-jasa.webp')" 
+    : "url('/images/hero-bg.webp')";
+
   return (
     <section
       className="relative min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
+      style={{ backgroundImage }}
     >
       <div className="container mx-auto flex flex-col justify-center gap-5 min-h-[100vh] px-8 md:px-12">
 
