@@ -20,7 +20,7 @@ export default function HeroSection() {
   };
 
   const backgroundImage = selectedMainCategory === "jasa" 
-    ? "url('/images/hero-jasa.webp')" 
+    ? "url('/images/hero-jasa-new.webp')" 
     : "url('/images/hero-bg.webp')";
 
   return (
