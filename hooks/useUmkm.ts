@@ -69,7 +69,7 @@ export const useUmkmById = (id?: string) => {
 
 export const useNewestUmkm = () => {
   const { selectedMainCategory, selectedSubCategory } = useUmkmStore();
-  const [newestUmkmList, setNewestUmkmList] = useState<UmkmItem[]>([]);
+  const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -90,7 +90,7 @@ export const useNewestUmkm = () => {
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
         const dataUmkm = await response.json();
-        setNewestUmkmList(dataUmkm);
+        setUmkmList(dataUmkm);
       } catch (err: any) {
         console.error(err);
         setError("Gagal memuat data UMKM");
@@ -102,12 +102,12 @@ export const useNewestUmkm = () => {
     fetchUmkm();
   }, [selectedMainCategory, selectedSubCategory]);
 
-  return { newestUmkmList, loading, error };
+  return { umkmList, loading, error };
 };
 
 export const useNearbyUmkm = () => {
   const { selectedMainCategory, selectedSubCategory } = useUmkmStore();
-  const [nearbyUmkmList, setNearbyUmkmList] = useState<UmkmItem[]>([]);
+  const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -128,7 +128,7 @@ export const useNearbyUmkm = () => {
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
         const dataUmkm = await response.json();
-        setNearbyUmkmList(dataUmkm);
+        setUmkmList(dataUmkm);
       } catch (err: any) {
         console.error(err);
         setError("Gagal memuat data UMKM");
@@ -140,5 +140,5 @@ export const useNearbyUmkm = () => {
     fetchUmkm();
   }, [selectedMainCategory, selectedSubCategory]);
 
-  return { nearbyUmkmList, loading, error };
+  return { umkmList, loading, error };
 };
