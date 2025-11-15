@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useNearbyUmkm, useNewestUmkm } from "@/hooks/useUmkm";
 import CardList from "../ui/CardList";
 import { useUserLocationStore } from "@/store/useUserLocationStore";
+import Image from "next/image";
 
 export default function UmkmListSection() {
   const { listTitle } = useUmkmLogic();
@@ -27,17 +28,14 @@ export default function UmkmListSection() {
       {userLocation ? (
         <CardList useUmkm={useNearbyUmkm} />
       ) : (
-        <div className="h-[280px] w-full flex flex-col justify-center gap-4 items-center bg-gray-100 rounded-xl text-red-600">
-          <div className="flex gap-4">
-            <TriangleAlert />
-            <span>Location Error.</span>
-          </div>
-          <p className=" font-medium">Location information denied, please enable location access.</p>
+        <div className="h-[280px] w-full flex flex-col justify-center items-center bg-gray-100 rounded-xl">
+          <Image src="/images/enable-location.webp" alt="Enable Location" width={250} height={250} className="" />
+          <p className=" font-medium mb-3">Aktifkan lokasi untuk melihat UMKM terdekat di sekitar Anda.</p>
           <button
             onClick={fetchUserLocation}
-            className="p-3 bg-gray-300 rounded-2xl flex items-center gap-2 hover:bg-gray-400 transition-colors"
+            className="p-3 bg-primary-content/90 text-primary-content-bright rounded-2xl flex items-center gap-2 transition-colors"
           >
-            <MapPin /> Enable Location
+            <MapPin /> Aktifkan Lokasi  
           </button>
         </div>
       )}

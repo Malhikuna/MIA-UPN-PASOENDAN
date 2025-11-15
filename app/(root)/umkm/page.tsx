@@ -102,11 +102,12 @@ export default function UmkmPage() {
         </h1>
 
         <div className="flex justify-start md:justify-between items-center gap-2 md:gap-7">
-          <details ref={filterDropdownRef} className="dropdown">
-            <summary className="btn btn-sm md:btn-md m-0 md:m-1 text-xs md:text-sm rounded-[5px] ">
-              Filter {<ChevronDown className="w-4 h-4" />}
+          <details ref={filterDropdownRef} className="dropdown w-30">
+            <summary className="bg-primary-content/90 text-white btn btn-sm md:btn-md m-0 md:m-1 text-xs md:text-sm rounded-[10px] w-full justify-between">
+              <span>Filter</span>
+              <ChevronDown className="w-4 h-4" />
             </summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-full min-w-0 p-2 shadow-sm">
               <li
                 className="p-1.5 hover:bg-primary-content/10 hover:text-primary-content rounded-lg cursor-pointer transition-all duration-200"
                 onClick={() => closeDropdown(filterDropdownRef)}
@@ -121,11 +122,12 @@ export default function UmkmPage() {
               </li>
             </ul>
           </details>
-          <details ref={categoryDropdownRef} className="dropdown">
-            <summary className="btn btn-sm md:btn-md m-0 md:m-1 text-xs md:text-sm">
-              Category {<ChevronDown className="w-4 h-4" />}
+          <details ref={categoryDropdownRef} className="dropdown w-34">
+            <summary className="bg-primary-content/90 text-white btn btn-sm md:btn-md m-0 md:m-1 text-xs md:text-sm rounded-[10px] w-full justify-between">
+              <span>Category</span>
+              <ChevronDown className="w-4 h-4" />
             </summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-full min-w-0 p-2 shadow-sm">
               {currentSubCategories.map((subcat) => {
                 return (
                   <li
