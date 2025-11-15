@@ -1,6 +1,6 @@
 "use client";
 import { useUmkmLogic } from "@/hooks/useUmkmLogic";
-import { ChevronRight, MapPin, TriangleAlert } from "lucide-react";
+import { ChevronRight, MapPin } from "lucide-react";
 import Link from "next/link";
 import { useNearbyUmkm, useNewestUmkm } from "@/hooks/useUmkm";
 import CardList from "../ui/CardList";
@@ -8,7 +8,7 @@ import { useUserLocationStore } from "@/store/useUserLocationStore";
 import Image from "next/image";
 
 export default function UmkmListSection() {
-  const { listTitle } = useUmkmLogic();
+  const { listTitle, handleCurrentFilterChange } = useUmkmLogic();
   const { userLocation, fetchUserLocation } = useUserLocationStore();
 
   console.log(userLocation);
@@ -20,7 +20,11 @@ export default function UmkmListSection() {
           {listTitle} <span className="text-primary-content">Terdekat</span>
         </h1>
 
-        <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
+        <Link
+          href="/umkm"
+          className="flex items-center gap-2 hover:text-primary-content transition-colors group"
+          onClick={() => handleCurrentFilterChange("nearby")}
+        >
           <p className="font-semibold">Show All</p>
           <ChevronRight className="transition-transform group-hover:translate-x-1" />
         </Link>
@@ -35,7 +39,7 @@ export default function UmkmListSection() {
             onClick={fetchUserLocation}
             className="p-3 bg-primary-content/90 text-primary-content-bright rounded-2xl flex items-center gap-2 transition-colors"
           >
-            <MapPin /> Aktifkan Lokasi  
+            <MapPin /> Aktifkan Lokasi
           </button>
         </div>
       )}
@@ -45,7 +49,11 @@ export default function UmkmListSection() {
           {listTitle} <span className="text-primary-content">Terbaru</span>
         </h1>
 
-        <Link href="/umkm" className="flex items-center gap-2 hover:text-primary-content transition-colors group">
+        <Link
+          href="/umkm"
+          className="flex items-center gap-2 hover:text-primary-content transition-colors group"
+          onClick={() => handleCurrentFilterChange("newest")}
+        >
           <p className="font-semibold">Show All</p>
           <ChevronRight className="transition-transform group-hover:translate-x-1" />
         </Link>
