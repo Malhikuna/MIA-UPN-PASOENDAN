@@ -5,8 +5,8 @@ const AboutSection = () => {
     <section className="py-20 px-4 md:px-8 lg:px-16 flex flex-col justify-center items-center">
       {/* Header */}
       <div className="text-center mb-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Calling All UMKMs
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 ">
+          Temukan dan Dukung UMKM Terdekat
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto text-lg">
           CariKita menjadi jembatan antara pelaku UMKM dan masyarakat. Kami
