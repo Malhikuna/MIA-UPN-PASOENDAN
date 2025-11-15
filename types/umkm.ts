@@ -22,3 +22,5 @@ export type UmkmItem = {
   createdAt: Date;
   updatedAt: Date;
 };
+
+export type CurrentFilter = "newest" | "nearby";
