@@ -3,7 +3,7 @@ import { UmkmItem } from "@/types/umkm";
 import { useEffect, useState } from "react";
 
 export const useUmkm = () => {
-  const { selectedMainCategory, selectedSubCategory, searchQuery } = useUmkmStore();
+  const { selectedMainCategory, selectedSubCategory, searchQuery, currentFilter } = useUmkmStore();
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -15,7 +15,9 @@ export const useUmkm = () => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch(`/api/umkm?mainCategory=${selectedMainCategory}&${searchQuery}}`);
+        const response = await fetch(
+          `/api/umkm?mainCategory=${selectedMainCategory}&${searchQuery}}&filter=${currentFilter}`
+        );
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
@@ -30,7 +32,7 @@ export const useUmkm = () => {
     }
 
     fetchUmkm();
-  }, [selectedMainCategory]);
+  }, [selectedMainCategory, selectedSubCategory, searchQuery, currentFilter]);
 
   return { umkmList, loading, error };
 };

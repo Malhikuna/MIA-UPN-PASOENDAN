@@ -8,6 +8,7 @@ export async function GET(request: Request) {
     const mainCategory = searchParams.get("mainCategory");
     const subCategory = searchParams.get("subCategory");
     const searchQuery = searchParams.get("searchQuery");
+    const filter = searchParams.get("filter");
 
     const where = {};
 
@@ -28,6 +29,7 @@ export async function GET(request: Request) {
 
     const umkmList = await prisma.umkm.findMany({
       where,
+      orderBy: filter === "newest" ? { createdAt: "desc" } : { createdAt: "asc" },
     });
 
     console.log("Found UMKM:", umkmList.length);

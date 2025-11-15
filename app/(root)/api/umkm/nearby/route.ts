@@ -23,7 +23,7 @@ export async function GET(request: Request) {
     const umkmList = await prisma.umkm.findMany({
       where,
 
-      take: 3,
+      take: 6,
     });
 
     console.log("Found UMKM:", umkmList.length);
