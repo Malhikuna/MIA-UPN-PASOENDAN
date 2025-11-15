@@ -11,7 +11,6 @@ export const useUmkm = () => {
   useEffect(() => {
     async function fetchUmkm() {
       try {
-        console.log(selectedSubCategory);
         setLoading(true);
         setError(null);
 
@@ -84,8 +83,6 @@ export const useNewestUmkm = () => {
             selectedSubCategory ? `subCategory=${selectedSubCategory}` : ""
           }`
         );
-
-        console.log(response);
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
