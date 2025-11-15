@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import {LocateFixed, Minimize2, SlidersHorizontal, UserRound} from "lucide-react";
+import {LocateFixed, Minimize2, UserRound} from "lucide-react";
 import { FeatureCollection } from "geojson";
 import Image from "next/image";
 import ReactDOMServer from "react-dom/server";
@@ -12,12 +12,10 @@ import { createDivIcon } from "@/utils/map/createDivIcon";
 import { initMap } from "@/utils/map/initMap";
 import { getDistance } from "@/utils/getDistance";
 import { useUserLocationStore } from "@/store/useUserLocationStore";
-import { useUmkmLogic } from "@/hooks/useUmkmLogic";
 import { UmkmItem } from "@/types/umkm";
 import MapSlider from "@/components/ui/map/MapSlider";
-import FilterPanel from "@/components/ui/map/FilterPanel";
 import {useUmkmStore} from "@/store/useUmkmStore";
-import {useUmkm} from "@/hooks/useUmkm";
+import {useNearestUmkm, useNewestUmkm} from "@/hooks/useUmkm";
 
 const DEFAULT_CENTER = { lat: -6.86507099703059, lng: 107.59368327596205 };
 
@@ -44,15 +42,19 @@ const NearbyLocationLeaflet = ({}) => {
   /** -------------------------------
    *  STATE & DATA INITIALIZATION
    * -------------------------------- */
-  const { userLocation, fetchUserLocation, clearUserLocation, isLoading, error } = useUserLocationStore();
-  const { umkmImageUrl, selectedMainCategory } = useUmkmStore();
+  const { userLocation, fetchUserLocation, clearUserLocation, isLoading, error, userRadius, setUserRadius } = useUserLocationStore();
+  const { umkmImageUrl } = useUmkmStore();
   const [nearbyUMKM, setNearbyUMKM] = useState<any[]>([]);
-  const [radius, setRadius] = useState(100);
   const [isShowMaximumMap, setIsShowMaximumMap] = useState(false);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
-  const { umkmList } = useUmkm();
+  const { umkmList: nearestList } = useNearestUmkm(
+    userLocation?.lat ?? 0,
+    userLocation?.lng ?? 0,
+    userRadius
+  );
+
+  const { umkmList: newestList } = useNewestUmkm();
 
   /** -------------------------------
    *  NEAREST UMKM FILTER
@@ -60,16 +62,21 @@ const NearbyLocationLeaflet = ({}) => {
   useEffect(() => {
     const base = userLocation ?? DEFAULT_CENTER;
 
-    const filtered = umkmList
+    const source = userLocation ? nearestList : newestList;
+
+    if (!source) return;
+    const filtered = source
       .map((u) => ({
         ...u,
         distance: getDistance(base.lat, base.lng, u.lat, u.lng),
       }))
-      .filter((u) => u.distance <= radius)
+      .filter((u) => u.distance <= userRadius)
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyUMKM(filtered);
-  }, [radius, umkmList]);
+
+  }, [userRadius, userLocation, nearestList, newestList]);
+
 
   useEffect(() => {
     return () => {
@@ -81,6 +88,8 @@ const NearbyLocationLeaflet = ({}) => {
    *  INITIALIZE MAP
    * -------------------------------- */
   useEffect(() => {
+
+
     const mapId = "map";
     let center: L.LatLngExpression;
     if (userLocation) center = [userLocation.lat, userLocation.lng];
@@ -157,7 +166,7 @@ const NearbyLocationLeaflet = ({}) => {
 
       /* User Radius */
       L.circle([userLocation.lat, userLocation.lng], {
-        radius,
+        radius: userRadius,
         color: "#31725C",
         fillColor: "#31725C",
         fillOpacity: 0.3,
@@ -288,8 +297,8 @@ const NearbyLocationLeaflet = ({}) => {
           {
             userLocation && (
               <MapSlider
-                radius={radius}
-                onRadiusChange={setRadius}
+                radius={userRadius}
+                onRadiusChange={setUserRadius}
               />
             )
           }

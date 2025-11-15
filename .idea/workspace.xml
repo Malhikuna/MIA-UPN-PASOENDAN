@@ -5,21 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/section/AllUmkmSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/enable-location.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/api/umkm/nearest/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/20251116_add_geom_to_umkm/migration.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/nearby/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/api/umkm/nearby/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/newest/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/api/umkm/newest/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/api/umkm/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/api/umkm/nearby/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/umkm/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/umkm/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/app/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/section/AboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/section/AboutSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/section/CategorySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/section/CategorySection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/section/UmkmListSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/section/UmkmListSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ui/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/CardList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/categories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hooks/useUmkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUmkm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useUmkmLogic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useUmkmLogic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/globe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/example.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/example2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/footer/about1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/footer/about2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/about/about2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/footer/footer1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/footer/footer2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/footer/footer3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/map-pin-red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/map-pin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/window.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/store/useUmkmStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useUmkmStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/useUserLocationStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/useUserLocationStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/umkm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/umkm.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +70,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging mal-dev",
+    "git-widget-placeholder": "mal-dev",
     "javascript.nodejs.core.library.configured.version": "22.17.1",
     "javascript.nodejs.core.library.typings.version": "22.17.2",
     "last_opened_file_path": "D:/count-app",

@@ -24,3 +24,11 @@ export type UmkmItem = {
 };
 
 export type CurrentFilter = "newest" | "nearby";
+
+export type UmkmListType = {
+  useUmkm: (userLat: number, userLng: number, radius: number) => {
+    umkmList: UmkmItem[];
+    loading: boolean;
+    error: string | null;
+  };
+};

@@ -2,9 +2,8 @@
 import ToggleSwitch from "@/components/ui/ToggleSwitchProps";
 import Category from "@/components/ui/Category";
 import { useUmkmStore } from "@/store/useUmkmStore";
-import { mainCategories, subCategories } from "@/data/categories";
+import { mainCategories } from "@/data/categories";
 import { useUmkmLogic } from "@/hooks/useUmkmLogic";
-import { useEffect } from "react";
 
 export default function CategorySection() {
   const { selectedMainCategory, selectedSubCategory, setShowAll } =
@@ -15,11 +14,6 @@ export default function CategorySection() {
     handleMainCategoryChange,
     handleSubCategoryChange,
   } = useUmkmLogic();
-
-  // useEffect(() => {
-  //   const theme = selectedMainCategory === "fnb" ? "fnb-theme" : "jasa-theme";
-  //   document.documentElement.setAttribute("data-theme", theme);
-  // }, [selectedMainCategory]);
 
   return (
     <section
