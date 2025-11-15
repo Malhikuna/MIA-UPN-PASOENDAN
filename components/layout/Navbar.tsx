@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Input from "../ui/Input";
+import SearchInput from "../ui/SearchInput";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -90,10 +90,10 @@ export default function Navbar() {
             <Image src={logoSrc} alt="CariKita" height={100} width={100} />
           </Link>
 
-          {/* Search Input - Desktop & Mobile */}
+          {/* Search SearchInput - Desktop & Mobile */}
           <div className="flex-1 md:mx-8">
             {pathname.startsWith("/umkm") ? (
-              <Input
+              <SearchInput
                 ref={inputRef}
                 placeholder="Cari nama UMKM"
                 value={searchQuery}
@@ -104,7 +104,7 @@ export default function Navbar() {
               />
             ) : !pathname.startsWith("/about") ? (
               <Link href={`/umkm?focus=true`} className="w-fit block">
-                <Input
+                <SearchInput
                   placeholder="Cari nama UMKM"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}

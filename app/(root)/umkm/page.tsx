@@ -8,7 +8,6 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Input from "@/components/ui/Input";
 import { useUmkmStore } from "@/store/useUmkmStore";
 
 export default function UmkmPage() {

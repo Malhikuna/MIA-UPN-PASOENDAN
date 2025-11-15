@@ -10,7 +10,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const SearchInput = forwardRef<HTMLInputElement, InputProps>(
   ({ className = "", labelClassName = "", bgColor, ...props }, ref) => {
     return (
       <label className={`flex items-center gap-2 h-10 ${bgColor} ${labelClassName} rounded-full px-4`}>
@@ -26,4 +26,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-export default Input;
+export default SearchInput;

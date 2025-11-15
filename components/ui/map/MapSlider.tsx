@@ -8,7 +8,7 @@ interface MapSliderProps {
 const MapSlider: React.FC<MapSliderProps> = ({radius, onRadiusChange}) => {
   return (
     <div
-      className="absolute bottom-2 right-2 mb-4 p-2 w-64 bg-white/70 border border-gray-300 rounded-md shadow-lg z-30">
+      className="absolute right-2 mb-4 p-2 w-64 bg-white/70 border border-gray-300 rounded-md shadow-lg z-30 bottom-2">
       <div className="flex justify-between items-center mb-2">
         <label
           htmlFor="radius-slider"

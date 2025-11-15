@@ -10,8 +10,6 @@ export default function UmkmListSection() {
   const { listTitle } = useUmkmLogic();
   const { userLocation, fetchUserLocation } = useUserLocationStore();
 
-  console.log(userLocation);
-
   return (
     <section className="container mx-auto py-5 md:py-5 px-8 md:px-12">
       <div className="flex justify-between items-center mb-3">
