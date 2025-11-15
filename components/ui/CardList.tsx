@@ -1,9 +1,8 @@
 "use client";
 
-import { useNearbyUmkm, useNewestUmkm } from "@/hooks/useUmkm";
 import { useUmkmLogic } from "@/hooks/useUmkmLogic";
-import { ChevronRight, Loader2 } from "lucide-react";
-import { use, useEffect, useRef } from "react";
+import { Loader2 } from "lucide-react";
+import { useEffect, useRef } from "react";
 import Card from "./Card";
 import { UmkmItem } from "@/types/umkm";
 import Link from "next/link";

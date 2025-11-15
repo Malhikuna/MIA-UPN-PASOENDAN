@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useUmkmStore } from "@/store/useUmkmStore";
 import { subCategories } from "@/data/categories";
 import { useUmkmFilter } from "@/hooks/useUmkmFilter";
-import { UmkmCategory, UmkmMainCategory } from "@/types/umkm";
+import { CurrentFilter, UmkmCategory, UmkmMainCategory } from "@/types/umkm";
 import { useUmkm } from "./useUmkm";
 
 export const useUmkmLogic = () => {
@@ -17,6 +17,8 @@ export const useUmkmLogic = () => {
     setSelectedSubCategory,
     setSearchQuery,
     setShowAll,
+    setCurrentFilter,
+    currentFilter,
   } = useUmkmStore();
 
   const currentSubCategories = useMemo(
@@ -53,6 +55,10 @@ export const useUmkmLogic = () => {
     setShowAll(false);
   };
 
+  const handleCurrentFilterChange = (value: string) => {
+    setCurrentFilter(value as CurrentFilter);
+  };
+
   const handleReset = () => {
     setSelectedSubCategory("all");
     setSearchQuery("");
@@ -68,5 +74,7 @@ export const useUmkmLogic = () => {
     handleMainCategoryChange,
     handleSubCategoryChange,
     handleReset,
+    handleCurrentFilterChange,
+    currentFilter,
   };
 };

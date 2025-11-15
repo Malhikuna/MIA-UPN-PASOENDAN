@@ -50,7 +50,6 @@ export const subCategories = {
       label: "Japanese Food",
       image: "/images/category/japanase-food.webp",
     },
-    
   ],
   jasa: [
     {
