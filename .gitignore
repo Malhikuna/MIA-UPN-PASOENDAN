@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/app/generated/prisma
+
+.vercel
+
+# Prisma generated client
+app/generated/prisma/
+prisma/app/generated/prisma/
+
+# Prisma Client build
+prisma/app/generated/
+
+# JetBrains IDE settings
+.idea/
+.idea/workspace.xml

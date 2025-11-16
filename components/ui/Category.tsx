@@ -15,9 +15,9 @@ type CategoryProps = {
 export default function Category({ selectedSubCategory, setSelectedSubCategory, subCat, setShowAll }: CategoryProps) {
   return (
     <button
-      className={` p-1 rounded-full transition-all ${
+      className={`rounded-full transform transition-all hover:scale-108 shadow-md border-2 border-gray-200 ${
         selectedSubCategory === subCat.value
-          ? "bg-primary text-white shadow-lg scale-105"
+          ? "bg-primary text-white shadow-lg scale-108"
           : "bg-primary-muted text-black hover:bg-primary"
       }`}
       onClick={() => {

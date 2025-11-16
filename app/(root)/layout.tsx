@@ -1,6 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import {Suspense} from "react";
+import { Suspense } from "react";
 
 export default function Layout({
   children,

@@ -67,7 +67,7 @@ export default function ToggleSwitch({ options, selected, onChange }: ToggleSwit
         <button
           key={option.value}
           onClick={() => onChange(option.value)}
-          className={`px-8 py-2 rounded-full font-semibold transition-all ${
+          className={`md:px-8 md:py-2 px-5 py-1 rounded-full font-semibold transition-all ${
             selected === option.value 
               ? "bg-secondary text-white shadow-md" 
               : "text-gray-600 hover:text-gray-800"

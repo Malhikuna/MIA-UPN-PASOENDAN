@@ -1,99 +1,78 @@
 "use client";
-import { useUmkmLogic } from "@/app/lib/umkm";
-import Card from "@/components/ui/Card";
-import Pagination from "@/components/ui/Pagination";
-import { usePagination } from "@/hooks/usePagination";
-import { UmkmItem } from "@/types/umkm";
-import { ChevronDown } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import Input from "@/components/ui/Input";
+import { useUmkmLogic } from "@/hooks/useUmkmLogic";
+import { ChevronDown, MapPin } from "lucide-react";
+import { useRef } from "react";
 import { useUmkmStore } from "@/store/useUmkmStore";
+import { useUserLocationStore } from "@/store/useUserLocationStore";
+import Image from "next/image";
+import AllUmkmSection from "@/components/section/AllUmkmSection";
 
 export default function UmkmPage() {
-  const { searchQuery, setSearchQuery } = useUmkmStore();
-  const { currentSubCategories, filteredData, handleReset, handleSubCategoryChange } = useUmkmLogic();
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  const { currentPage, totalPages, paginatedItems, goToPage, goToPrevious, goToNext, getPageNumbers } = usePagination({
-    items: filteredData,
-    itemsPerPage: 9,
-    showAll: true,
-  });
-
-  console.log(paginatedItems);
+  const { userLocation, fetchUserLocation } = useUserLocationStore();
+  const { currentSubCategories, handleSubCategoryChange, currentFilter, handleCurrentFilterChange } = useUmkmLogic();
+  const categoryDropdownRef = useRef<HTMLDetailsElement>(null);
+  const filterDropdownRef = useRef<HTMLDetailsElement>(null);
 
   const { selectedMainCategory } = useUmkmStore();
   // Animasi saat ganti halaman
-  useEffect(() => {
-    if (gridRef.current) {
-      const cards = gridRef.current.children;
 
-      const tl = gsap.timeline();
-
-      // Fade out
-      tl.to(cards, {
-        opacity: 0,
-        y: -20,
-        duration: 0.2,
-        stagger: 0.03,
-      });
-
-      // Fade in
-      tl.fromTo(
-        cards,
-        {
-          opacity: 0,
-          y: 30,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "back.out(1.2)",
-        },
-        "+=0.1"
-      );
+  const closeDropdown = (ref: React.RefObject<HTMLDetailsElement | null>) => {
+    if (ref.current) {
+      ref.current.open = false;
     }
-  }, [currentPage, paginatedItems]);
+  };
 
-  const hasResults = filteredData.length > 0;
-  const showPagination = filteredData.length > 9;
+  const handleFilterClick = (value: string) => {
+    handleCurrentFilterChange(value);
+    closeDropdown(filterDropdownRef);
+  };
+
+  const handleCategoryClick = (value: string) => {
+    handleSubCategoryChange(value);
+    closeDropdown(categoryDropdownRef);
+  };
 
   return (
-    <div className="container mx-auto py-5 md:py-10 px-12 min-h-screen border">
+    <div className="container mx-auto py-5 md:py-10 px-4 md:px-8 lg:px-12 min-h-screen">
       {/* Header */}
-      <div className="flex justify-between items-center w-full mb-8 mt-12">
-        <h1 className="font-bold text-3xl">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mb-6 md:mb-8 mt-12 md:mt-12 gap-4">
+        <h1 className="font-bold text-2xl md:text-3xl">
           Semua Umkm <span className="text-primary-content">{(selectedMainCategory as string).toUpperCase()}</span>
         </h1>
 
-        <div className="flex justify-between items-center gap-7">
-          <details className="dropdown">
-            <summary className="btn m-1">Filter {<ChevronDown />}</summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+        <div className="flex justify-start md:justify-between items-center gap-2 md:gap-7">
+          <details ref={filterDropdownRef} className="dropdown w-30">
+            <summary className="bg-primary-content/90 text-white btn btn-sm md:btn-md m-0 md:m-1 text-xs md:text-sm rounded-[10px] w-full justify-between">
+              <span>Filter</span>
+              <ChevronDown className="w-4 h-4" />
+            </summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-full min-w-0 p-2 shadow-sm">
               <li
-                className="p-1.5 hover:bg-foreground/10 rounded-lg cursor-pointer"
-                // onClick={() => handleSubCategoryChange(subcat.value)}
+                className="p-1.5 hover:bg-primary-content/10 hover:text-primary-content rounded-lg cursor-pointer transition-all duration-200"
+                onClick={() => handleFilterClick("newest")}
               >
                 Terbaru
               </li>
-              <li className="p-1.5 hover:bg-foreground/10 rounded-lg cursor-pointer">Terdekat</li>
+              <li
+                className="p-1.5 hover:bg-primary-content/10 hover:text-primary-content rounded-lg cursor-pointer transition-all duration-200"
+                onClick={() => handleFilterClick("nearby")}
+              >
+                Terdekat
+              </li>
             </ul>
           </details>
-          <details className="dropdown">
-            <summary className="btn m-1">Category {<ChevronDown />}</summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <details ref={categoryDropdownRef} className="dropdown w-34">
+            <summary className="bg-primary-content/90 text-white btn btn-sm md:btn-md m-0 md:m-1 text-xs md:text-sm rounded-[10px] w-full justify-between">
+              <span>Category</span>
+              <ChevronDown className="w-4 h-4" />
+            </summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-full min-w-0 p-2 shadow-sm">
               {currentSubCategories.map((subcat) => {
                 return (
                   <li
                     key={subcat.value}
-                    className="p-1.5 hover:bg-foreground/10 rounded-lg cursor-pointer"
-                    onClick={() => handleSubCategoryChange(subcat.value)}
+                    className="p-1.5 hover:bg-primary-content/10 hover:text-primary-content rounded-lg cursor-pointer transition-all duration-200"
+                    onClick={() => handleCategoryClick(subcat.value)}
                   >
                     {subcat.label}
                   </li>
@@ -104,41 +83,22 @@ export default function UmkmPage() {
         </div>
       </div>
 
-      {/* Cards Grid */}
-      {hasResults && (
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[530px]">
-          {paginatedItems.map((umkm: UmkmItem) => (
-            <Link href={`/umkm/${umkm.id}`} key={umkm.id}>
-              <Card title={umkm.title} address={umkm.address} image={umkm.images[0]} />
-            </Link>
-          ))}
-        </div>
-      )}
-
-      {/* Pagination */}
-      {showPagination && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-          onPrevious={goToPrevious}
-          onNext={goToNext}
-          getPageNumbers={getPageNumbers}
-        />
-      )}
-
-      {/* Empty State */}
-      {!hasResults && (
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Tidak ada UMKM ditemukan untuk kategori ini</p>
+      {!userLocation && currentFilter === "nearby" && (
+        <div className="h-[280px] w-full flex flex-col justify-center items-center bg-gray-100 rounded-xl">
+          <Image src="/images/enable-location.webp" alt="Enable Location" width={250} height={250} className="" />
+          <p className=" font-medium mb-3">Aktifkan lokasi untuk melihat UMKM terdekat di sekitar Anda.</p>
           <button
-            onClick={handleReset}
-            className="mt-4 px-6 py-2 bg-primary-content text-white rounded-lg hover:opacity-90 transition-opacity"
+            onClick={fetchUserLocation}
+            className="p-3 bg-primary-content/90 text-primary-content-bright rounded-2xl flex items-center gap-2 transition-colors"
           >
-            Reset Filter
+            <MapPin /> Aktifkan Lokasi
           </button>
         </div>
       )}
+
+      {userLocation && currentFilter === "nearby" && <AllUmkmSection />}
+
+      {currentFilter === "newest" && <AllUmkmSection />}
     </div>
   );
 }

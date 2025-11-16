@@ -1,14 +1,20 @@
 import React from 'react';
 import {CircleArrowRight, BadgeInfo, MapPin, MessageCircle, Heart, Share2} from "lucide-react";
+import Image from "next/image";
+import {useUmkmStore} from "@/store/useUmkmStore";
+import Link from "next/link";
 
 interface UmkmInfoProps {
   category: string;
   title: string;
   address: string;
+  whatsApp: string
   handleShowDescription: () => void;
 }
 
-const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShowDescription}) => {
+const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShowDescription, whatsApp}) => {
+  const { umkmImageUrl } = useUmkmStore();
+  const cleanedWa = whatsApp ? whatsApp.replace(/^0/, "") : "85156818587";
   return (
     <div className="flex flex-col justify-center gap-5 space-y-6">
       <div className="flex items-center gap-2">
@@ -19,9 +25,20 @@ const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShow
 
       <div className="flex flex-col gap-2">
         <div>
-          <h1 className="text-4xl text-primary-content-dark font-bold mb-2">{title}</h1>
+          <div className="flex items-center gap-5 mb-5">
+            <div className="hidden md:block relative w-15 h-15 rounded-full shadow-md border-1 border-gray-500">
+              <Image
+                src={umkmImageUrl}
+                alt="poto profil umkm"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <h1 className="text-4xl text-primary-content-dark font-bold">{title}</h1>
+          </div>
           <p className="text-gray-600 flex font-medium items-center gap-2">
-            <MapPin/>
+          <MapPin/>
             {address}
           </p>
         </div>
@@ -45,12 +62,17 @@ const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShow
                     Ikuti
                   </button>*/}
 
-          <button className="btn btn-neutral rounded-xl">
-            Hubungi Kami Lewat <MessageCircle size={20}/>
-          </button>
+          <Link
+            href={`https://wa.me/62${cleanedWa}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-success rounded-xl text-white flex items-center gap-2"
+          >
+            Hubungi Kami Lewat <MessageCircle size={20} />
+          </Link>
         </div>
 
-        <div className="flex gap-2 w-auto h-auto py-2 px-5 bg-white rounded-full shadow-sm">
+        {/*<div className="flex gap-2 w-auto h-auto py-2 px-5 bg-white rounded-full shadow-sm">
           <button className="flex justify-center items-center gap-2 cursor-pointer">
             <MessageCircle/> <span>Favorite</span>
           </button>
@@ -62,7 +84,7 @@ const UmkmInfo: React.FC<UmkmInfoProps> = ({category, title, address, handleShow
           <button className="flex justify-center items-center gap-2 cursor-pointer">
             <Share2/> <span>Share</span>
           </button>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

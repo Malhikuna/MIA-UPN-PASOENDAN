@@ -4,18 +4,9 @@
 }
 
 @theme {
-  /* bikin variable baru  */
+  /* bikin variable baru */
   --background: #f5f5f5;
   --foreground: #000000;
-  --color-primary-content: oklchoklch(55.53% 0.1826 143.55);
-  --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
-  --color-primary-content-bright: oklch(98.2% 0.018 155.826);
-  --color-primary-muted: oklch(89.11% 0.166 148.62);
-}
-
-/* override warna bawaan DaisyUI atau yang sudah di deklarasi di @theme*/
-@plugin "daisyui/theme" {
-  name: "fnb-theme";
   --color-primary-content: oklch(55.53% 0.1826 143.55);
   --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
   --color-primary-content-bright: oklch(98.2% 0.018 155.826);
@@ -24,15 +15,26 @@
   --color-secondary: oklch(21.22% 0.0625 147.36);
 }
 
+/* override warna bawaan DaisyUI atau yang sudah di deklarasi di @theme*/
 @plugin "daisyui/theme" {
+  name: "light";
+  --color-primary-content: oklch(55.53% 0.1826 143.55);
+  --color-primary-content-dark: oklch(50.503% 0.0759 168.35);
+  --color-primary-content-bright: oklch(98.2% 0.018 155.826);
+  --color-primary: oklch(85.86% 0.2179 146.89);
+  --color-primary-muted: oklch(89.11% 0.166 148.62);
+  --color-secondary: oklch(21.22% 0.0625 147.36);
+}
+
+/* @plugin "daisyui/theme" {
   name: "jasa-theme";
   --color-primary-content: oklch(56.34% 0.23 260.78);
   --color-primary-content-dark: oklch(47.37% 0.177 260.14);
-  --color-primary-content-bright: oklch(98.7% 0.026 102.212);
+  --color-primary-content-bright: oklch(70.7% 0.165 254.624);
   --color-primary: oklch(62.65% 0.204 255.31);
   --color-primary-muted: oklch(68.69% 0.16 251.14);
   --color-secondary: oklch(30.66% 0.096 253.55);
-}
+} */
 
 @theme inline {
   --color-background: var(--background);
