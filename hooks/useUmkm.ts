@@ -18,7 +18,9 @@ export const useUmkm = () => {
         setError(null);
 
         const response = await fetch(
-          `/api/umkm?mainCategory=${selectedMainCategory}&${searchQuery}}&filter=${currentFilter}`
+          `/api/umkm?mainCategory=${selectedMainCategory}${
+            searchQuery ? `&searchQuery=${encodeURIComponent(searchQuery)}` : ""
+          }&filter=${currentFilter}`
         );
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
