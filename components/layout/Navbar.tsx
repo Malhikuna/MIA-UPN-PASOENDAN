@@ -99,7 +99,7 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="flex-1 outline-none text-sm text-white"
-                labelClassName="w-full md:w-[40vw]"
+                labelClassName="w-full md:w-[40vw] 2xl:w-[30vw]"
                 bgColor={`bg-black/20`}
               />
             ) : !pathname.startsWith("/about") ? (
@@ -109,7 +109,7 @@ export default function Navbar() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="flex-1 outline-none text-sm text-white"
-                  labelClassName="w-full md:w-[40vw]"
+                  labelClassName="w-full md:w-[40vw] 2xl:w-[30vw]"
                   bgColor={`${isTextChanged ? "bg-black/20" : 'bg-white/30'}`}
                 />
               </Link>
