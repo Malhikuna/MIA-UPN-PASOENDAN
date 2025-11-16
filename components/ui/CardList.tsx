@@ -7,9 +7,10 @@ import Card from "./Card";
 import { UmkmItem } from "@/types/umkm";
 import Link from "next/link";
 import gsap from "gsap";
+import {useUserLocationStore} from "@/store/useUserLocationStore";
 
 type CardListProps = {
-  useUmkm: () => {
+  useUmkm: (userLat: number, userLng: number, radius: number) => {
     umkmList: UmkmItem[];
     loading: boolean;
     error: string | null;
@@ -17,14 +18,22 @@ type CardListProps = {
 };
 
 const CardList = ({ useUmkm }: CardListProps) => {
+  /** -------------------------------
+   *  STATE & DATA INITIALIZATION
+   * -------------------------------- */
   const { handleReset } = useUmkmLogic();
-
+  const { userLocation, userRadius } = useUserLocationStore();
   const sliderRef = useRef<HTMLDivElement>(null);
-  const { umkmList, loading, error } = useUmkm();
-
+  const { umkmList, loading, error } = useUmkm(
+    userLocation?.lat ?? 0,
+    userLocation?.lng ?? 0,
+    userRadius
+  );
   const displayedData = umkmList;
 
-  // Animasi untuk section Terdekat
+  /** -------------------------------
+   *  ANIMATION FOR NEAREST SECTION
+   * -------------------------------- */
   useEffect(() => {
     if (sliderRef.current) {
       const cards = sliderRef.current.children;

@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8a576f4d-760d-4c18-937e-357c95a459b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/UmkmInfoModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/map/leaflet/NearbyLocationLeaflet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seed.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -62,11 +61,11 @@
       <recent name="D:\MIA-UPN-PASOENDAN\app\(auth)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm" />
+      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\logo" />
       <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\jasa\fotokopi" />
       <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\fnb\japanese-food" />
       <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\jasa\barbershop" />
-      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\fnb\nasi-padang" />
-      <recent name="D:\Users\Hikmal\MIA-UPN-PASOENDAN\public\images\umkm\fnb\warnas" />
     </key>
   </component>
   <component name="RunManager">

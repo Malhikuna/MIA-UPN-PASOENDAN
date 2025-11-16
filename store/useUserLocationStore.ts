@@ -8,9 +8,11 @@ interface UserLocation {
 
 interface UserLocationState {
   userLocation: UserLocation | null;
+  userRadius: number;
   isLoading: boolean;
   error: string | null;
   setUserLocation: (location: UserLocation) => void;
+  setUserRadius: (radius: number) => void;
   fetchUserLocation: () => void;
   clearUserLocation: () => void;
   getDistanceFromUser: (lat: number, lng: number) => number | null;
@@ -25,10 +27,13 @@ export const useUserLocationStore = create<UserLocationState>()(
   persist(
     (set, get) => ({
       userLocation: null,
+      userRadius: 100,
       isLoading: false,
       error: null,
 
       setUserLocation: (location) => set({ userLocation: location}),
+
+      setUserRadius: (radius: number) => set({ userRadius: radius }),
 
       fetchUserLocation: () => {
         set({ isLoading: true, error: null });

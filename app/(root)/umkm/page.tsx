@@ -55,7 +55,7 @@ export default function UmkmPage() {
               </li>
               <li
                 className="p-1.5 hover:bg-primary-content/10 hover:text-primary-content rounded-lg cursor-pointer transition-all duration-200"
-                onClick={() => handleFilterClick("nearby")}
+                onClick={() => handleFilterClick("nearest")}
               >
                 Terdekat
               </li>

@@ -10,6 +10,7 @@ export type UmkmCategory =
 export type UmkmMainCategory = "fnb" | "jasa";
 
 export type UmkmItem = {
+  whatsApp: string;
   id: string;
   name: string;
   address: string;

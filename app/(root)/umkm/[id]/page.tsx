@@ -5,7 +5,7 @@ import ProductCard from "@/components/ui/detail/ProductCard";
 import LocationMap from "@/components/ui/map/LocationMap";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import UmkmProfile from "@/components/ui/detail/UmkmProfile";
-import {useUmkm, useUmkmById} from "@/hooks/useUmkm";
+import {useUmkmById} from "@/hooks/useUmkm";
 import Loading from "@/app/(root)/loading";
 
 export default function page({ params }: { params: Promise<{ id: string }> }) {
@@ -29,7 +29,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="relative w-full h-auto bg-center bg-cover overflow-hidden"
+        className="relative w-full h-auto bg-center bg-cover overflow-hidden shadow-md"
       >
         <div className="absolute inset-0 bg-white/60 backdrop-blur-xs" />
 
