@@ -32,7 +32,7 @@ export async function GET(request: Request) {
       orderBy: filter === "newest" ? { createdAt: "desc" } : { createdAt: "asc" },
     });
 
-    console.log("Found UMKM:", umkmList.length);
+    console.log(searchQuery);
 
     return NextResponse.json(umkmList);
   } catch (error) {

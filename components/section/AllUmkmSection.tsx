@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useUmkm } from "@/hooks/useUmkm";
+import { useUmkmStore } from "@/store/useUmkmStore";
 
 export default function AllUmkmSection() {
   const { umkmList, loading } = useUmkm();
@@ -20,6 +21,8 @@ export default function AllUmkmSection() {
     itemsPerPage: 9,
     showAll: true,
   });
+
+  // console.log(searchQuery);
 
   // Animasi saat ganti halaman
   useEffect(() => {
@@ -61,16 +64,15 @@ export default function AllUmkmSection() {
   const showPagination = umkmList.length > 9;
 
   return (
-    <div className="container mx-auto py-5 md:py-10 px-4 md:px-8 lg:px-12 min-h-screen">
-      {loading && (
+    <>
+      {loading ? (
+        // LOADING
         <div className="h-[280px] w-full flex flex-col justify-center items-center bg-gray-100 rounded-xl">
           <Loader2 className="h-8 w-8 text-gray-500 animate-spin mb-2" />
           <p className="text-gray-600 font-medium">Loading...</p>
         </div>
-      )}
-
-      {/* Cards Grid */}
-      {hasResults && (
+      ) : hasResults ? (
+        // HAS RESULTS
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[530px]">
           {paginatedItems.map((umkm: UmkmItem) => (
             <Link href={`/umkm/${umkm.id}`} key={umkm.id}>
@@ -78,22 +80,8 @@ export default function AllUmkmSection() {
             </Link>
           ))}
         </div>
-      )}
-
-      {/* Pagination */}
-      {showPagination && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-          onPrevious={goToPrevious}
-          onNext={goToNext}
-          getPageNumbers={getPageNumbers}
-        />
-      )}
-
-      {/* Empty State */}
-      {!hasResults && !loading && (
+      ) : (
+        // EMPTY STATE
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">Tidak ada UMKM ditemukan untuk kategori ini</p>
           <button
@@ -104,6 +92,16 @@ export default function AllUmkmSection() {
           </button>
         </div>
       )}
-    </div>
+      {!loading && hasResults && paginatedItems.length > 9 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={goToPage}
+          onPrevious={goToPrevious}
+          onNext={goToNext}
+          getPageNumbers={getPageNumbers}
+        />
+      )}
+    </>
   );
 }

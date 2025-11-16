@@ -8,18 +8,17 @@ import { CurrentFilter, UmkmCategory, UmkmMainCategory } from "@/types/umkm";
 import { useUmkm } from "./useUmkm";
 
 export const useUmkmLogic = () => {
-  const {
-    selectedMainCategory,
-    selectedSubCategory,
-    searchQuery,
-    showAll,
-    setSelectedMainCategory,
-    setSelectedSubCategory,
-    setSearchQuery,
-    setShowAll,
-    setCurrentFilter,
-    currentFilter,
-  } = useUmkmStore();
+  const selectedMainCategory = useUmkmStore((s) => s.selectedMainCategory);
+  const selectedSubCategory = useUmkmStore((s) => s.selectedSubCategory);
+  const searchQuery = useUmkmStore((s) => s.searchQuery);
+  const showAll = useUmkmStore((s) => s.showAll);
+  const currentFilter = useUmkmStore((s) => s.currentFilter);
+
+  const setSelectedMainCategory = useUmkmStore((s) => s.setSelectedMainCategory);
+  const setSelectedSubCategory = useUmkmStore((s) => s.setSelectedSubCategory);
+  const setSearchQuery = useUmkmStore((s) => s.setSearchQuery);
+  const setShowAll = useUmkmStore((s) => s.setShowAll);
+  const setCurrentFilter = useUmkmStore((s) => s.setCurrentFilter);
 
   const currentSubCategories = useMemo(
     () => subCategories[selectedMainCategory as keyof typeof subCategories],

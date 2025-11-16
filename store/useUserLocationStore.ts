@@ -1,5 +1,6 @@
+"use client";
 import { create } from "zustand";
-import {persist, createJSONStorage} from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 interface UserLocation {
   lat: number;
@@ -18,10 +19,7 @@ interface UserLocationState {
   getDistanceFromUser: (lat: number, lng: number) => number | null;
 }
 
-const storage =
-  typeof window !== "undefined"
-    ? createJSONStorage(() => sessionStorage)
-    : undefined;
+const storage = typeof window !== "undefined" ? createJSONStorage(() => sessionStorage) : undefined;
 
 export const useUserLocationStore = create<UserLocationState>()(
   persist(
@@ -31,7 +29,7 @@ export const useUserLocationStore = create<UserLocationState>()(
       isLoading: false,
       error: null,
 
-      setUserLocation: (location) => set({ userLocation: location}),
+      setUserLocation: (location) => set({ userLocation: location }),
 
       setUserRadius: (radius: number) => set({ userRadius: radius }),
 
@@ -65,9 +63,7 @@ export const useUserLocationStore = create<UserLocationState>()(
 
         const a =
           Math.sin(dLat / 2) ** 2 +
-          Math.cos((userLoc.lat * Math.PI) / 180) *
-          Math.cos((lat * Math.PI) / 180) *
-          Math.sin(dLng / 2) ** 2;
+          Math.cos((userLoc.lat * Math.PI) / 180) * Math.cos((lat * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
 
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         const distance = R * c;

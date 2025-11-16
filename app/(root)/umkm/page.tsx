@@ -8,7 +8,9 @@ import Image from "next/image";
 import AllUmkmSection from "@/components/section/AllUmkmSection";
 
 export default function UmkmPage() {
-  const { userLocation, fetchUserLocation } = useUserLocationStore();
+  const userLocation = useUserLocationStore((s) => s.userLocation);
+  const fetchUserLocation = useUserLocationStore((s) => s.fetchUserLocation);
+
   const { currentSubCategories, handleSubCategoryChange, currentFilter, handleCurrentFilterChange } = useUmkmLogic();
   const categoryDropdownRef = useRef<HTMLDetailsElement>(null);
   const filterDropdownRef = useRef<HTMLDetailsElement>(null);
@@ -55,7 +57,7 @@ export default function UmkmPage() {
               </li>
               <li
                 className="p-1.5 hover:bg-primary-content/10 hover:text-primary-content rounded-lg cursor-pointer transition-all duration-200"
-                onClick={() => handleFilterClick("nearest")}
+                onClick={() => handleFilterClick("nearby")}
               >
                 Terdekat
               </li>

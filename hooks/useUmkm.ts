@@ -6,7 +6,11 @@ export const useUmkm = () => {
   /** -------------------------------
    *  STATE & DATA INITIALIZATION
    * -------------------------------- */
-  const { selectedMainCategory, selectedSubCategory, searchQuery, currentFilter } = useUmkmStore();
+  const selectedMainCategory = useUmkmStore((state) => state.selectedMainCategory);
+  const selectedSubCategory = useUmkmStore((state) => state.selectedSubCategory);
+  const searchQuery = useUmkmStore((state) => state.searchQuery);
+  const currentFilter = useUmkmStore((state) => state.currentFilter);
+
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +22,9 @@ export const useUmkm = () => {
         setError(null);
 
         const response = await fetch(
-          `/api/umkm?mainCategory=${selectedMainCategory}&${searchQuery}}&filter=${currentFilter}`
+          `/api/umkm?mainCategory=${selectedMainCategory}&subCategory=${selectedSubCategory}&${
+            searchQuery && `searchQuery=${searchQuery}`
+          }&filter=${currentFilter}`
         );
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
@@ -78,7 +84,8 @@ export const useNewestUmkm = () => {
   /** -------------------------------
    *  STATE & DATA INITIALIZATION
    * -------------------------------- */
-  const { selectedMainCategory, selectedSubCategory } = useUmkmStore();
+  const selectedMainCategory = useUmkmStore((s) => s.selectedMainCategory);
+  const selectedSubCategory = useUmkmStore((s) => s.selectedSubCategory);
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -95,12 +102,12 @@ export const useNewestUmkm = () => {
           }`
         );
 
-        console.log({response1: response});
+        console.log({ response1: response });
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
         const dataUmkm = await response.json();
-        console.log({dataUmkm1: dataUmkm});
+        console.log({ dataUmkm1: dataUmkm });
         setUmkmList(dataUmkm);
       } catch (err: any) {
         console.error(err);
@@ -120,7 +127,8 @@ export const useNearestUmkm = (userLat: number, userLng: number, radius: number)
   /** -------------------------------
    *  STATE & DATA INITIALIZATION
    * -------------------------------- */
-  const { selectedMainCategory, selectedSubCategory } = useUmkmStore();
+  const selectedMainCategory = useUmkmStore((s) => s.selectedMainCategory);
+  const selectedSubCategory = useUmkmStore((s) => s.selectedSubCategory);
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -137,12 +145,12 @@ export const useNearestUmkm = (userLat: number, userLng: number, radius: number)
           }&lat=${userLat}&lng=${userLng}&radius=${radius}`
         );
 
-        console.log({response: response});
+        console.log({ response: response });
 
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
         const dataUmkm = await response.json();
-        console.log({dataUmkm2: dataUmkm});
+        console.log({ dataUmkm2: dataUmkm });
         setUmkmList(dataUmkm);
       } catch (err: any) {
         console.error(err);

@@ -2,18 +2,18 @@
 import { useUmkmLogic } from "@/hooks/useUmkmLogic";
 import { ChevronRight, MapPin } from "lucide-react";
 import Link from "next/link";
-import {useNearestUmkm, useNewestUmkm} from "@/hooks/useUmkm";
+import { useNearestUmkm, useNewestUmkm } from "@/hooks/useUmkm";
 import CardList from "../ui/CardList";
 import { useUserLocationStore } from "@/store/useUserLocationStore";
 import Image from "next/image";
 
 export default function UmkmListSection() {
   const { listTitle, handleCurrentFilterChange } = useUmkmLogic();
-  const { userLocation, fetchUserLocation } = useUserLocationStore();
+  const userLocation = useUserLocationStore((s) => s.userLocation);
+  const fetchUserLocation = useUserLocationStore((s) => s.fetchUserLocation);
 
   return (
     <section className="container mx-auto py-5 md:py-5 px-8 md:px-12">
-
       {/* Nearest UMKM */}
       <div className="flex justify-between items-center mb-3">
         <h1 className="font-bold text-2xl">
@@ -23,7 +23,7 @@ export default function UmkmListSection() {
         <Link
           href="/umkm"
           className="flex items-center gap-2 hover:text-primary-content transition-colors group"
-          onClick={() => handleCurrentFilterChange("nearest")}
+          onClick={() => handleCurrentFilterChange("nearby")}
         >
           <p className="font-semibold">Show All</p>
           <ChevronRight className="transition-transform group-hover:translate-x-1" />
