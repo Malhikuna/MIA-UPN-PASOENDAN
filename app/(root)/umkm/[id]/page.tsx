@@ -29,7 +29,7 @@ export default function page({ params }: { params: Promise<{ id: string }> }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="relative w-full h-auto bg-center bg-cover overflow-hidden"
+        className="relative w-full h-auto bg-center bg-cover overflow-hidden shadow-md"
       >
         <div className="absolute inset-0 bg-white/60 backdrop-blur-xs" />
 

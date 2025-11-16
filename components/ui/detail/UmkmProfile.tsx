@@ -104,6 +104,7 @@ const UmkmProfile: React.FC<UmkmProfileProps> = ({ umkm }) => {
             category={umkm.subCategory}
             title={umkm.name}
             address={umkm.address}
+            whatsApp={umkm.whatsApp}
             handleShowDescription={handleShowDescription}
           />
         )}

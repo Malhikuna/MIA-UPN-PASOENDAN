@@ -14,7 +14,7 @@ const DetailInfoPanel: React.FC<DetailInfoPanelProps> = ({isShowMaximumMap, hand
   const fetchUserLocation = useUserLocationStore(state => state.fetchUserLocation)
   return (
     <div
-      className={`flex flex-col md:gap-5 justify-between bg-white md:border-r-2 border-primary-content p-5 ${isShowMaximumMap ? 'absolute left-2 bottom-2 w-auto h-auto border-2 z-50' : 'relative h-auto md:h-full w-auto'}`}>
+      className={`hidden md:block flex flex-col md:gap-5 justify-between bg-white md:border-r-2 border-primary-content p-5 ${isShowMaximumMap ? 'absolute left-2 bottom-2 w-auto h-auto border-2 z-50' : 'relative h-auto md:h-full w-auto'}`}>
       <div className="flex flex-col gap-4">
         <p className="text-gray-600 flex font-medium items-center gap-2">
           <MapPin/>
@@ -47,7 +47,7 @@ const DetailInfoPanel: React.FC<DetailInfoPanelProps> = ({isShowMaximumMap, hand
       {
         !isShowMaximumMap && (
           <button
-            className="flex-center absolute w-10 h-10 bg-white border-2 border-primary-content top-2 right-2 cursor-pointer"
+            className="flex-center absolute w-10 h-10 bg-white border-2 border-primary-content top-2 right-2 cursor-pointer rounded-xl transition duration-300 hover:bg-primary-content/30"
             onClick={() => handleShowMaximumMap(true)}
           >
             <Maximize2 className="text-primary-content"/>
