@@ -2,9 +2,13 @@ import { MapPin, Maximize2 } from "lucide-react";
 import SearchInput from "@/components/ui/SearchInput";
 import Image from "next/image";
 import React, {useRef, useState} from "react";
-import {UmkmItem} from "@/types/umkm";
+import {UmkmCategory, UmkmItem} from "@/types/umkm";
 import SelectDropdown from "@/components/ui/map/SelectDropdown";
 import {useUmkmStore} from "@/store/useUmkmStore";
+import {formatDistance} from "@/utils/formatDistance";
+import {getDistance} from "@/utils/getDistance";
+import {useUserLocationStore} from "@/store/useUserLocationStore";
+import {useUmkmLogic} from "@/hooks/useUmkmLogic";
 
 interface MainInfoPanelProps {
   isShowMaximumMap: boolean;
@@ -15,8 +19,13 @@ interface MainInfoPanelProps {
 }
 
 const MainInfoPanel: React.FC<MainInfoPanelProps> = ({ isShowMaximumMap, handleShowMaximumMap, umkm, onSelectUMKM, umkmImageUrl}) => {
-  const [category, setCategory] = useState("");
   const { searchQuery, setSearchQuery } = useUmkmStore();
+  const { userLocation } = useUserLocationStore();
+  const { currentSubCategories } = useUmkmLogic();
+  const { selectedMainCategory, setSelectedMainCategory, selectedSubCategory, setSelectedSubCategory } = useUmkmStore();
+
+  const subCategory = currentSubCategories.map(v => v.label) as UmkmCategory[];
+
   return (
     <div
       className={`flex flex-col md:gap-5 justify-between bg-white shadow-[4px_0_10px_rgba(0,0,0,0.2)] md:border-r-1 border-gray-400 px-5 pt-5 pb-2 hidden lg:block ${
@@ -41,23 +50,17 @@ const MainInfoPanel: React.FC<MainInfoPanelProps> = ({ isShowMaximumMap, handleS
           isShowMaximumMap && (
             <div className="flex gap-2">
               <SelectDropdown
-                options={[
-                  "Semua",
-                  "F&B",
-                  "Jasa",
-                ]}
-                value={category}
-                onChange={setCategory}
+                label="Jenis UMKM"
+                options={["fnb", "jasa"] as const}
+                value={selectedMainCategory}
+                onChange={setSelectedMainCategory}
               />
 
               <SelectDropdown
-                options={[
-                  "Semua",
-                  "F&B",
-                  "Jasa",
-                ]}
-                value={category}
-                onChange={setCategory}
+                label="Sub Kategori"
+                options={subCategory}
+                value={selectedSubCategory}
+                onChange={setSelectedSubCategory}
               />
             </div>
           )
@@ -86,7 +89,8 @@ const MainInfoPanel: React.FC<MainInfoPanelProps> = ({ isShowMaximumMap, handleS
                 <br/>
                 {value.subCategory.replaceAll("-", " ")} • <span className="text-primary-content-dark font-bold">Buka 08:00 WIB</span>
                 <br/>
-                0m
+                {userLocation && value.lat && value.lng ? formatDistance(getDistance(value.lat, value.lng, userLocation.lat, userLocation.lng))
+                  : '0m'}
               </div>
             </div>
           ))}

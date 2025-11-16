@@ -3,6 +3,9 @@ import { UmkmItem } from "@/types/umkm";
 import { useEffect, useState } from "react";
 
 export const useUmkm = () => {
+  /** -------------------------------
+   *  STATE & DATA INITIALIZATION
+   * -------------------------------- */
   const { selectedMainCategory, selectedSubCategory, searchQuery, currentFilter } = useUmkmStore();
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,6 +40,9 @@ export const useUmkm = () => {
 };
 
 export const useUmkmById = (id?: string) => {
+  /** -------------------------------
+   *  STATE & DATA INITIALIZATION
+   * -------------------------------- */
   const [umkm, setUmkm] = useState<UmkmItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -69,6 +75,9 @@ export const useUmkmById = (id?: string) => {
 };
 
 export const useNewestUmkm = () => {
+  /** -------------------------------
+   *  STATE & DATA INITIALIZATION
+   * -------------------------------- */
   const { selectedMainCategory, selectedSubCategory } = useUmkmStore();
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -108,6 +117,9 @@ export const useNewestUmkm = () => {
 };
 
 export const useNearestUmkm = (userLat: number, userLng: number, radius: number) => {
+  /** -------------------------------
+   *  STATE & DATA INITIALIZATION
+   * -------------------------------- */
   const { selectedMainCategory, selectedSubCategory } = useUmkmStore();
   const [umkmList, setUmkmList] = useState<UmkmItem[]>([]);
   const [loading, setLoading] = useState(true);

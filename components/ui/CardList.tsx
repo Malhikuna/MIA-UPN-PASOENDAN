@@ -18,6 +18,9 @@ type CardListProps = {
 };
 
 const CardList = ({ useUmkm }: CardListProps) => {
+  /** -------------------------------
+   *  STATE & DATA INITIALIZATION
+   * -------------------------------- */
   const { handleReset } = useUmkmLogic();
   const { userLocation, userRadius } = useUserLocationStore();
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -26,10 +29,11 @@ const CardList = ({ useUmkm }: CardListProps) => {
     userLocation?.lng ?? 0,
     userRadius
   );
-
   const displayedData = umkmList;
 
-  // Animasi untuk section Terdekat
+  /** -------------------------------
+   *  ANIMATION FOR NEAREST SECTION
+   * -------------------------------- */
   useEffect(() => {
     if (sliderRef.current) {
       const cards = sliderRef.current.children;
