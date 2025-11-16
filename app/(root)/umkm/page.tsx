@@ -33,7 +33,7 @@ export default function UmkmPage() {
   };
 
   return (
-    <div className="container mx-auto py-5 md:py-10 px-4 md:px-8 lg:px-12 min-h-screen">
+    <div className="container mx-auto py-5 md:py-10 px-4 md:px-8 lg:px-12 min-h-screen 2xl:max-h-screen">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mb-6 md:mb-8 mt-12 md:mt-12 gap-4">
         <h1 className="font-bold text-2xl md:text-3xl">
