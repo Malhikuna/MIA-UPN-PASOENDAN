@@ -95,12 +95,9 @@ export const useNewestUmkm = () => {
           }`
         );
 
-        console.log({response1: response});
-
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
         const dataUmkm = await response.json();
-        console.log({dataUmkm1: dataUmkm});
         setUmkmList(dataUmkm);
       } catch (err: any) {
         console.error(err);
@@ -137,12 +134,9 @@ export const useNearestUmkm = (userLat: number, userLng: number, radius: number)
           }&lat=${userLat}&lng=${userLng}&radius=${radius}`
         );
 
-        console.log({response: response});
-
         if (!response.ok) throw new Error("Gagal fetch data UMKM");
 
         const dataUmkm = await response.json();
-        console.log({dataUmkm2: dataUmkm});
         setUmkmList(dataUmkm);
       } catch (err: any) {
         console.error(err);
